@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="GLFW" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\glfw-3.1.2\;CMake Files\external\glfw-3.1.2\src\;CMake Files\external\glfw-3.1.2\docs\;CMake Files\external\glfw-3.1.2\examples\;CMake Files\external\glfw-3.1.2\tests\;CMake Files\external\rpavlik-cmake-modules-fe2273\;CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\;CMake Files\external\assimp-3.0.1270\;CMake Files\external\assimp-3.0.1270\contrib\;CMake Files\external\assimp-3.0.1270\contrib\zlib\;CMake Files\external\assimp-3.0.1270\code\;CMake Files\external\bullet-2.81-rev2613\;CMake Files\external\bullet-2.81-rev2613\src\;CMake Files\external\bullet-2.81-rev2613\src\BulletSoftBody\;CMake Files\external\bullet-2.81-rev2613\src\BulletCollision\;CMake Files\external\bullet-2.81-rev2613\src\BulletDynamics\;CMake Files\external\bullet-2.81-rev2613\src\LinearMath\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="uninstall">
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 uninstall" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="glfw">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/libglfw3.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add option="-D_GLFW_USE_CONFIG_H" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 glfw" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="glfw/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/libglfw3.a" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src" />
+         <Option object_output="./" />
+         <Option type="2" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add option="-D_GLFW_USE_CONFIG_H" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 glfw/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="gears">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/gears" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 gears" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="gears/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/gears" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 gears/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="splitview">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/splitview" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 splitview" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="splitview/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/splitview" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 splitview/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="wave">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/wave" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 wave" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="wave/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/wave" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 wave/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="boing">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/boing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 boing" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="boing/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/boing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 boing/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="simple">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/simple" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 simple" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="simple/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/simple" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 simple/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="particles">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/particles" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 particles" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="particles/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/particles" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 particles/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="heightmap">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/heightmap" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 heightmap" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="heightmap/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/heightmap" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 heightmap/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="title">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/title" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 title" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="title/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/title" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 title/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="joysticks">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/joysticks" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 joysticks" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="joysticks/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/joysticks" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 joysticks/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="cursor">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/cursor" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 cursor" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="cursor/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/cursor" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 cursor/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="sharing">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/sharing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 sharing" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="sharing/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/sharing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 sharing/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="iconify">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/iconify" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 iconify" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="iconify/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/iconify" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 iconify/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="windows">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/windows" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 windows" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="windows/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/windows" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 windows/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="clipboard">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/clipboard" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clipboard" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="clipboard/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/clipboard" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clipboard/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="threads">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/threads" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 threads" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="threads/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/threads" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 threads/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="tearing">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/tearing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 tearing" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="tearing/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/tearing" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 tearing/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="msaa">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/msaa" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 msaa" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="msaa/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/msaa" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 msaa/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="reopen">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/reopen" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 reopen" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="reopen/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/reopen" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 reopen/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="glfwinfo">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/glfwinfo" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 glfwinfo" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="glfwinfo/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/glfwinfo" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 glfwinfo/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="events">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/events" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 events" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="events/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/events" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 events/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="empty">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/empty" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 empty" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="empty/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/empty" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="0" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 empty/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="gamma">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/gamma" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 gamma" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="gamma/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/gamma" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 gamma/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="monitors">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/monitors" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 monitors" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="monitors/fast">
+         <Option output="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/monitors" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DTW_STATIC" />
+            <Add option="-DTW_NO_LIB_PRAGMA" />
+            <Add option="-DTW_NO_DIRECT3D" />
+            <Add option="-DGLEW_STATIC" />
+            <Add option="-D_CRT_SECURE_NO_WARNINGS" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps" />
+            <Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 monitors/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/getopt.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/glad.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/tinycthread.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/boing.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/gears.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/heightmap.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/particles.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/simple.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/splitview.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/wave.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/context.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glx_context.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/init.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/input.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/linux_joystick.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/monitor.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/posix_time.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/posix_tls.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/window.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/x11_init.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/x11_monitor.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/x11_window.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/xkb_unicode.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/clipboard.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/cursor.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/empty.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/events.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/gamma.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/glfwinfo.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/iconify.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/joysticks.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/monitors.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/msaa.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/reopen.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/sharing.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/tearing.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/threads.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/title.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/windows.c">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/getopt.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/glad/glad.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/deps/tinycthread.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include/GLFW/glfw3.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/include/GLFW/glfw3native.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glx_context.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/internal.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/linux_joystick.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/posix_time.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/posix_tls.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/x11_platform.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/xkb_unicode.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/glfw_config.h">
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/cmake_uninstall.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/cmake_uninstall.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw3Config.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw_config.h.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw3.pc.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw3Config.cmake.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw_config.h.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/glfw3.pc.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/src/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\src\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/Doxyfile.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\docs\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/docs/Doxyfile.in">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\docs\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\examples\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/examples/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\examples\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\tests\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/glfw-3.1.2/tests/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\glfw-3.1.2\tests\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/CreateLaunchers.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/CleanDirectoryList.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/MSVCMultipleProcessCompile.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
+          <Option virtualFolder="CMake Files\external\rpavlik-cmake-modules-fe2273\launcher-templates\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/assimp-3.0.1270/contrib/zlib/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\assimp-3.0.1270\contrib\zlib\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/assimp-3.0.1270/code/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\assimp-3.0.1270\code\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletSoftBody/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletSoftBody\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletCollision/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletCollision\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/BulletDynamics/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\BulletDynamics\" />
+      </Unit>
+      <Unit filename="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/external/bullet-2.81-rev2613/src/LinearMath/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\external\bullet-2.81-rev2613\src\LinearMath\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

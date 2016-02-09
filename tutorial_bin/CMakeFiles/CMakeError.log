@@ -1,0 +1,57 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1524073133/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1524073133.dir/build.make CMakeFiles/cmTryCompileExec1524073133.dir/build
+make[1]: Entering directory '/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1524073133.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1524073133.dir/CheckSymbolExists.c.o   -c /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1524073133
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1524073133.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1524073133.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1524073133 -rdynamic 
+CMakeFiles/cmTryCompileExec1524073133.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1524073133.dir/build.make:88: recipe for target 'cmTryCompileExec1524073133' failed
+make[1]: Leaving directory '/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1524073133] Error 1
+Makefile:117: recipe for target 'cmTryCompileExec1524073133/fast' failed
+make: *** [cmTryCompileExec1524073133/fast] Error 2
+
+File /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1952759556/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1952759556.dir/build.make CMakeFiles/cmTryCompileExec1952759556.dir/build
+make[1]: Entering directory '/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1952759556.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1952759556.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1952759556
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1952759556.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1952759556.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1952759556 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec1952759556.dir/build.make:88: recipe for target 'cmTryCompileExec1952759556' failed
+make[1]: Leaving directory '/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1952759556] Error 1
+Makefile:117: recipe for target 'cmTryCompileExec1952759556/fast' failed
+make: *** [cmTryCompileExec1952759556/fast] Error 2
+
+

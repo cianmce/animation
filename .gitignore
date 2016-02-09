@@ -1,0 +1,42 @@
+**/*.dll
+**/*.exe
+build/*
+bin-*/*
+distrib/build_*/*
+**.bak
+**.orig
+screenshot.bmp
+*.pyc
+Thumbs.db
+OpenGL-tutorial_v*
+**.mtl
+.DS_Store
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
