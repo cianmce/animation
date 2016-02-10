@@ -32,10 +32,6 @@ using namespace glm;
 #include <common/vboindexer.hpp>
 #include <common/quaternion_utils.hpp> // See quaternion_utils.cpp for RotationBetweenVectors, LookAt and RotateTowards
 
-
-#include "../include/Node.h"
-
-
 #include <iostream>
 
 
@@ -55,6 +51,8 @@ bool third_person = false;
 int window_width = 1024, window_height = 768;
 
 
+#include "bone.h"
+#include "bone.cpp"
 
 
 
@@ -229,6 +227,10 @@ int main( void )
 	double lastFrameTime = lastTime;
 	int nbFrames = 0;
 
+
+    Bone root = Bone();
+
+
 	do{
 
 		// Measure speed
@@ -333,7 +335,6 @@ int main( void )
 			angles = vec3(0, 0, rotate_angle);
 		}
 
-
 		glm::quat rotation(radians(angles));
 		cameraOrientation = cameraOrientation * rotation;
 
@@ -374,7 +375,11 @@ int main( void )
             // Apply rotations and convert to mat4
 			glm::quat rotation(radians(angles));
 			gOrientation1 = gOrientation1 * rotation;
-			glm::mat4 RotationMatrix = toMat4(gOrientation1);
+			glm::mat4 RotationMatrix = glm::toMat4(gOrientation1);
+
+			// Apply to root
+            root.rotate_deg(angles);
+
 
 
 			glm::mat4 TranslationMatrix = translate(mat4(), gPosition1);

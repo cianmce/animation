@@ -494,5 +494,6 @@ CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o
  ../external/glm-0.9.7.1/glm/vec3.hpp
  ../external/glm-0.9.7.1/glm/vec4.hpp
  ../external/glm-0.9.7.1/glm/vector_relational.hpp
- /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/include/Node.h
+ /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/bone.cpp
+ /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/bone.h
  /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/tutorial17.cpp

@@ -493,6 +493,7 @@ CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../ex
 CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../external/glm-0.9.7.1/glm/vec3.hpp
 CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../external/glm-0.9.7.1/glm/vec4.hpp
 CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../external/glm-0.9.7.1/glm/vector_relational.hpp
-CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../include/Node.h
+CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../tutorial17_rotations/bone.cpp
+CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../tutorial17_rotations/bone.h
 CMakeFiles/tutorial17_rotations.dir/tutorial17_rotations/tutorial17.cpp.o: ../tutorial17_rotations/tutorial17.cpp
 
