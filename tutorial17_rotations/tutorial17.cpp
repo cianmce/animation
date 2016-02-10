@@ -44,7 +44,7 @@ vec3 gPosition1(-1.5f, 0.0f, 0.0f);
 vec3 gOrientation1;
 vec3 gOrientation1_degree(0.0f, 180.0f, 0.0f);
 
-vec3 gPosition2( 1.5f, 0.0f, 0.0f);
+vec3 gPosition2( 0.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
 vec3 cameraPosition(0, 0.8, 6);
@@ -110,21 +110,21 @@ int main( void )
 	// Initialize the GUI
 	TwInit(TW_OPENGL_CORE, NULL);
 	TwWindowSize(1024, 768);
-	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
+//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
 	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
 	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
 
 
 	//cameraOrientation
-	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
+//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
 	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
 
-	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
-	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
-	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
-	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
-	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
-	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
+//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
 
 
 	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
@@ -349,73 +349,6 @@ int main( void )
 		}
 
 
-
-		{ // Euler
-
-			// As an example, rotate arount the vertical axis at 180°/sec
-			// gOrientation1.y += 3.14159f/2.0f * deltaTime;
-
-			// Build the model matrix
-			//glm::mat4 RotationMatrix = eulerAngleYXZ(gOrientation1.y, gOrientation1.x, gOrientation1.z);
-			//glm::mat4 TranslationMatrix = translate(mat4(), gPosition1); // A bit to the left
-			//glm::mat4 ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-			//glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-
-			if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-				gOrientation1_degree.y -= rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-				gOrientation1_degree.y += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-				gOrientation1_degree.x += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-				gOrientation1_degree.x -= rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-				gOrientation1_degree.z += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-				gOrientation1_degree.z -= rotate_angle;
-			}
-
-
-			gOrientation1 = glm::radians(gOrientation1_degree);
-			glm::mat4 RotationMatrix = eulerAngleYXZ(gOrientation1.y, gOrientation1.x, gOrientation1.z);
-			glm::mat4 TranslationMatrix = translate(mat4(), gPosition1);
-			glm::mat4 ScalingMatrix = scale(mat4(1.0), vec3(1.0f, 1.0f, 1.0f));
-			glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-			float FoV = 45.0f;
-			ProjectionMatrix = glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 100.0f);
-
-			glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-
-
-
-
-
-
-			// Send our transformation to the currently bound shader,
-			// in the "MVP" uniform
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-
-			// Draw the triangles !
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				indices.size(),    // count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
-
-		}
 		{ // Quaternion
 
 			// It the box is checked...
