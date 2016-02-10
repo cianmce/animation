@@ -39,12 +39,10 @@ using namespace glm;
 #include <iostream>
 
 
+vec3 gPosition1( 0.0f, 0.0f, 0.0f);
+quat gOrientation1;
 
-vec3 gPosition1(-1.5f, 0.0f, 0.0f);
-vec3 gOrientation1;
-vec3 gOrientation1_degree(0.0f, 180.0f, 0.0f);
-
-vec3 gPosition2( 0.0f, 0.0f, 0.0f);
+vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
 vec3 cameraPosition(0, 0.8, 6);
@@ -351,19 +349,6 @@ int main( void )
 
 		{ // Quaternion
 
-			// It the box is checked...
-			//if (gLookAtOther){
-			//	vec3 desiredDir = gPosition1-gPosition2;
-			//	vec3 desiredUp = vec3(0.0f, 1.0f, 0.0f); // +Y
-
-			//	// Compute the desired orientation
-			//	quat targetOrientation = normalize(LookAt(desiredDir, desiredUp));
-
-			//	// And interpolate
-			//	gOrientation2 = RotateTowards(gOrientation2, targetOrientation, 0.5f*deltaTime);
-			//}
-
-
 			glm::vec3 angles(0, 0, 0);
 
 			if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
@@ -386,14 +371,13 @@ int main( void )
 			}
 
 
+            // Apply rotations and convert to mat4
 			glm::quat rotation(radians(angles));
-			gOrientation2 = gOrientation2 * rotation;
+			gOrientation1 = gOrientation1 * rotation;
+			glm::mat4 RotationMatrix = toMat4(gOrientation1);
 
 
-			glm::mat4 RotationMatrix = toMat4(gOrientation2);
-
-
-			glm::mat4 TranslationMatrix = translate(mat4(), gPosition2); // A bit to the right
+			glm::mat4 TranslationMatrix = translate(mat4(), gPosition1);
 			glm::mat4 ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
 			glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
 
@@ -404,6 +388,47 @@ int main( void )
 			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
 			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+			// Draw the triangles !
+			glDrawElements(
+				GL_TRIANGLES,      // mode
+				indices.size(),    // count
+				GL_UNSIGNED_SHORT,   // type
+				(void*)0           // element array buffer offset
+			);
+
+
+            // 2nd obj
+
+
+
+
+//            // Apply rotations and convert to mat4
+            angles = vec3(0, 90.0f, 0);
+			rotation = glm::quat(radians(angles));
+			gOrientation2 = gOrientation2 * rotation;
+			gOrientation2 = rotation;
+			RotationMatrix = toMat4(gOrientation2);
+
+
+			TranslationMatrix = translate(mat4(), gPosition2);
+			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
+
+//            ModelMatrix = ModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
+            ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
+
+			MVP = MVP * ModelMatrix;
+
+			// Send our transformation to the currently bound shader,
+			// in the "MVP" uniform
+			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+
 
 
 			// Draw the triangles !

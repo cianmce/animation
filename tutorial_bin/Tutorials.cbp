@@ -5332,9 +5332,6 @@
 		<Unit filename="../tutorial16_shadowmaps/tutorial16_SimpleVersion.cpp" />
 		<Unit filename="../tutorial17_rotations/StandardShading.fragmentshader" />
 		<Unit filename="../tutorial17_rotations/StandardShading.vertexshader" />
-		<Unit filename="../tutorial17_rotations/stb_image.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="../tutorial17_rotations/stb_image.h" />
 		<Unit filename="../tutorial17_rotations/tutorial17.cpp" />
 		<Unit filename="../tutorial18_billboards_and_particles/Billboard.fragmentshader" />
