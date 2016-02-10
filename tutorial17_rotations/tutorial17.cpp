@@ -32,6 +32,10 @@ using namespace glm;
 #include <common/vboindexer.hpp>
 #include <common/quaternion_utils.hpp> // See quaternion_utils.cpp for RotationBetweenVectors, LookAt and RotateTowards
 
+
+#include "../include/Node.h"
+
+
 #include <iostream>
 
 
@@ -67,8 +71,8 @@ void init_vars() {
 
 int main( void )
 {
-
 	init_vars();
+	printf("Starting...\n");
 
 	// Initialise GLFW
 	if( !glfwInit() )
@@ -175,7 +179,7 @@ int main( void )
 	GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
 
 	// Load the texture
-	GLuint Texture = loadDDS("uvmap.DDS");
+	GLuint Texture = loadDDS("uvmap.dds");
 	//GLuint Texture;
 	//load_texture("uvmap.png", &Texture);
 
@@ -348,7 +352,7 @@ int main( void )
 
 		{ // Euler
 
-			// As an example, rotate arount the vertical axis at 180°/sec
+			// As an example, rotate arount the vertical axis at 180Â°/sec
 			// gOrientation1.y += 3.14159f/2.0f * deltaTime;
 
 			// Build the model matrix
@@ -454,8 +458,6 @@ int main( void )
 
 
 			glm::mat4 RotationMatrix = toMat4(gOrientation2);
-
-			// std::cout << glm::to_string(RotationMatrix) << std::endl;
 
 
 			glm::mat4 TranslationMatrix = translate(mat4(), gPosition2); // A bit to the right
