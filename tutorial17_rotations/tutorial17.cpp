@@ -55,7 +55,8 @@ int window_width = 1024, window_height = 768;
 #include "bone.cpp"
 
 
-
+GLsizei indices_count;
+GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
 void init_vars() {
@@ -63,6 +64,24 @@ void init_vars() {
 	glm::vec3 angles(0, 180, 0);
 	glm::quat rotation(radians(angles));
 	gOrientation2 = gOrientation2 * rotation;
+}
+
+void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
+    mat4 ModelMatrix = bone.get_model_matrix();
+
+    mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+    // Draw the triangles !
+    glDrawElements(
+        GL_TRIANGLES,      // mode
+        indices_count,    // count
+        GL_UNSIGNED_SHORT,   // type
+        (void*)0           // element array buffer offset
+    );
 }
 
 int main( void )
@@ -165,9 +184,9 @@ int main( void )
 	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
 
 	// Get a handle for our "MVP" uniform
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
-	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
-	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
+	MatrixID = glGetUniformLocation(programID, "MVP");
+	ViewMatrixID = glGetUniformLocation(programID, "V");
+	ModelMatrixID = glGetUniformLocation(programID, "M");
 
 	// Get a handle for our buffers
 	GLuint vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
@@ -227,8 +246,14 @@ int main( void )
 	double lastFrameTime = lastTime;
 	int nbFrames = 0;
 
+    indices_count = indices.size();
 
-    Bone root = Bone();
+    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
+    root.is_root = true;
+    Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Bone2");
+
+    root.add_child(&bone2);
+
 
 
 	do{
@@ -296,7 +321,8 @@ int main( void )
 		// Index buffer
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
-		glm::vec3 lightPos = glm::vec3(4,4,4);
+        // Set light pos
+		glm::vec3 lightPos = glm::vec3(4,5,5);
 		glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 
@@ -372,37 +398,9 @@ int main( void )
 			}
 
 
-            // Apply rotations and convert to mat4
-			glm::quat rotation(radians(angles));
-			gOrientation1 = gOrientation1 * rotation;
-			glm::mat4 RotationMatrix = glm::toMat4(gOrientation1);
-
-			// Apply to root
-            root.rotate_deg(angles);
-
-
-
-			glm::mat4 TranslationMatrix = translate(mat4(), gPosition1);
-			glm::mat4 ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-			glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-			glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-			// Send our transformation to the currently bound shader,
-			// in the "MVP" uniform
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-			// Draw the triangles !
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				indices.size(),    // count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
-
+            root.update(angles, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
+            draw_bone(root, ProjectionMatrix, ViewMatrix);
+            draw_bone(bone2, ProjectionMatrix, ViewMatrix);
 
             // 2nd obj
 
@@ -410,39 +408,39 @@ int main( void )
 
 
 //            // Apply rotations and convert to mat4
-            angles = vec3(0, 90.0f, 0);
-			rotation = glm::quat(radians(angles));
-			gOrientation2 = gOrientation2 * rotation;
-			gOrientation2 = rotation;
-			RotationMatrix = toMat4(gOrientation2);
-
-
-			TranslationMatrix = translate(mat4(), gPosition2);
-			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-
+//            angles = vec3(0, 90.0f, 0);
+//			rotation = glm::quat(radians(angles));
+//			gOrientation2 = gOrientation2 * rotation;
+//			gOrientation2 = rotation;
+//			RotationMatrix = toMat4(gOrientation2);
+//
+//
+//			TranslationMatrix = translate(mat4(), gPosition2);
+//			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
+//
 //            ModelMatrix = ModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
-            ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-			MVP = MVP * ModelMatrix;
-
-			// Send our transformation to the currently bound shader,
-			// in the "MVP" uniform
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-
-
-
-
-			// Draw the triangles !
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				indices.size(),    // count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
+//            //ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
+//
+//			MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+//
+//			// Send our transformation to the currently bound shader,
+//			// in the "MVP" uniform
+//			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+//			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+//			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+//
+//
+//
+//
+//
+//
+//			// Draw the triangles !
+//			glDrawElements(
+//				GL_TRIANGLES,      // mode
+//				indices.size(),    // count
+//				GL_UNSIGNED_SHORT,   // type
+//				(void*)0           // element array buffer offset
+//			);
 		}
 
 		glDisableVertexAttribArray(0);

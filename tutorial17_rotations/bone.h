@@ -1,24 +1,30 @@
 #ifndef BONE_H
 #define BONE_H
 
+#include <iostream>
 
 class Bone
 {
     public:
         Bone();
-
-        void rotate_deg(vec3 angles);
-        void rotate_rad(vec3 angles);
-
-        void set_pos(vec3 pos);
-
-        void draw();
+        Bone(vec3 angles_deg, vec3 pos, vec3 scale, std::string name);
 
 
-        mat4 get_MVP();
+
+        void update(vec3 angles_deg, vec3 pos, vec3 scale);
+
+        void add_child(Bone *bone);
+
+        mat4 get_model_matrix();
+
+        std::string label;
+
+        bool is_root;
 
         // Public Vars
         mat4 ModelMatrix;
+        // mat4 MVP;
+
     //private:
         // Private Vars
         Bone *parent;
@@ -26,6 +32,7 @@ class Bone
         vec3 mScale;
         vec3 mPos;
         quat mOrientation;
+
 };
 
 #endif // BONE_H

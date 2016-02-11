@@ -1211,6 +1211,8 @@ bone.h
 /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/bone.h
 
 /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/bone.h
+iostream
+-
 
 /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/tutorial17.cpp
 stdio.h
