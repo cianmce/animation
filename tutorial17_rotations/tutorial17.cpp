@@ -84,6 +84,18 @@ void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
     );
 }
 
+void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
+    // draw itself
+    draw_bone(root, ProjectionMatrix, ViewMatrix);
+    int children_count = root.children.size();
+    std::cout<<"Children: "<<children_count<<std::endl;
+    for(int i=0; i<children_count; i++){
+        Bone bone = *root.children[i];
+        draw_skelton(bone, ProjectionMatrix, ViewMatrix);
+    }
+
+}
+
 int main( void )
 {
 	init_vars();
@@ -251,7 +263,8 @@ int main( void )
     Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
     root.is_root = true;
     Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Bone2");
-
+    Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "Bone3");
+    bone2.add_child(&bone3);
     root.add_child(&bone2);
 
 
@@ -399,8 +412,7 @@ int main( void )
 
 
             root.update(angles, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
-            draw_bone(root, ProjectionMatrix, ViewMatrix);
-            draw_bone(bone2, ProjectionMatrix, ViewMatrix);
+            draw_skelton(root, ProjectionMatrix, ViewMatrix);
 
             // 2nd obj
 
