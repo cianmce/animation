@@ -35,12 +35,10 @@ using namespace glm;
 #include <iostream>
 
 
+vec3 gPosition1( 0.0f, 0.0f, 0.0f);
+quat gOrientation1;
 
-vec3 gPosition1(-1.5f, 0.0f, 0.0f);
-vec3 gOrientation1;
-vec3 gOrientation1_degree(0.0f, 180.0f, 0.0f);
-
-vec3 gPosition2( 1.5f, 0.0f, 0.0f);
+vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
 vec3 cameraPosition(0, 0.8, 6);
@@ -53,9 +51,12 @@ bool third_person = false;
 int window_width = 1024, window_height = 768;
 
 
+#include "bone.h"
+#include "bone.cpp"
 
 
-
+GLsizei indices_count;
+GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
 void init_vars() {
@@ -65,10 +66,40 @@ void init_vars() {
 	gOrientation2 = gOrientation2 * rotation;
 }
 
+void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
+    mat4 ModelMatrix = bone.get_model_matrix();
+
+    mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+    // Draw the triangles !
+    glDrawElements(
+        GL_TRIANGLES,      // mode
+        indices_count,    // count
+        GL_UNSIGNED_SHORT,   // type
+        (void*)0           // element array buffer offset
+    );
+}
+
+void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
+    // draw itself
+    draw_bone(root, ProjectionMatrix, ViewMatrix);
+    int children_count = root.children.size();
+    std::cout<<"Children: "<<children_count<<std::endl;
+    for(int i=0; i<children_count; i++){
+        Bone bone = *root.children[i];
+        draw_skelton(bone, ProjectionMatrix, ViewMatrix);
+    }
+
+}
+
 int main( void )
 {
-
 	init_vars();
+	printf("Starting...\n");
 
 	// Initialise GLFW
 	if( !glfwInit() )
@@ -106,21 +137,21 @@ int main( void )
 	// Initialize the GUI
 	TwInit(TW_OPENGL_CORE, NULL);
 	TwWindowSize(1024, 768);
-	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
+//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
 	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
 	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
 
 
 	//cameraOrientation
-	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
+//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
 	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
 
-	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
-	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
-	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
-	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
-	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
-	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
+//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
 
 
 	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
@@ -165,9 +196,9 @@ int main( void )
 	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
 
 	// Get a handle for our "MVP" uniform
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
-	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
-	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
+	MatrixID = glGetUniformLocation(programID, "MVP");
+	ViewMatrixID = glGetUniformLocation(programID, "V");
+	ModelMatrixID = glGetUniformLocation(programID, "M");
 
 	// Get a handle for our buffers
 	GLuint vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
@@ -175,7 +206,7 @@ int main( void )
 	GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
 
 	// Load the texture
-	GLuint Texture = loadDDS("uvmap.DDS");
+	GLuint Texture = loadDDS("uvmap.dds");
 	//GLuint Texture;
 	//load_texture("uvmap.png", &Texture);
 
@@ -226,6 +257,17 @@ int main( void )
 	double lastTime = glfwGetTime();
 	double lastFrameTime = lastTime;
 	int nbFrames = 0;
+
+    indices_count = indices.size();
+
+    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
+    root.is_root = true;
+    Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Bone2");
+    Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "Bone3");
+    bone2.add_child(&bone3);
+    root.add_child(&bone2);
+
+
 
 	do{
 
@@ -292,7 +334,8 @@ int main( void )
 		// Index buffer
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
-		glm::vec3 lightPos = glm::vec3(4,4,4);
+        // Set light pos
+		glm::vec3 lightPos = glm::vec3(4,5,5);
 		glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 
@@ -331,7 +374,6 @@ int main( void )
 			angles = vec3(0, 0, rotate_angle);
 		}
 
-
 		glm::quat rotation(radians(angles));
 		cameraOrientation = cameraOrientation * rotation;
 
@@ -345,87 +387,7 @@ int main( void )
 		}
 
 
-
-		{ // Euler
-
-			// As an example, rotate arount the vertical axis at 180°/sec
-			// gOrientation1.y += 3.14159f/2.0f * deltaTime;
-
-			// Build the model matrix
-			//glm::mat4 RotationMatrix = eulerAngleYXZ(gOrientation1.y, gOrientation1.x, gOrientation1.z);
-			//glm::mat4 TranslationMatrix = translate(mat4(), gPosition1); // A bit to the left
-			//glm::mat4 ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-			//glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-
-			if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-				gOrientation1_degree.y -= rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-				gOrientation1_degree.y += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-				gOrientation1_degree.x += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-				gOrientation1_degree.x -= rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-				gOrientation1_degree.z += rotate_angle;
-			}
-			else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-				gOrientation1_degree.z -= rotate_angle;
-			}
-
-
-			gOrientation1 = glm::radians(gOrientation1_degree);
-			glm::mat4 RotationMatrix = eulerAngleYXZ(gOrientation1.y, gOrientation1.x, gOrientation1.z);
-			glm::mat4 TranslationMatrix = translate(mat4(), gPosition1);
-			glm::mat4 ScalingMatrix = scale(mat4(1.0), vec3(1.0f, 1.0f, 1.0f));
-			glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-			float FoV = 45.0f;
-			ProjectionMatrix = glm::perspective(glm::radians(FoV), 4.0f / 3.0f, 0.1f, 100.0f);
-
-			glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-
-
-
-
-
-
-			// Send our transformation to the currently bound shader,
-			// in the "MVP" uniform
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-
-			// Draw the triangles !
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				indices.size(),    // count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
-
-		}
 		{ // Quaternion
-
-			// It the box is checked...
-			//if (gLookAtOther){
-			//	vec3 desiredDir = gPosition1-gPosition2;
-			//	vec3 desiredUp = vec3(0.0f, 1.0f, 0.0f); // +Y
-
-			//	// Compute the desired orientation
-			//	quat targetOrientation = normalize(LookAt(desiredDir, desiredUp));
-
-			//	// And interpolate
-			//	gOrientation2 = RotateTowards(gOrientation2, targetOrientation, 0.5f*deltaTime);
-			//}
-
 
 			glm::vec3 angles(0, 0, 0);
 
@@ -449,35 +411,48 @@ int main( void )
 			}
 
 
-			glm::quat rotation(radians(angles));
-			gOrientation2 = gOrientation2 * rotation;
+            root.update(angles, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
+            draw_skelton(root, ProjectionMatrix, ViewMatrix);
+
+            // 2nd obj
 
 
-			glm::mat4 RotationMatrix = toMat4(gOrientation2);
-
-			// std::cout << glm::to_string(RotationMatrix) << std::endl;
 
 
-			glm::mat4 TranslationMatrix = translate(mat4(), gPosition2); // A bit to the right
-			glm::mat4 ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-			glm::mat4 ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
-			glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-			// Send our transformation to the currently bound shader,
-			// in the "MVP" uniform
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-			// Draw the triangles !
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				indices.size(),    // count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
+//            // Apply rotations and convert to mat4
+//            angles = vec3(0, 90.0f, 0);
+//			rotation = glm::quat(radians(angles));
+//			gOrientation2 = gOrientation2 * rotation;
+//			gOrientation2 = rotation;
+//			RotationMatrix = toMat4(gOrientation2);
+//
+//
+//			TranslationMatrix = translate(mat4(), gPosition2);
+//			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
+//
+//            ModelMatrix = ModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
+//            //ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
+//
+//			MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+//
+//			// Send our transformation to the currently bound shader,
+//			// in the "MVP" uniform
+//			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+//			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+//			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+//
+//
+//
+//
+//
+//
+//			// Draw the triangles !
+//			glDrawElements(
+//				GL_TRIANGLES,      // mode
+//				indices.size(),    // count
+//				GL_UNSIGNED_SHORT,   // type
+//				(void*)0           // element array buffer offset
+//			);
 		}
 
 		glDisableVertexAttribArray(0);

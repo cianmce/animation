@@ -1,0 +1,1 @@
+../tutorial17_rotations/stb_image.h

@@ -10,6 +10,12 @@
 			<Target title="all">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 all' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -22,6 +28,12 @@
 			<Target title="install/strip">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 install/strip' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -58,6 +70,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial14_render_to_texture' />
@@ -95,6 +111,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial14_render_to_texture/fast' />
@@ -108,6 +128,12 @@
 			<Target title="edit_cache">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 edit_cache' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -120,6 +146,12 @@
 			<Target title="rebuild_cache">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 rebuild_cache' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -132,6 +164,12 @@
 			<Target title="install">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 install' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -168,6 +206,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial16_shadowmaps' />
@@ -205,6 +247,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial16_shadowmaps/fast' />
@@ -242,6 +288,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_vbo_indexing' />
@@ -279,6 +329,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_vbo_indexing/fast' />
@@ -316,6 +370,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial18_billboards' />
@@ -353,6 +411,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial18_billboards/fast' />
@@ -390,6 +452,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial07_model_loading' />
@@ -427,6 +493,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial07_model_loading/fast' />
@@ -464,6 +534,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial12_extensions' />
@@ -501,6 +575,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial12_extensions/fast' />
@@ -538,6 +616,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial18_particles' />
@@ -575,6 +657,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial18_particles/fast' />
@@ -612,6 +698,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial16_shadowmaps_simple' />
@@ -649,6 +739,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial16_shadowmaps_simple/fast' />
@@ -686,6 +780,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_BulletPhysics' />
@@ -723,6 +821,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_BulletPhysics/fast' />
@@ -736,6 +838,12 @@
 			<Target title="list_install_components">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 list_install_components' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -772,6 +880,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial05_textured_cube' />
@@ -809,6 +921,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial05_textured_cube/fast' />
@@ -846,6 +962,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial06_keyboard_and_mouse' />
@@ -883,6 +1003,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial06_keyboard_and_mouse/fast' />
@@ -920,6 +1044,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial03_matrices' />
@@ -957,6 +1085,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial03_matrices/fast' />
@@ -994,6 +1126,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_custom' />
@@ -1031,6 +1167,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_custom/fast' />
@@ -1068,6 +1208,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial10_transparency' />
@@ -1105,6 +1249,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial10_transparency/fast' />
@@ -1142,6 +1290,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial15_lightmaps' />
@@ -1179,6 +1331,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial15_lightmaps/fast' />
@@ -1216,6 +1372,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial02_red_triangle' />
@@ -1253,6 +1413,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial02_red_triangle/fast' />
@@ -1290,6 +1454,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial17_rotations' />
@@ -1327,6 +1495,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial17_rotations/fast' />
@@ -1364,6 +1536,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial13_normal_mapping' />
@@ -1401,6 +1577,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial13_normal_mapping/fast' />
@@ -1438,6 +1618,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial01_first_window' />
@@ -1475,6 +1659,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial01_first_window/fast' />
@@ -1512,6 +1700,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial08_basic_shading' />
@@ -1549,6 +1741,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial08_basic_shading/fast' />
@@ -1587,6 +1783,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_AssImp' />
@@ -1625,6 +1825,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_AssImp/fast' />
@@ -1662,6 +1866,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_slow_easy' />
@@ -1699,6 +1907,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 misc05_picking_slow_easy/fast' />
@@ -1736,6 +1948,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial04_colored_cube' />
@@ -1773,6 +1989,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial04_colored_cube/fast' />
@@ -1786,6 +2006,12 @@
 			<Target title="install/local">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 install/local' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -1822,6 +2048,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_several_objects' />
@@ -1859,6 +2089,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial09_several_objects/fast' />
@@ -1896,6 +2130,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial11_2d_fonts' />
@@ -1933,6 +2171,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 tutorial11_2d_fonts/fast' />
@@ -1970,6 +2212,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 playground' />
@@ -2007,6 +2253,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/Makefile&quot;  VERBOSE=1 playground/fast' />
@@ -2044,6 +2294,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/Makefile&quot;  VERBOSE=1 ANTTWEAKBAR_116_OGLCORE_GLFW' />
@@ -2081,6 +2335,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/Makefile&quot;  VERBOSE=1 ANTTWEAKBAR_116_OGLCORE_GLFW/fast' />
@@ -2118,6 +2376,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/Makefile&quot;  VERBOSE=1 GLEW_1130' />
@@ -2155,6 +2417,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/Makefile&quot;  VERBOSE=1 GLEW_1130/fast' />
@@ -2168,6 +2434,12 @@
 			<Target title="uninstall">
 				<Option type="4" />
 				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
+				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 uninstall' />
 					<CompileFile command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
@@ -2200,6 +2472,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 glfw' />
@@ -2233,6 +2509,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/src/Makefile&quot;  VERBOSE=1 glfw/fast' />
@@ -2265,6 +2545,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 gears' />
@@ -2297,6 +2581,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 gears/fast' />
@@ -2329,6 +2617,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 splitview' />
@@ -2361,6 +2653,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 splitview/fast' />
@@ -2393,6 +2689,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 wave' />
@@ -2425,6 +2725,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 wave/fast' />
@@ -2457,6 +2761,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 boing' />
@@ -2489,6 +2797,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 boing/fast' />
@@ -2521,6 +2833,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 simple' />
@@ -2553,6 +2869,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 simple/fast' />
@@ -2585,6 +2905,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 particles' />
@@ -2617,6 +2941,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 particles/fast' />
@@ -2649,6 +2977,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 heightmap' />
@@ -2681,6 +3013,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/examples/Makefile&quot;  VERBOSE=1 heightmap/fast' />
@@ -2713,6 +3049,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 title' />
@@ -2745,6 +3085,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 title/fast' />
@@ -2777,6 +3121,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 joysticks' />
@@ -2809,6 +3157,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 joysticks/fast' />
@@ -2841,6 +3193,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 cursor' />
@@ -2873,6 +3229,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 cursor/fast' />
@@ -2905,6 +3265,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 sharing' />
@@ -2937,6 +3301,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 sharing/fast' />
@@ -2969,6 +3337,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 iconify' />
@@ -3001,6 +3373,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 iconify/fast' />
@@ -3033,6 +3409,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 windows' />
@@ -3065,6 +3445,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 windows/fast' />
@@ -3097,6 +3481,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clipboard' />
@@ -3129,6 +3517,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 clipboard/fast' />
@@ -3161,6 +3553,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 threads' />
@@ -3193,6 +3589,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 threads/fast' />
@@ -3225,6 +3625,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 tearing' />
@@ -3257,6 +3661,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 tearing/fast' />
@@ -3289,6 +3697,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 msaa' />
@@ -3321,6 +3733,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 msaa/fast' />
@@ -3353,6 +3769,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 reopen' />
@@ -3385,6 +3805,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 reopen/fast' />
@@ -3417,6 +3841,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 glfwinfo' />
@@ -3449,6 +3877,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 glfwinfo/fast' />
@@ -3481,6 +3913,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 events' />
@@ -3513,6 +3949,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 events/fast' />
@@ -3545,6 +3985,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 empty' />
@@ -3577,6 +4021,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 empty/fast' />
@@ -3609,6 +4057,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 gamma' />
@@ -3641,6 +4093,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 gamma/fast' />
@@ -3673,6 +4129,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 monitors' />
@@ -3705,6 +4165,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/glfw-3.1.2/tests/Makefile&quot;  VERBOSE=1 monitors/fast' />
@@ -3741,6 +4205,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/assimp-3.0.1270/contrib/zlib/Makefile&quot;  VERBOSE=1 zlib' />
@@ -3777,6 +4245,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/assimp-3.0.1270/contrib/zlib/Makefile&quot;  VERBOSE=1 zlib/fast' />
@@ -3815,6 +4287,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/assimp-3.0.1270/code/Makefile&quot;  VERBOSE=1 assimp' />
@@ -3853,6 +4329,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/assimp-3.0.1270/code/Makefile&quot;  VERBOSE=1 assimp/fast' />
@@ -3891,6 +4371,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletSoftBody/Makefile&quot;  VERBOSE=1 BulletSoftBody' />
@@ -3929,6 +4413,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletSoftBody/Makefile&quot;  VERBOSE=1 BulletSoftBody/fast' />
@@ -3967,6 +4455,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletCollision/Makefile&quot;  VERBOSE=1 BulletCollision' />
@@ -4005,6 +4497,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletCollision/Makefile&quot;  VERBOSE=1 BulletCollision/fast' />
@@ -4043,6 +4539,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletDynamics/Makefile&quot;  VERBOSE=1 BulletDynamics' />
@@ -4081,6 +4581,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/BulletDynamics/Makefile&quot;  VERBOSE=1 BulletDynamics/fast' />
@@ -4119,6 +4623,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/LinearMath/Makefile&quot;  VERBOSE=1 LinearMath' />
@@ -4157,6 +4665,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
 					<Add directory="/usr/local/include" />
+					<Add directory="include" />
+					<Add directory="tutorial17_rotations" />
+					<Add directory="common" />
+					<Add directory="/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations" />
 				</Compiler>
 				<MakeCommands>
 					<Build command='/usr/bin/make -f &quot;/home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/external/bullet-2.81-rev2613/src/LinearMath/Makefile&quot;  VERBOSE=1 LinearMath/fast' />
@@ -4179,10 +4691,6 @@
 		<Unit filename="../common/quaternion_utils.hpp" />
 		<Unit filename="../common/shader.cpp" />
 		<Unit filename="../common/shader.hpp" />
-		<Unit filename="../common/stb_image.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../common/stb_image.h" />
 		<Unit filename="../common/tangentspace.cpp" />
 		<Unit filename="../common/tangentspace.hpp" />
 		<Unit filename="../common/text2D.cpp" />
@@ -4951,12 +5459,6 @@
 		<Unit filename="../external/glfw-3.1.2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/cmake_uninstall.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/cmake_uninstall.cmake.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
 		</Unit>
@@ -4974,12 +5476,6 @@
 		<Unit filename="../external/glfw-3.1.2/deps/tinycthread.h" />
 		<Unit filename="../external/glfw-3.1.2/docs/Doxyfile.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/docs/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/docs/Doxyfile.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/docs/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/examples/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/examples/" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/examples/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/examples/" />
@@ -5010,25 +5506,13 @@
 		<Unit filename="../external/glfw-3.1.2/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/context.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw3.pc.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw3.pc.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw3Config.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw3Config.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw_config.h.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw_config.h.in">
@@ -5077,9 +5561,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/xkb_unicode.h" />
-		<Unit filename="../external/glfw-3.1.2/tests/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/tests/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/tests/" />
 		</Unit>
@@ -5140,164 +5621,8 @@
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
 		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/MSVCMultipleProcessCompile.cmake">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
 		</Unit>
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
@@ -5371,10 +5696,8 @@
 		<Unit filename="../tutorial16_shadowmaps/tutorial16_SimpleVersion.cpp" />
 		<Unit filename="../tutorial17_rotations/StandardShading.fragmentshader" />
 		<Unit filename="../tutorial17_rotations/StandardShading.vertexshader" />
-		<Unit filename="../tutorial17_rotations/stb_image.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../tutorial17_rotations/stb_image.h" />
+		<Unit filename="../tutorial17_rotations/bone.cpp" />
+		<Unit filename="../tutorial17_rotations/bone.h" />
 		<Unit filename="../tutorial17_rotations/tutorial17.cpp" />
 		<Unit filename="../tutorial18_billboards_and_particles/Billboard.fragmentshader" />
 		<Unit filename="../tutorial18_billboards_and_particles/Billboard.vertexshader" />
