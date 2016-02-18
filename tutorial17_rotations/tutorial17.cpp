@@ -53,9 +53,19 @@ quat cameraOrientation;
 
 
 bool gLookAtOther = false;
-bool third_person = false;
+bool third_person = true;
 
 int window_width = 1024, window_height = 768;
+
+
+bool control_finger1 = false;
+bool control_finger2 = true;
+bool control_finger3 = false;
+bool control_finger4 = false;
+bool control_finger5 = false;
+bool animate_hand    = false;
+
+
 
 // GL VARS
 GLuint vertexPosition_modelspaceID;
@@ -73,8 +83,7 @@ GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 void init_gui();
 void init_vars();
 int init_gl();
-void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix);
-void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix);
+
 
 int main( void )
 {
@@ -141,6 +150,8 @@ int main( void )
 
 
     vec3 bend_angles = vec3(-15, 0, 0);
+
+
 
     Bone palm("0_palm");
     palm.mPos = vec3(-1,0,0);
@@ -212,8 +223,8 @@ int main( void )
 
     // Thumb 1
     Bone base5("5_Base");
-    base5.mScale = vec3(0.5,0.4,0.3);
-    base5.mPos = vec3(-0.15, 0, 1);
+    base5.mScale = vec3(0.6,0.4,0.2);
+    base5.mPos = vec3(-0.15, 0, 0.6);
     base5.update_by_angle(vec3(-65, 90, 60));
 
     Bone mid5("5_Mid");
@@ -403,6 +414,47 @@ int main( void )
 		}
         hand_skelton.update_bone("2_Tip", angles_model);
 
+        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        angles_model = vec3(0,0,0);
+
+
+		if(animate_hand){
+            float animate_amount = sin(currentTime);
+            animate_amount *= 0.3;
+
+            angles_model = vec3(animate_amount, 0, 0);
+		}
+
+		if(control_finger1){
+            hand_skelton.update_bone("1_Base", angles_model);
+            hand_skelton.update_bone("1_Mid", angles_model);
+            hand_skelton.update_bone("1_Tip", angles_model);
+		}
+		if(control_finger2){
+            hand_skelton.update_bone("2_Base", angles_model);
+            hand_skelton.update_bone("2_Mid", angles_model);
+            hand_skelton.update_bone("2_Tip", angles_model);
+		}
+		if(control_finger3){
+            hand_skelton.update_bone("3_Base", angles_model);
+            hand_skelton.update_bone("3_Mid", angles_model);
+            hand_skelton.update_bone("3_Tip", angles_model);
+		}
+		if(control_finger4){
+            hand_skelton.update_bone("4_Base", angles_model);
+            hand_skelton.update_bone("4_Mid", angles_model);
+            hand_skelton.update_bone("4_Tip", angles_model);
+		}
+		if(control_finger5){
+            hand_skelton.update_bone("5_Base", angles_model);
+            hand_skelton.update_bone("5_Mid", angles_model);
+            hand_skelton.update_bone("5_Tip", angles_model);
+		}
 
 
 
@@ -534,25 +586,23 @@ void init_gui(){
 	TwInit(TW_OPENGL_CORE, NULL);
 	TwWindowSize(1024, 768);
 //	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
-	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
+	TwBar * HandGUI = TwNewBar("Hand Movements");
 	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
 
 
-	//cameraOrientation
-//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
-	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
+	//Hand GUI
+	TwSetParam(HandGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
+    TwAddVarRW(HandGUI, "Index Finger", TW_TYPE_BOOL8, &control_finger1, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Middle Finger", TW_TYPE_BOOL8, &control_finger2, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Rign Finger", TW_TYPE_BOOL8, &control_finger3, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Baby Finger", TW_TYPE_BOOL8, &control_finger4, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Thumb", TW_TYPE_BOOL8, &control_finger5, "help='Toggle 3rd Person'");
 
-//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
-//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
+	TwAddSeparator(HandGUI, "sep1", NULL);
+    TwAddVarRW(HandGUI, "Animate", TW_TYPE_BOOL8, &animate_hand, "help='Toggle 3rd Person'");
 
 
-	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
-	// TwAddSeparator(QuaternionGUI, "sep1", NULL);
-
+    // Camera
 	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
 	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
 

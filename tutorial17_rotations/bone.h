@@ -22,6 +22,8 @@ class Bone
 
         mat4 ModelMatrix;
 
+        float parent_angle_limit;
+
     private:
         void init_vars();
 
