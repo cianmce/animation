@@ -67,15 +67,15 @@ void init_vars() {
 }
 
 void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
-    mat4 ModelMatrix = bone.get_model_matrix();
 
-    mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+    mat4 ModelMatrix = bone.ModelMatrix;
+
+    mat4 MVP         = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
     glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
     glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 
-    // Draw the triangles !
+    // draw the triangles !
     glDrawElements(
         GL_TRIANGLES,      // mode
         indices_count,    // count
@@ -90,10 +90,9 @@ void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
     int children_count = root.children.size();
     std::cout<<"Children: "<<children_count<<std::endl;
     for(int i=0; i<children_count; i++){
-        Bone bone = *root.children[i];
-        draw_skelton(bone, ProjectionMatrix, ViewMatrix);
+        Bone* child = root.children[i];
+        draw_skelton(*child, ProjectionMatrix, ViewMatrix);
     }
-
 }
 
 int main( void )
@@ -217,7 +216,12 @@ int main( void )
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
-	bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
+	// bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
+	bool res = loadOBJ("Bone.obj", vertices, uvs, normals);
+	if(!res){
+        std::cout<<"Error reading obj\n\n";
+        return -1;
+	}
 
 
 	std::vector<unsigned short> indices;
@@ -260,14 +264,72 @@ int main( void )
 
     indices_count = indices.size();
 
-    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
-    root.is_root = true;
-    Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Bone2");
-    Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "Bone3");
-    bone2.add_child(&bone3);
-    root.add_child(&bone2);
 
 
+
+
+
+//    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
+//    root.is_root = true;
+//
+//    Bone base1 = Bone(vec3(0, 90, 0),              // Ori
+//                      gPosition1+vec3(0.7,0,-0.9), // Pos
+//                      vec3(0.5, 0.5, 0.5),         // Scale
+//                      "Base1");                    // Label
+//
+//    Bone base2 = Bone(vec3(0, 90, 0),         // Ori
+//                      gPosition1+vec3(0.7,0,-0.3), // Pos
+//                      vec3(0.5, 0.5, 0.5),    // Scale
+//                      "Base2");               // Label
+//
+//    Bone base3 = Bone(vec3(0, 90, 0),         // Ori
+//                      gPosition1+vec3(0.7,0,0.3), // Pos
+//                      vec3(0.5, 0.5, 0.5),    // Scale
+//                      "Base2");               // Label
+//
+//    Bone base4 = Bone(vec3(0, 90, 0),         // Ori
+//                      gPosition1+vec3(0.7,0,0.9), // Pos
+//                      vec3(0.5, 0.5, 0.5),    // Scale
+//                      "Base4");               // Label
+//
+//    Bone middle1 = Bone(vec3(0, 0, 0),           // Ori
+//                      gPosition1+vec3(0,0,1.2), // Pos
+//                      vec3(0.9, 0.9, 0.9),         // Scale
+//                      "Mid1");                    // Label
+//
+//    Bone end1 = Bone(vec3(0, 0, 0),             // Ori
+//                      gPosition1+vec3(0,0,1.1), // Pos
+//                      vec3(0.9, 0.9, 0.9),         // Scale
+//                      "End1");                    // Label
+//
+//    base1.add_child(&middle1);
+//    middle1.add_child(&end1);
+
+    //Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Middle1");
+    //Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "End1");
+    //bone2.add_child(&bone4);
+    //bone2.add_child(&bone3);
+//    root.add_child(&base1);
+//    root.add_child(&base2);
+//    root.add_child(&base3);
+//    root.add_child(&base4);
+
+
+
+    Bone palm("0_palm");
+    palm.mScale = vec3(1,1,1);
+    Bone base1("1_Base");
+    base1.mScale = vec3(0.5,0.5,0.5);
+    base1.mPos = vec3(0,0,0);
+    base1.update_by_angle(vec3(0, 90, 0));
+    Bone mid1("1_Mid");
+    mid1.mPos = vec3(1,0,0);
+    Bone tip1("1_Tip");
+    tip1.mPos = vec3(2,0,0);
+
+    palm.add_child(&base1);
+    base1.add_child(&mid1);
+    mid1.add_child(&tip1);
 
 	do{
 
@@ -345,36 +407,35 @@ int main( void )
 				glm::vec3(0, 0, 0), // and looks here
 				glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 			);
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 
 
 
-
-
-
+        // Camera
 		float rotate_angle = 1.0f; // degree
 
-		glm::vec3 angles(0, 0, 0);
+		glm::vec3 angles_camera(0, 0, 0);
 
 		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-			angles = vec3(0, rotate_angle, 0);
+			angles_camera = vec3(0, rotate_angle, 0);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-			angles = vec3(0, -rotate_angle, 0);
+			angles_camera = vec3(0, -rotate_angle, 0);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-			angles = vec3(-rotate_angle, 0, 0);
+			angles_camera = vec3(-rotate_angle, 0, 0);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-			angles = vec3(rotate_angle, 0, 0);
+			angles_camera = vec3(rotate_angle, 0, 0);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
-			angles = vec3(0, 0, -rotate_angle);
+			angles_camera = vec3(0, 0, -rotate_angle);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
-			angles = vec3(0, 0, rotate_angle);
+			angles_camera = vec3(0, 0, rotate_angle);
 		}
 
-		glm::quat rotation(radians(angles));
+		glm::quat rotation(radians(angles_camera));
 		cameraOrientation = cameraOrientation * rotation;
 
 		glm::mat4 ViewRotationMatrix = toMat4(cameraOrientation);
@@ -387,73 +448,48 @@ int main( void )
 		}
 
 
-		{ // Quaternion
 
-			glm::vec3 angles(0, 0, 0);
+        // Models
+        glm::vec3 angles_model(0, 0, 0);
 
-			if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-				angles = vec3(0, -rotate_angle, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-				angles = vec3(0, rotate_angle, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-				angles = vec3(rotate_angle, 0, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-				angles = vec3(-rotate_angle, 0, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-				angles = vec3(0, 0, rotate_angle);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-				angles = vec3(0, 0, -rotate_angle);
-			}
+        if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
+            angles_model = vec3(0, -rotate_angle, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
+            angles_model = vec3(0, rotate_angle, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
+            angles_model = vec3(rotate_angle, 0, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
+            angles_model = vec3(-rotate_angle, 0, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+            angles_model = vec3(0, 0, rotate_angle);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
+            angles_model = vec3(0, 0, -rotate_angle);
+        }
 
-
-            root.update(angles, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
-            draw_skelton(root, ProjectionMatrix, ViewMatrix);
-
-            // 2nd obj
+        palm.update_by_angle(angles_model);
+        draw_skelton(palm, ProjectionMatrix, ViewMatrix);
 
 
+//
+//        // end z,x
+//        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+//            angles_model = vec3(rotate_angle, 0, 0);
+//        }
+//        else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
+//            angles_model = vec3(-rotate_angle, 0, 0);
+//        }
+//        //middle1.update(angles_model, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
+//
+//
+//        //draw_skelton(root, ProjectionMatrix, ViewMatrix);
 
 
-//            // Apply rotations and convert to mat4
-//            angles = vec3(0, 90.0f, 0);
-//			rotation = glm::quat(radians(angles));
-//			gOrientation2 = gOrientation2 * rotation;
-//			gOrientation2 = rotation;
-//			RotationMatrix = toMat4(gOrientation2);
-//
-//
-//			TranslationMatrix = translate(mat4(), gPosition2);
-//			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-//
-//            ModelMatrix = ModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
-//            //ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-//
-//			MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-//
-//			// Send our transformation to the currently bound shader,
-//			// in the "MVP" uniform
-//			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-//			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-//			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-//
-//
-//
-//
-//
-//
-//			// Draw the triangles !
-//			glDrawElements(
-//				GL_TRIANGLES,      // mode
-//				indices.size(),    // count
-//				GL_UNSIGNED_SHORT,   // type
-//				(void*)0           // element array buffer offset
-//			);
-		}
+
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);

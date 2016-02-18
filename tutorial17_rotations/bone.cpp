@@ -2,74 +2,56 @@
 
 Bone::Bone()
 {
-    mScale = vec3(1.0, 1.0, 1.0);
-    mPos   = vec3(0, 0, 0);
 }
 
-Bone::Bone(vec3 angles_deg, vec3 pos, vec3 scale, std::string name)
+Bone::Bone(std::string _label)
 {
-    label = name;
-    std::cout<<"Initing bone: "<<label<<"\n";
-
-    is_root = false;
-
-    mScale = scale;
-    mPos   = pos;
-
-    quat rotation(radians(angles_deg));
-    mOrientation = rotation;
-
-    printf("\nInited Bone\n");
+    label = _label;
+    std::cout<<"Made: "<<label<<"\n";
+    init_vars();
 }
 
-void Bone::update(vec3 rotate_angles_deg, vec3 move_by, vec3 scale_by){
+void Bone::init_vars()
+{
+    mOrientation = quat(vec3(0.0));
+    mPos         = vec3(0.0);
+    mScale       = vec3(1.0);
+    parent       = NULL;
+}
+
+void Bone::set_parent(Bone *_parent)
+{
+    parent = _parent;
+}
+
+void Bone::add_child(Bone *_child)
+{
+    _child->set_parent(this);
+    children.push_back(_child);
+}
+
+void Bone::update_by_angle(vec3 rotate_angles_deg){
     quat rotation(radians(rotate_angles_deg));
-    mOrientation *= rotation;
+    this->mOrientation *= rotation;
 
-    mat4 RotationMatrix = toMat4(mOrientation);
-
-    mPos   += move_by;
-    mScale *= scale_by;
-
+    // Convert Orientation Quat to mat4
+    mat4 RotationMatrix    = toMat4(mOrientation);
     mat4 TranslationMatrix = translate(mat4(), mPos);
-    mat4 ScalingMatrix = glm::scale(mat4(), mScale);
-    ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-}
+    mat4 ScalingMatrix     = scale(mat4(), mScale);
+    // Local model
+    this->ModelMatrix      = TranslationMatrix * RotationMatrix * ScalingMatrix;
 
-mat4 Bone::get_model_matrix(){
-    std::cout<<label<<": getting matrix\n";
-
-    mat4 RotationMatrix = toMat4(mOrientation);
-
-    std::cout<<label<<": TranslationMatrix\n";
-    mat4 TranslationMatrix = translate(mat4(), mPos);
-
-    std::cout<<label<<": ScalingMatrix\n";
-    mat4 ScalingMatrix = glm::scale(mat4(), mScale);
-
-    if(is_root){
-        std::cout<<label<<": ModelMatrix=**\n";
-
-        ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-    }else{
-        std::cout<<label<<": getting parent matrix\n";
-        mat4 ParentModelMatrix = parent->get_model_matrix();
-        std::cout<<label<<": GOTTEN parent matrix\n";
-
-        ModelMatrix = ParentModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
-        std::cout<<label<<": MULTIPLIED parent matrix\n";
-
+    if(this->parent!=NULL){
+        // Has a parent
+        std::cout<<"Has parent!\n";
+        this->ModelMatrix = this->parent->ModelMatrix * this->ModelMatrix;
     }
-    std::cout<<label<<": returning matrix\n";
 
-    return ModelMatrix;
-}
-
-
-
-void Bone::add_child(Bone *bone){
-    bone->parent = this;
-    children.push_back(bone);
+    // Update all children
+    for(int i=0; i<this->children.size(); i++){
+        vec3 empty_angles = vec3(0,0,0);
+        this->children[i]->update_by_angle(empty_angles);
+    }
 }
 
 

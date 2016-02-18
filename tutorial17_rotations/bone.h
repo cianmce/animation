@@ -7,31 +7,24 @@ class Bone
 {
     public:
         Bone();
-        Bone(vec3 angles_deg, vec3 pos, vec3 scale, std::string name);
+        Bone(std::string label);
+        void add_child(Bone *chile);
+        void set_parent(Bone *parent);
+        void update_by_angle(vec3 rotate_angles_deg);
 
-
-
-        void update(vec3 angles_deg, vec3 pos, vec3 scale);
-
-        void add_child(Bone *bone);
-
-        mat4 get_model_matrix();
-
+        //int id;
         std::string label;
-
-        bool is_root;
-
-        // Public Vars
-        mat4 ModelMatrix;
-        // mat4 MVP;
-
-    //private:
-        // Private Vars
-        Bone *parent;
         std::vector<Bone*> children;
+        Bone* parent;
+
         vec3 mScale;
         vec3 mPos;
         quat mOrientation;
+
+        mat4 ModelMatrix;
+
+    private:
+        void init_vars();
 
 };
 
