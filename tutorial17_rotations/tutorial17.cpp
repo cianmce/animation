@@ -34,6 +34,10 @@ using namespace glm;
 
 #include <iostream>
 
+#include "bone.h"
+#include "bone.cpp"
+
+
 
 vec3 gPosition1( 0.0f, 0.0f, 0.0f);
 quat gOrientation1;
@@ -50,167 +54,35 @@ bool third_person = false;
 
 int window_width = 1024, window_height = 768;
 
+// GL VARS
+GLuint vertexPosition_modelspaceID;
+GLuint vertexUVID;
+GLuint vertexNormal_modelspaceID;
+GLuint programID;
 
-#include "bone.h"
-#include "bone.cpp"
-
+GLuint TextureID;
+GLuint Texture;
 
 GLsizei indices_count;
 GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
-void init_vars() {
-	std::cout << "init-ing vars\n\n";
-	glm::vec3 angles(0, 180, 0);
-	glm::quat rotation(radians(angles));
-	gOrientation2 = gOrientation2 * rotation;
-}
-
-void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
-
-    mat4 ModelMatrix = bone.ModelMatrix;
-
-    mat4 MVP         = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-
-    // draw the triangles !
-    glDrawElements(
-        GL_TRIANGLES,      // mode
-        indices_count,    // count
-        GL_UNSIGNED_SHORT,   // type
-        (void*)0           // element array buffer offset
-    );
-}
-
-void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
-    // draw itself
-    draw_bone(root, ProjectionMatrix, ViewMatrix);
-    int children_count = root.children.size();
-    std::cout<<"Children: "<<children_count<<std::endl;
-    for(int i=0; i<children_count; i++){
-        Bone* child = root.children[i];
-        draw_skelton(*child, ProjectionMatrix, ViewMatrix);
-    }
-}
+void init_gui();
+void init_vars();
+int init_gl();
+void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix);
+void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix);
 
 int main( void )
 {
 	init_vars();
 	printf("Starting...\n");
 
-	// Initialise GLFW
-	if( !glfwInit() )
-	{
-		fprintf( stderr, "Failed to initialize GLFW\n" );
-		getchar();
-		return -1;
-	}
-
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(window_width, window_height, "Cian - Rotations", NULL, NULL);
-	if( window == NULL ){
-		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
-		getchar();
-		glfwTerminate();
-		return -1;
-	}
-	glfwMakeContextCurrent(window);
-
-	// Initialize GLEW
-	glewExperimental = true; // Needed for core profile
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "Failed to initialize GLEW\n");
-		getchar();
-		glfwTerminate();
-		return -1;
-	}
-
-	// Initialize the GUI
-	TwInit(TW_OPENGL_CORE, NULL);
-	TwWindowSize(1024, 768);
-//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
-	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
-	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
-
-
-	//cameraOrientation
-//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
-	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
-
-//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
-//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
-
-
-	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
-	// TwAddSeparator(QuaternionGUI, "sep1", NULL);
-
-	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
-	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
-
-
-
-	// TwAddVarRW(QuaternionGUI, "Use LookAt", TW_TYPE_BOOL8 , &gLookAtOther, "help='Look at the other monkey ?'");
-
-	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
-	glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
-	glfwSetCursorPosCallback(window, (GLFWcursorposfun)TwEventMousePosGLFW);          // - Directly redirect GLFW mouse position events to AntTweakBar
-	glfwSetScrollCallback(window, (GLFWscrollfun)TwEventMouseWheelGLFW);             // - Directly redirect GLFW mouse wheel events to AntTweakBar
-	glfwSetKeyCallback(window, (GLFWkeyfun)TwEventKeyGLFW);                         // - Directly redirect GLFW key events to AntTweakBar
-	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
-
-
-	// Ensure we can capture the escape key being pressed below
-	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    // Hide the mouse and enable unlimited mouvement
-    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-    // Set the mouse at the center of the screen
-    glfwPollEvents();
-    glfwSetCursorPos(window, 1024/2, 768/2);
-
-	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
-	// Enable depth test
-	glEnable(GL_DEPTH_TEST);
-	// Accept fragment if it closer to the camera than the former one
-	glDepthFunc(GL_LESS);
-
-	// Cull triangles which normal is not towards the camera
-	glEnable(GL_CULL_FACE);
-
-	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
-
-	// Get a handle for our "MVP" uniform
-	MatrixID = glGetUniformLocation(programID, "MVP");
-	ViewMatrixID = glGetUniformLocation(programID, "V");
-	ModelMatrixID = glGetUniformLocation(programID, "M");
-
-	// Get a handle for our buffers
-	GLuint vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
-	GLuint vertexUVID = glGetAttribLocation(programID, "vertexUV");
-	GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
-
-	// Load the texture
-	GLuint Texture = loadDDS("uvmap.dds");
-	//GLuint Texture;
-	//load_texture("uvmap.png", &Texture);
-
-	// Get a handle for our "myTextureSampler" uniform
-	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+    int r = init_gl();
+    if(r!=0){
+        return r;
+    }
+	init_gui();
 
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
@@ -317,15 +189,20 @@ int main( void )
 
 
     Bone palm("0_palm");
-    palm.mScale = vec3(1,1,1);
+    palm.mPos = vec3(-1,0,0);
+    palm.mScale = vec3(1.2,1.2,1);
+
     Bone base1("1_Base");
-    base1.mScale = vec3(0.5,0.5,0.5);
-    base1.mPos = vec3(0,0,0);
+    base1.mScale = vec3(0.5,0.4,0.3);
+    base1.mPos = vec3(0.45,0,0.8);
+
     base1.update_by_angle(vec3(0, 90, 0));
+
     Bone mid1("1_Mid");
-    mid1.mPos = vec3(1,0,0);
+    mid1.mPos = vec3(0,0,2);
+
     Bone tip1("1_Tip");
-    tip1.mPos = vec3(2,0,0);
+    tip1.mPos = vec3(0,0,2);
 
     palm.add_child(&base1);
     base1.add_child(&mid1);
@@ -521,3 +398,159 @@ int main( void )
 	return 0;
 }
 
+
+int init_gl(){
+
+	// Initialise GLFW
+	if( !glfwInit() )
+	{
+		fprintf( stderr, "Failed to initialize GLFW\n" );
+		getchar();
+		return -1;
+	}
+
+	glfwWindowHint(GLFW_SAMPLES, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+	// Open a window and create its OpenGL context
+	window = glfwCreateWindow(window_width, window_height, "Cian - Rotations", NULL, NULL);
+	if( window == NULL ){
+		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
+		getchar();
+		glfwTerminate();
+		return -1;
+	}
+	glfwMakeContextCurrent(window);
+
+	// Initialize GLEW
+	glewExperimental = true; // Needed for core profile
+	if (glewInit() != GLEW_OK) {
+		fprintf(stderr, "Failed to initialize GLEW\n");
+		getchar();
+		glfwTerminate();
+		return -1;
+	}
+
+
+	// Ensure we can capture the escape key being pressed below
+	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    // Hide the mouse and enable unlimited mouvement
+    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    // Set the mouse at the center of the screen
+    glfwPollEvents();
+    glfwSetCursorPos(window, 1024/2, 768/2);
+
+	// Dark blue background
+	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+
+	// Enable depth test
+	glEnable(GL_DEPTH_TEST);
+	// Accept fragment if it closer to the camera than the former one
+	glDepthFunc(GL_LESS);
+
+	// Cull triangles which normal is not towards the camera
+	glEnable(GL_CULL_FACE);
+
+	// Create and compile our GLSL program from the shaders
+	programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
+
+	// Get a handle for our "MVP" uniform
+	MatrixID = glGetUniformLocation(programID, "MVP");
+	ViewMatrixID = glGetUniformLocation(programID, "V");
+	ModelMatrixID = glGetUniformLocation(programID, "M");
+
+	// Get a handle for our buffers
+	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
+	vertexUVID = glGetAttribLocation(programID, "vertexUV");
+	vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
+
+	// Load the texture
+	Texture = loadDDS("uvmap.dds");
+
+	// Get a handle for our "myTextureSampler" uniform
+	TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+
+    return 0;
+}
+
+void init_vars() {
+	std::cout << "init-ing vars\n\n";
+	glm::vec3 angles(0, 180, 0);
+	glm::quat rotation(radians(angles));
+	gOrientation2 = gOrientation2 * rotation;
+}
+
+void init_gui(){
+
+	// Initialize the GUI
+	TwInit(TW_OPENGL_CORE, NULL);
+	TwWindowSize(1024, 768);
+//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
+	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
+	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
+
+
+	//cameraOrientation
+//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
+	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
+
+//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
+//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
+//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
+//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
+
+
+	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
+	// TwAddSeparator(QuaternionGUI, "sep1", NULL);
+
+	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
+	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
+
+
+
+	// TwAddVarRW(QuaternionGUI, "Use LookAt", TW_TYPE_BOOL8 , &gLookAtOther, "help='Look at the other monkey ?'");
+
+	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
+	glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
+	glfwSetCursorPosCallback(window, (GLFWcursorposfun)TwEventMousePosGLFW);          // - Directly redirect GLFW mouse position events to AntTweakBar
+	glfwSetScrollCallback(window, (GLFWscrollfun)TwEventMouseWheelGLFW);             // - Directly redirect GLFW mouse wheel events to AntTweakBar
+	glfwSetKeyCallback(window, (GLFWkeyfun)TwEventKeyGLFW);                         // - Directly redirect GLFW key events to AntTweakBar
+	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
+}
+
+
+void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
+
+    mat4 ModelMatrix = bone.ModelMatrix;
+
+    mat4 MVP         = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+    // draw the triangles !
+    glDrawElements(
+        GL_TRIANGLES,      // mode
+        indices_count,    // count
+        GL_UNSIGNED_SHORT,   // type
+        (void*)0           // element array buffer offset
+    );
+}
+
+
+void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
+    // draw itself
+    draw_bone(root, ProjectionMatrix, ViewMatrix);
+    int children_count = root.children.size();
+
+    for(int i=0; i<children_count; i++){
+        Bone* child = root.children[i];
+        draw_skelton(*child, ProjectionMatrix, ViewMatrix);
+    }
+}

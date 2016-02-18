@@ -43,7 +43,6 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
 
     if(this->parent!=NULL){
         // Has a parent
-        std::cout<<"Has parent!\n";
         this->ModelMatrix = this->parent->ModelMatrix * this->ModelMatrix;
     }
 
