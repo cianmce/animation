@@ -31,14 +31,16 @@ void Bone::add_child(Bone *_child)
 }
 
 void Bone::update_by_angle(vec3 rotate_angles_deg){
-    quat rotation(radians(rotate_angles_deg));
-    this->mOrientation *= rotation;
+    if(rotate_angles_deg != vec3(0,0,0)){
+        quat rotation(radians(rotate_angles_deg));
+        this->mOrientation *= rotation;
+    }
 
     // Convert Orientation Quat to mat4
     mat4 RotationMatrix    = toMat4(mOrientation);
     mat4 TranslationMatrix = translate(mat4(), mPos);
     mat4 ScalingMatrix     = scale(mat4(), mScale);
-    // Local model
+    // This model
     this->ModelMatrix      = TranslationMatrix * RotationMatrix * ScalingMatrix;
 
     if(this->parent!=NULL){

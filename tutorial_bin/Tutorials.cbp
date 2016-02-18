@@ -4947,12 +4947,6 @@
 		<Unit filename="../external/glfw-3.1.2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/cmake_uninstall.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/cmake_uninstall.cmake.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/" />
 		</Unit>
@@ -4970,12 +4964,6 @@
 		<Unit filename="../external/glfw-3.1.2/deps/tinycthread.h" />
 		<Unit filename="../external/glfw-3.1.2/docs/Doxyfile.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/docs/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/docs/Doxyfile.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/docs/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/examples/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/examples/" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/examples/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/examples/" />
@@ -5006,25 +4994,13 @@
 		<Unit filename="../external/glfw-3.1.2/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/context.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw3.pc.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw3.pc.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw3Config.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw3Config.cmake.in">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
-		</Unit>
-		<Unit filename="../external/glfw-3.1.2/src/glfw_config.h.in">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/src/" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/glfw_config.h.in">
@@ -5073,9 +5049,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../external/glfw-3.1.2/src/xkb_unicode.h" />
-		<Unit filename="../external/glfw-3.1.2/tests/CMakeLists.txt">
-			<Option virtualFolder="CMake Files/external/glfw-3.1.2/tests/" />
-		</Unit>
 		<Unit filename="../external/glfw-3.1.2/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files/external/glfw-3.1.2/tests/" />
 		</Unit>
@@ -5136,164 +5109,8 @@
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
 		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/FindGDB.cmake">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/MSVCMultipleProcessCompile.cmake">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
-		</Unit>
-		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
-			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
 		</Unit>
 		<Unit filename="../external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.sh.in">
 			<Option virtualFolder="CMake Files/external/rpavlik-cmake-modules-fe2273/launcher-templates/" />
@@ -5369,6 +5186,8 @@
 		<Unit filename="../tutorial17_rotations/StandardShading.vertexshader" />
 		<Unit filename="../tutorial17_rotations/bone.cpp" />
 		<Unit filename="../tutorial17_rotations/bone.h" />
+		<Unit filename="../tutorial17_rotations/skelton.cpp" />
+		<Unit filename="../tutorial17_rotations/skelton.h" />
 		<Unit filename="../tutorial17_rotations/tutorial17.cpp" />
 		<Unit filename="../tutorial18_billboards_and_particles/Billboard.fragmentshader" />
 		<Unit filename="../tutorial18_billboards_and_particles/Billboard.vertexshader" />

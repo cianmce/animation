@@ -12,7 +12,6 @@ class Bone
         void set_parent(Bone *parent);
         void update_by_angle(vec3 rotate_angles_deg);
 
-        //int id;
         std::string label;
         std::vector<Bone*> children;
         Bone* parent;

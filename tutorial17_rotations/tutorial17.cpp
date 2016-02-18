@@ -37,6 +37,9 @@ using namespace glm;
 #include "bone.h"
 #include "bone.cpp"
 
+#include "skelton.h"
+#include "skelton.cpp"
+
 
 
 vec3 gPosition1( 0.0f, 0.0f, 0.0f);
@@ -137,66 +140,17 @@ int main( void )
     indices_count = indices.size();
 
 
-
-
-
-
-//    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
-//    root.is_root = true;
-//
-//    Bone base1 = Bone(vec3(0, 90, 0),              // Ori
-//                      gPosition1+vec3(0.7,0,-0.9), // Pos
-//                      vec3(0.5, 0.5, 0.5),         // Scale
-//                      "Base1");                    // Label
-//
-//    Bone base2 = Bone(vec3(0, 90, 0),         // Ori
-//                      gPosition1+vec3(0.7,0,-0.3), // Pos
-//                      vec3(0.5, 0.5, 0.5),    // Scale
-//                      "Base2");               // Label
-//
-//    Bone base3 = Bone(vec3(0, 90, 0),         // Ori
-//                      gPosition1+vec3(0.7,0,0.3), // Pos
-//                      vec3(0.5, 0.5, 0.5),    // Scale
-//                      "Base2");               // Label
-//
-//    Bone base4 = Bone(vec3(0, 90, 0),         // Ori
-//                      gPosition1+vec3(0.7,0,0.9), // Pos
-//                      vec3(0.5, 0.5, 0.5),    // Scale
-//                      "Base4");               // Label
-//
-//    Bone middle1 = Bone(vec3(0, 0, 0),           // Ori
-//                      gPosition1+vec3(0,0,1.2), // Pos
-//                      vec3(0.9, 0.9, 0.9),         // Scale
-//                      "Mid1");                    // Label
-//
-//    Bone end1 = Bone(vec3(0, 0, 0),             // Ori
-//                      gPosition1+vec3(0,0,1.1), // Pos
-//                      vec3(0.9, 0.9, 0.9),         // Scale
-//                      "End1");                    // Label
-//
-//    base1.add_child(&middle1);
-//    middle1.add_child(&end1);
-
-    //Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Middle1");
-    //Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "End1");
-    //bone2.add_child(&bone4);
-    //bone2.add_child(&bone3);
-//    root.add_child(&base1);
-//    root.add_child(&base2);
-//    root.add_child(&base3);
-//    root.add_child(&base4);
-
-
+    vec3 bend_angles = vec3(-15, 0, 0);
 
     Bone palm("0_palm");
     palm.mPos = vec3(-1,0,0);
     palm.mScale = vec3(1.2,1.2,1);
 
+    // Finger 1
     Bone base1("1_Base");
     base1.mScale = vec3(0.5,0.4,0.3);
-    base1.mPos = vec3(0.45,0,0.8);
-
-    base1.update_by_angle(vec3(0, 90, 0));
+    base1.mPos = vec3(0.15, 0, 0.1);
+    base1.update_by_angle(vec3(0, 90, 60));
 
     Bone mid1("1_Mid");
     mid1.mPos = vec3(0,0,2);
@@ -207,6 +161,95 @@ int main( void )
     palm.add_child(&base1);
     base1.add_child(&mid1);
     mid1.add_child(&tip1);
+
+    // Finger 2
+    Bone base2("2_Base");
+    base2.mScale = vec3(0.5,0.4,0.3);
+    base2.mPos = vec3(0.15, 0, 0.7);
+    base2.update_by_angle(vec3(0, 90, 60));
+
+    Bone mid2("2_Mid");
+    mid2.mPos = vec3(0,0,2);
+
+    Bone tip2("2_Tip");
+    tip2.mPos = vec3(0,0,2);
+
+    palm.add_child(&base2);
+    base2.add_child(&mid2);
+    mid2.add_child(&tip2);
+
+    // Finger 3
+    Bone base3("3_Base");
+    base3.mScale = vec3(0.5,0.4,0.3);
+    base3.mPos = vec3(0.15, 0, 1.3);
+    base3.update_by_angle(vec3(0, 90, 60));
+
+    Bone mid3("3_Mid");
+    mid3.mPos = vec3(0,0,2);
+
+    Bone tip3("3_Tip");
+    tip3.mPos = vec3(0,0,2);
+
+    palm.add_child(&base3);
+    base3.add_child(&mid3);
+    mid3.add_child(&tip3);
+
+    // Finger 4
+    Bone base4("4_Base");
+    base4.mScale = vec3(0.5,0.4,0.3);
+    base4.mPos = vec3(0.15, 0, 1.9);
+    base4.update_by_angle(vec3(0, 90, 60));
+
+    Bone mid4("4_Mid");
+    mid4.mPos = vec3(0,0,2);
+
+    Bone tip4("4_Tip");
+    tip4.mPos = vec3(0,0,2);
+
+    palm.add_child(&base4);
+    base4.add_child(&mid4);
+    mid4.add_child(&tip4);
+
+    // Thumb 1
+    Bone base5("5_Base");
+    base5.mScale = vec3(0.5,0.4,0.3);
+    base5.mPos = vec3(-0.15, 0, 1);
+    base5.update_by_angle(vec3(-65, 90, 60));
+
+    Bone mid5("5_Mid");
+    mid5.mPos = vec3(0,0,2);
+
+    Bone tip5("5_Tip");
+    tip5.mPos = vec3(0,0,2);
+
+    palm.add_child(&base5);
+    base5.add_child(&mid5);
+    mid5.add_child(&tip5);
+
+    mid1.update_by_angle(bend_angles);
+    tip1.update_by_angle(bend_angles);
+
+    mid2.update_by_angle(bend_angles);
+    tip2.update_by_angle(bend_angles);
+
+    mid3.update_by_angle(bend_angles);
+    tip3.update_by_angle(bend_angles);
+
+    mid4.update_by_angle(bend_angles);
+    tip4.update_by_angle(bend_angles);
+
+    bend_angles *= -1;
+
+    mid5.update_by_angle(bend_angles);
+    tip5.update_by_angle(bend_angles);
+
+    // Make hand
+    Skelton hand_skelton = Skelton(&palm);
+    hand_skelton.MatrixID      = MatrixID;
+    hand_skelton.ModelMatrixID = ModelMatrixID;
+    hand_skelton.indices_count = indices_count;
+
+
 
 	do{
 
@@ -293,25 +336,6 @@ int main( void )
 
 		glm::vec3 angles_camera(0, 0, 0);
 
-		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-			angles_camera = vec3(0, rotate_angle, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-			angles_camera = vec3(0, -rotate_angle, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-			angles_camera = vec3(-rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-			angles_camera = vec3(rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
-			angles_camera = vec3(0, 0, -rotate_angle);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
-			angles_camera = vec3(0, 0, rotate_angle);
-		}
-
 		glm::quat rotation(radians(angles_camera));
 		cameraOrientation = cameraOrientation * rotation;
 
@@ -348,22 +372,42 @@ int main( void )
             angles_model = vec3(0, 0, -rotate_angle);
         }
 
-        palm.update_by_angle(angles_model);
-        draw_skelton(palm, ProjectionMatrix, ViewMatrix);
+        hand_skelton.update_bone("0_palm", angles_model);
+
+        // Base1
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        //base1.update_by_angle(angles_model);
+        hand_skelton.update_bone("2_Base", angles_model);
+        // Mid1
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        hand_skelton.update_bone("2_Mid", angles_model);
+        // Tip1
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        hand_skelton.update_bone("2_Tip", angles_model);
 
 
-//
-//        // end z,x
-//        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-//            angles_model = vec3(rotate_angle, 0, 0);
-//        }
-//        else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
-//            angles_model = vec3(-rotate_angle, 0, 0);
-//        }
-//        //middle1.update(angles_model, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
-//
-//
-//        //draw_skelton(root, ProjectionMatrix, ViewMatrix);
+
+
+
+        hand_skelton.render(ProjectionMatrix, ViewMatrix);
 
 
 
@@ -469,7 +513,7 @@ int init_gl(){
 	vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
 
 	// Load the texture
-	Texture = loadDDS("uvmap.dds");
+	Texture = loadDDS("bone.dds");
 
 	// Get a handle for our "myTextureSampler" uniform
 	TextureID  = glGetUniformLocation(programID, "myTextureSampler");
@@ -522,35 +566,4 @@ void init_gui(){
 	glfwSetScrollCallback(window, (GLFWscrollfun)TwEventMouseWheelGLFW);             // - Directly redirect GLFW mouse wheel events to AntTweakBar
 	glfwSetKeyCallback(window, (GLFWkeyfun)TwEventKeyGLFW);                         // - Directly redirect GLFW key events to AntTweakBar
 	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
-}
-
-
-void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
-
-    mat4 ModelMatrix = bone.ModelMatrix;
-
-    mat4 MVP         = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-
-    // draw the triangles !
-    glDrawElements(
-        GL_TRIANGLES,      // mode
-        indices_count,    // count
-        GL_UNSIGNED_SHORT,   // type
-        (void*)0           // element array buffer offset
-    );
-}
-
-
-void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
-    // draw itself
-    draw_bone(root, ProjectionMatrix, ViewMatrix);
-    int children_count = root.children.size();
-
-    for(int i=0; i<children_count; i++){
-        Bone* child = root.children[i];
-        draw_skelton(*child, ProjectionMatrix, ViewMatrix);
-    }
 }
