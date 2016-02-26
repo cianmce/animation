@@ -22,10 +22,15 @@ class Bone
 
         mat4 ModelMatrix;
 
-        float parent_angle_limit;
+        void set_lower_limit(float limit);
+        void set_upper_limit(float limit);
+        float parent_angle_limit_lower;
+        float parent_angle_limit_upper;
+        float threshold;
 
     private:
         void init_vars();
+        float signed_angle(vec3 Va, vec3 Vb);
 
 };
 

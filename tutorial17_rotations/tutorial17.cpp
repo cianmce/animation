@@ -155,11 +155,16 @@ int main( void )
 
     Bone palm("0_palm");
     palm.mPos = vec3(-1,0,0);
-    palm.mScale = vec3(1.2,1.2,1);
+    palm.mScale = vec3(1,1,1);
+
+
+
+
+
 
     // Finger 1
     Bone base1("1_Base");
-    base1.mScale = vec3(0.5,0.4,0.3);
+    base1.mScale = vec3(0.3,0.3,0.3);
     base1.mPos = vec3(0.15, 0, 0.1);
     base1.update_by_angle(vec3(0, 90, 60));
 
@@ -175,7 +180,7 @@ int main( void )
 
     // Finger 2
     Bone base2("2_Base");
-    base2.mScale = vec3(0.5,0.4,0.3);
+    base2.mScale = vec3(0.3,0.3,0.3);
     base2.mPos = vec3(0.15, 0, 0.7);
     base2.update_by_angle(vec3(0, 90, 60));
 
@@ -191,7 +196,7 @@ int main( void )
 
     // Finger 3
     Bone base3("3_Base");
-    base3.mScale = vec3(0.5,0.4,0.3);
+    base3.mScale = vec3(0.3,0.3,0.3);
     base3.mPos = vec3(0.15, 0, 1.3);
     base3.update_by_angle(vec3(0, 90, 60));
 
@@ -207,7 +212,7 @@ int main( void )
 
     // Finger 4
     Bone base4("4_Base");
-    base4.mScale = vec3(0.5,0.4,0.3);
+    base4.mScale = vec3(0.3,0.3,0.3);
     base4.mPos = vec3(0.15, 0, 1.9);
     base4.update_by_angle(vec3(0, 90, 60));
 
@@ -223,8 +228,8 @@ int main( void )
 
     // Thumb 1
     Bone base5("5_Base");
-    base5.mScale = vec3(0.6,0.4,0.2);
-    base5.mPos = vec3(-0.15, 0, 0.6);
+    base5.mScale = vec3(0.25,0.25,0.25);
+    base5.mPos = vec3(-0.15, 0, 0.3);
     base5.update_by_angle(vec3(-65, 90, 60));
 
     Bone mid5("5_Mid");
@@ -232,6 +237,13 @@ int main( void )
 
     Bone tip5("5_Tip");
     tip5.mPos = vec3(0,0,2);
+
+
+
+
+
+
+
 
     palm.add_child(&base5);
     base5.add_child(&mid5);
@@ -385,7 +397,7 @@ int main( void )
 
         hand_skelton.update_bone("0_palm", angles_model);
 
-        // Base1
+        // Base3
         angles_model = vec3(0,0,0);
         if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 			angles_model = vec3(-rotate_angle, 0, 0);
@@ -394,8 +406,8 @@ int main( void )
 			angles_model = vec3(rotate_angle, 0, 0);
 		}
         //base1.update_by_angle(angles_model);
-        hand_skelton.update_bone("2_Base", angles_model);
-        // Mid1
+        hand_skelton.update_bone("3_Base", angles_model);
+        // Mid2
         angles_model = vec3(0,0,0);
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 			angles_model = vec3(-rotate_angle, 0, 0);
@@ -403,8 +415,8 @@ int main( void )
 		else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
 			angles_model = vec3(rotate_angle, 0, 0);
 		}
-        hand_skelton.update_bone("2_Mid", angles_model);
-        // Tip1
+        hand_skelton.update_bone("3_Mid", angles_model);
+        // Tip2
         angles_model = vec3(0,0,0);
         if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 			angles_model = vec3(-rotate_angle, 0, 0);
@@ -412,15 +424,16 @@ int main( void )
 		else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
 			angles_model = vec3(rotate_angle, 0, 0);
 		}
-        hand_skelton.update_bone("2_Tip", angles_model);
+        hand_skelton.update_bone("3_Tip", angles_model);
 
+
+        angles_model = vec3(0,0,0);
         if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
 			angles_model = vec3(-rotate_angle, 0, 0);
 		}
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 			angles_model = vec3(rotate_angle, 0, 0);
 		}
-        angles_model = vec3(0,0,0);
 
 
 		if(animate_hand){
@@ -429,6 +442,7 @@ int main( void )
 
             angles_model = vec3(animate_amount, 0, 0);
 		}
+
 
 		if(control_finger1){
             hand_skelton.update_bone("1_Base", angles_model);
@@ -451,9 +465,10 @@ int main( void )
             hand_skelton.update_bone("4_Tip", angles_model);
 		}
 		if(control_finger5){
-            hand_skelton.update_bone("5_Base", angles_model);
-            hand_skelton.update_bone("5_Mid", angles_model);
-            hand_skelton.update_bone("5_Tip", angles_model);
+            // Thumb
+            hand_skelton.update_bone("5_Base", -angles_model);
+            hand_skelton.update_bone("5_Mid", -angles_model);
+            hand_skelton.update_bone("5_Tip", -angles_model);
 		}
 
 
