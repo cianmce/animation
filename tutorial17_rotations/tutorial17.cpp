@@ -34,6 +34,13 @@ using namespace glm;
 
 #include <iostream>
 
+#include "bone.h"
+#include "bone.cpp"
+
+#include "skelton.h"
+#include "skelton.cpp"
+
+
 
 vec3 gPosition1( 0.0f, 0.0f, 0.0f);
 quat gOrientation1;
@@ -41,189 +48,86 @@ quat gOrientation1;
 vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
-vec3 cameraPosition(0, 0.8, 6);
+vec3 cameraPosition(0, 1.8, 14);
 quat cameraOrientation;
 
 
+vec3 apple_position(0, 2, 2);
+
+
 bool gLookAtOther = false;
-bool third_person = false;
+bool third_person = true;
 
 int window_width = 1024, window_height = 768;
 
 
-#include "bone.h"
-#include "bone.cpp"
+bool control_finger1 = false;
+bool control_finger2 = true;
+bool control_finger3 = false;
+bool control_finger4 = false;
+bool control_finger5 = false;
+bool animate_hand    = false;
 
+
+
+// GL VARS
+GLuint vertexPosition_modelspaceID;
+GLuint vertexUVID;
+GLuint vertexNormal_modelspaceID;
+GLuint programID;
+
+GLuint TextureID;
+GLuint Texture;
+GLuint Texture_apple;
 
 GLsizei indices_count;
+GLsizei indices_count_apple;
 GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
-void init_vars() {
-	std::cout << "init-ing vars\n\n";
-	glm::vec3 angles(0, 180, 0);
-	glm::quat rotation(radians(angles));
-	gOrientation2 = gOrientation2 * rotation;
-}
+void init_gui();
+void init_vars();
+int init_gl();
+float distance_to();
 
-void draw_bone(Bone bone, mat4 ProjectionMatrix, mat4 ViewMatrix){
-    mat4 ModelMatrix = bone.get_model_matrix();
-
-    mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-    glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-    glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-    glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-    // Draw the triangles !
-    glDrawElements(
-        GL_TRIANGLES,      // mode
-        indices_count,    // count
-        GL_UNSIGNED_SHORT,   // type
-        (void*)0           // element array buffer offset
-    );
-}
-
-void draw_skelton(Bone root, mat4 ProjectionMatrix, mat4 ViewMatrix){
-    // draw itself
-    draw_bone(root, ProjectionMatrix, ViewMatrix);
-    int children_count = root.children.size();
-    std::cout<<"Children: "<<children_count<<std::endl;
-    for(int i=0; i<children_count; i++){
-        Bone bone = *root.children[i];
-        draw_skelton(bone, ProjectionMatrix, ViewMatrix);
-    }
-
-}
 
 int main( void )
 {
 	init_vars();
 	printf("Starting...\n");
 
-	// Initialise GLFW
-	if( !glfwInit() )
-	{
-		fprintf( stderr, "Failed to initialize GLFW\n" );
-		getchar();
-		return -1;
-	}
-
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(window_width, window_height, "Cian - Rotations", NULL, NULL);
-	if( window == NULL ){
-		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
-		getchar();
-		glfwTerminate();
-		return -1;
-	}
-	glfwMakeContextCurrent(window);
-
-	// Initialize GLEW
-	glewExperimental = true; // Needed for core profile
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "Failed to initialize GLEW\n");
-		getchar();
-		glfwTerminate();
-		return -1;
-	}
-
-	// Initialize the GUI
-	TwInit(TW_OPENGL_CORE, NULL);
-	TwWindowSize(1024, 768);
-//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
-	TwBar * QuaternionGUI = TwNewBar("Quaternion Obj #2");
-	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
-
-
-	//cameraOrientation
-//	TwSetParam(EulerGUI, NULL, "refresh", TW_PARAM_CSTRING, 1, "0.1");
-	TwSetParam(QuaternionGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
-
-//	TwAddVarRW(EulerGUI, "Euler X", TW_TYPE_FLOAT, &gOrientation1_degree.x, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Y", TW_TYPE_FLOAT, &gOrientation1_degree.y, "step=1");
-//	TwAddVarRW(EulerGUI, "Euler Z", TW_TYPE_FLOAT, &gOrientation1_degree.z, "step=1");
-//	TwAddVarRW(EulerGUI, "Pos X"  , TW_TYPE_FLOAT, &gPosition1.x, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Y"  , TW_TYPE_FLOAT, &gPosition1.y, "step=0.05");
-//	TwAddVarRW(EulerGUI, "Pos Z"  , TW_TYPE_FLOAT, &gPosition1.z, "step=0.05");
-
-
-	TwAddVarRW(QuaternionGUI, "Quaternion", TW_TYPE_QUAT4F, &gOrientation2, "showval=true open");
-	// TwAddSeparator(QuaternionGUI, "sep1", NULL);
-
-	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
-	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
-
-
-
-	// TwAddVarRW(QuaternionGUI, "Use LookAt", TW_TYPE_BOOL8 , &gLookAtOther, "help='Look at the other monkey ?'");
-
-	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
-	glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
-	glfwSetCursorPosCallback(window, (GLFWcursorposfun)TwEventMousePosGLFW);          // - Directly redirect GLFW mouse position events to AntTweakBar
-	glfwSetScrollCallback(window, (GLFWscrollfun)TwEventMouseWheelGLFW);             // - Directly redirect GLFW mouse wheel events to AntTweakBar
-	glfwSetKeyCallback(window, (GLFWkeyfun)TwEventKeyGLFW);                         // - Directly redirect GLFW key events to AntTweakBar
-	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
-
-
-	// Ensure we can capture the escape key being pressed below
-	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    // Hide the mouse and enable unlimited mouvement
-    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-    // Set the mouse at the center of the screen
-    glfwPollEvents();
-    glfwSetCursorPos(window, 1024/2, 768/2);
-
-	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
-	// Enable depth test
-	glEnable(GL_DEPTH_TEST);
-	// Accept fragment if it closer to the camera than the former one
-	glDepthFunc(GL_LESS);
-
-	// Cull triangles which normal is not towards the camera
-	glEnable(GL_CULL_FACE);
-
-	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
-
-	// Get a handle for our "MVP" uniform
-	MatrixID = glGetUniformLocation(programID, "MVP");
-	ViewMatrixID = glGetUniformLocation(programID, "V");
-	ModelMatrixID = glGetUniformLocation(programID, "M");
-
-	// Get a handle for our buffers
-	GLuint vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
-	GLuint vertexUVID = glGetAttribLocation(programID, "vertexUV");
-	GLuint vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
-
-	// Load the texture
-	GLuint Texture = loadDDS("uvmap.dds");
-	//GLuint Texture;
-	//load_texture("uvmap.png", &Texture);
-
-	// Get a handle for our "myTextureSampler" uniform
-	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+    int r = init_gl();
+    if(r!=0){
+        return r;
+    }
+	init_gui();
 
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec3> vertices_apple;
 	std::vector<glm::vec2> uvs;
+	std::vector<glm::vec2> uvs_apple;
 	std::vector<glm::vec3> normals;
-	bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
+	std::vector<glm::vec3> normals_apple;
+	// bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
+	bool res = loadOBJ("Bone.obj", vertices, uvs, normals);
+	if(!res){
+        std::cout<<"Error reading obj\n\n";
+        return -1;
+	}
+
+	res = loadOBJ("apple.obj", vertices_apple, uvs_apple, normals_apple);
+	if(!res){
+        std::cout<<"Error reading obj\n\n";
+        return -1;
+	}
 
 
 	std::vector<unsigned short> indices;
 	std::vector<glm::vec3> indexed_vertices;
 	std::vector<glm::vec2> indexed_uvs;
 	std::vector<glm::vec3> indexed_normals;
+
 	indexVBO(vertices, uvs, normals, indices, indexed_vertices, indexed_uvs, indexed_normals);
 
 	// Load it into a VBO
@@ -253,19 +157,88 @@ int main( void )
 	glUseProgram(programID);
 	GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 
+    indices_count = indices.size();
+
+
+
+
+
+
+	std::vector<unsigned short> indices_apple;
+	std::vector<glm::vec3> indexed_vertices_apple;
+	std::vector<glm::vec2> indexed_uvs_apple;
+	std::vector<glm::vec3> indexed_normals_apple;
+
+	indexVBO(vertices_apple, uvs_apple, normals_apple, indices_apple, indexed_vertices_apple, indexed_uvs_apple, indexed_normals_apple);
+
+	// Load it into a VBO
+
+	GLuint vertexbuffer_apple;
+	glGenBuffers(1, &vertexbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_vertices_apple.size() * sizeof(glm::vec3), &indexed_vertices_apple[0], GL_STATIC_DRAW);
+
+	GLuint uvbuffer_apple;
+	glGenBuffers(1, &uvbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_uvs_apple.size() * sizeof(glm::vec2), &indexed_uvs_apple[0], GL_STATIC_DRAW);
+
+	GLuint normalbuffer_apple;
+	glGenBuffers(1, &normalbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_normals_apple.size() * sizeof(glm::vec3), &indexed_normals_apple[0], GL_STATIC_DRAW);
+
+    // Generate a buffer for the indices as well
+	GLuint elementbuffer_apple;
+	glGenBuffers(1, &elementbuffer_apple);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_apple.size() * sizeof(unsigned short), &indices_apple[0] , GL_STATIC_DRAW);
+
+	// Get a handle for our "LightPosition" uniform
+	glUseProgram(programID);
+	GLuint LightID_apple = glGetUniformLocation(programID, "LightPosition_worldspace");
+
+    indices_count_apple = indices_apple.size();
+
+
+
+
+
+
+
+
+
 	// For speed computation
 	double lastTime = glfwGetTime();
 	double lastFrameTime = lastTime;
 	int nbFrames = 0;
 
-    indices_count = indices.size();
 
-    Bone root = Bone(vec3(0, 0, 0), gPosition1, vec3(1, 1, 1), "Root");
-    root.is_root = true;
-    Bone bone2 = Bone(vec3(0, 90, 0), gPosition2, vec3(0.5, 0.5, 0.5), "Bone2");
-    Bone bone3 = Bone(vec3(0, 90, 0), gPosition1+vec3(1,1,0), vec3(1, 1, 1), "Bone3");
-    bone2.add_child(&bone3);
-    root.add_child(&bone2);
+    float bone_scale = 1.0;
+    Bone base0("0_Base");
+    base0.mPos = vec3(0,0,0);
+    base0.mScale = vec3(bone_scale);
+
+    Bone mid0("0_Mid");
+    mid0.mPos = vec3(0, 0, 2);
+
+
+    Bone hand0("0_Hand");
+    hand0.mPos = vec3(0, 0, 2);
+
+    mid0.add_child(&hand0);
+    base0.add_child(&mid0);
+
+
+
+
+
+
+    // Make hand
+    Skelton hand_skelton = Skelton(&base0);
+    hand_skelton.MatrixID      = MatrixID;
+    hand_skelton.ModelMatrixID = ModelMatrixID;
+    hand_skelton.indices_count = indices_count;
 
 
 
@@ -345,36 +318,16 @@ int main( void )
 				glm::vec3(0, 0, 0), // and looks here
 				glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 			);
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 
 
 
-
-
-
+        // Camera
 		float rotate_angle = 1.0f; // degree
 
-		glm::vec3 angles(0, 0, 0);
+		glm::vec3 angles_camera(0, 0, 0);
 
-		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-			angles = vec3(0, rotate_angle, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-			angles = vec3(0, -rotate_angle, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-			angles = vec3(-rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-			angles = vec3(rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
-			angles = vec3(0, 0, -rotate_angle);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
-			angles = vec3(0, 0, rotate_angle);
-		}
-
-		glm::quat rotation(radians(angles));
+		glm::quat rotation(radians(angles_camera));
 		cameraOrientation = cameraOrientation * rotation;
 
 		glm::mat4 ViewRotationMatrix = toMat4(cameraOrientation);
@@ -387,73 +340,191 @@ int main( void )
 		}
 
 
-		{ // Quaternion
 
-			glm::vec3 angles(0, 0, 0);
+        // Models
+        glm::vec3 angles_model(0, 0, 0);
 
-			if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-				angles = vec3(0, -rotate_angle, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-				angles = vec3(0, rotate_angle, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-				angles = vec3(rotate_angle, 0, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-				angles = vec3(-rotate_angle, 0, 0);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-				angles = vec3(0, 0, rotate_angle);
-			}
-			else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-				angles = vec3(0, 0, -rotate_angle);
-			}
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 
+        }
 
-            root.update(angles, vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));
-            draw_skelton(root, ProjectionMatrix, ViewMatrix);
+        if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
+            angles_model = vec3(0, -rotate_angle, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
+            angles_model = vec3(0, rotate_angle, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
+            angles_model = vec3(rotate_angle, 0, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
+            angles_model = vec3(-rotate_angle, 0, 0);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+            angles_model = vec3(0, 0, rotate_angle);
+        }
+        else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
+            angles_model = vec3(0, 0, -rotate_angle);
+        }
 
-            // 2nd obj
-
-
+        hand_skelton.update_bone("0_Base", angles_model);
 
 
-//            // Apply rotations and convert to mat4
-//            angles = vec3(0, 90.0f, 0);
-//			rotation = glm::quat(radians(angles));
-//			gOrientation2 = gOrientation2 * rotation;
-//			gOrientation2 = rotation;
-//			RotationMatrix = toMat4(gOrientation2);
-//
-//
-//			TranslationMatrix = translate(mat4(), gPosition2);
-//			ScalingMatrix = scale(mat4(), vec3(1.0f, 1.0f, 1.0f));
-//
-//            ModelMatrix = ModelMatrix * TranslationMatrix * RotationMatrix * ScalingMatrix;
-//            //ModelMatrix = TranslationMatrix * RotationMatrix * ScalingMatrix;
-//
-//			MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-//
-//			// Send our transformation to the currently bound shader,
-//			// in the "MVP" uniform
-//			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-//			glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-//			glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-//
-//
-//
-//
-//
-//
-//			// Draw the triangles !
-//			glDrawElements(
-//				GL_TRIANGLES,      // mode
-//				indices.size(),    // count
-//				GL_UNSIGNED_SHORT,   // type
-//				(void*)0           // element array buffer offset
-//			);
+        std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
+
+
+
+        // Base3
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
 		}
+		else if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        //base1.update_by_angle(angles_model);
+        hand_skelton.update_bone("3_Base", angles_model);
+        // Mid2
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        hand_skelton.update_bone("3_Mid", angles_model);
+        // Tip2
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+        hand_skelton.update_bone("3_Tip", angles_model);
+
+
+        angles_model = vec3(0,0,0);
+        if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+			angles_model = vec3(-rotate_angle, 0, 0);
+		}
+		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+			angles_model = vec3(rotate_angle, 0, 0);
+		}
+
+
+		if(animate_hand){
+            float animate_amount = sin(currentTime);
+            animate_amount *= 0.3;
+
+            angles_model = vec3(animate_amount, 0, 0);
+		}
+
+
+		if(control_finger1){
+            hand_skelton.update_bone("1_Base", angles_model);
+            hand_skelton.update_bone("1_Mid", angles_model);
+            hand_skelton.update_bone("1_Tip", angles_model);
+		}
+		if(control_finger2){
+            hand_skelton.update_bone("2_Base", angles_model);
+            hand_skelton.update_bone("2_Mid", angles_model);
+            hand_skelton.update_bone("2_Tip", angles_model);
+		}
+		if(control_finger3){
+            hand_skelton.update_bone("3_Base", angles_model);
+            hand_skelton.update_bone("3_Mid", angles_model);
+            hand_skelton.update_bone("3_Tip", angles_model);
+		}
+		if(control_finger4){
+            hand_skelton.update_bone("4_Base", angles_model);
+            hand_skelton.update_bone("4_Mid", angles_model);
+            hand_skelton.update_bone("4_Tip", angles_model);
+		}
+		if(control_finger5){
+            // Thumb
+            hand_skelton.update_bone("5_Base", -angles_model);
+            hand_skelton.update_bone("5_Mid", -angles_model);
+            hand_skelton.update_bone("5_Tip", -angles_model);
+		}
+
+
+
+        hand_skelton.render(ProjectionMatrix, ViewMatrix);
+
+
+        // Draw apple
+		// Use our shader
+		glUseProgram(programID);
+
+		// Bind our texture in Texture Unit 0
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture_apple);
+		// Set our "myTextureSampler" sampler to user Texture Unit 0
+		glUniform1i(TextureID, 0);
+		// 1rst attribute buffer : vertices
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+		glVertexAttribPointer(
+			vertexPosition_modelspaceID,  // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 2nd attribute buffer : UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+		glVertexAttribPointer(
+			vertexUVID,                   // The attribute we want to configure
+			2,                            // size : U+V => 2
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 3rd attribute buffer : normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+		glVertexAttribPointer(
+			vertexNormal_modelspaceID,    // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// Index buffer
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+
+        // Set light pos
+		glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+        // apple
+		glm::mat4 ModelMatrix = glm::mat4(1.0);
+		ModelMatrix = translate(ModelMatrix, apple_position);
+		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+        glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+        // draw the triangles !
+        glDrawElements(
+            GL_TRIANGLES,      // mode
+            indices_count_apple,    // count
+            GL_UNSIGNED_SHORT,   // type
+            (void*)0           // element array buffer offset
+        );
+
+
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -485,3 +556,127 @@ int main( void )
 	return 0;
 }
 
+
+int init_gl(){
+
+	// Initialise GLFW
+	if( !glfwInit() )
+	{
+		fprintf( stderr, "Failed to initialize GLFW\n" );
+		getchar();
+		return -1;
+	}
+
+	glfwWindowHint(GLFW_SAMPLES, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+	// Open a window and create its OpenGL context
+	window = glfwCreateWindow(window_width, window_height, "Cian - Rotations", NULL, NULL);
+	if( window == NULL ){
+		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
+		getchar();
+		glfwTerminate();
+		return -1;
+	}
+	glfwMakeContextCurrent(window);
+
+	// Initialize GLEW
+	glewExperimental = true; // Needed for core profile
+	if (glewInit() != GLEW_OK) {
+		fprintf(stderr, "Failed to initialize GLEW\n");
+		getchar();
+		glfwTerminate();
+		return -1;
+	}
+
+
+	// Ensure we can capture the escape key being pressed below
+	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    // Hide the mouse and enable unlimited mouvement
+    // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+    // Set the mouse at the center of the screen
+    glfwPollEvents();
+    glfwSetCursorPos(window, 1024/2, 768/2);
+
+	// Dark blue background
+	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+
+	// Enable depth test
+	glEnable(GL_DEPTH_TEST);
+	// Accept fragment if it closer to the camera than the former one
+	glDepthFunc(GL_LESS);
+
+	// Cull triangles which normal is not towards the camera
+	glEnable(GL_CULL_FACE);
+
+	// Create and compile our GLSL program from the shaders
+	programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
+
+	// Get a handle for our "MVP" uniform
+	MatrixID = glGetUniformLocation(programID, "MVP");
+	ViewMatrixID = glGetUniformLocation(programID, "V");
+	ModelMatrixID = glGetUniformLocation(programID, "M");
+
+	// Get a handle for our buffers
+	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
+	vertexUVID = glGetAttribLocation(programID, "vertexUV");
+	vertexNormal_modelspaceID = glGetAttribLocation(programID, "vertexNormal_modelspace");
+
+	// Load the texture
+	Texture = loadDDS("bone.dds");
+	Texture_apple = loadDDS("apple.dds");
+
+	// Get a handle for our "myTextureSampler" uniform
+	TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+
+    return 0;
+}
+
+void init_vars() {
+	std::cout << "init-ing vars\n\n";
+	glm::vec3 angles(0, 180, 0);
+	glm::quat rotation(radians(angles));
+	gOrientation2 = gOrientation2 * rotation;
+}
+
+void init_gui(){
+
+	// Initialize the GUI
+	TwInit(TW_OPENGL_CORE, NULL);
+	TwWindowSize(1024, 768);
+//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
+	TwBar * HandGUI = TwNewBar("Hand Movements");
+	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
+
+
+	//Hand GUI
+	TwSetParam(HandGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
+    TwAddVarRW(HandGUI, "Index Finger", TW_TYPE_BOOL8, &control_finger1, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Middle Finger", TW_TYPE_BOOL8, &control_finger2, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Rign Finger", TW_TYPE_BOOL8, &control_finger3, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Baby Finger", TW_TYPE_BOOL8, &control_finger4, "help='Toggle 3rd Person'");
+    TwAddVarRW(HandGUI, "Thumb", TW_TYPE_BOOL8, &control_finger5, "help='Toggle 3rd Person'");
+
+	TwAddSeparator(HandGUI, "sep1", NULL);
+    TwAddVarRW(HandGUI, "Animate", TW_TYPE_BOOL8, &animate_hand, "help='Toggle 3rd Person'");
+
+
+    // Camera
+	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
+	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
+
+
+
+	// TwAddVarRW(QuaternionGUI, "Use LookAt", TW_TYPE_BOOL8 , &gLookAtOther, "help='Look at the other monkey ?'");
+
+	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
+	glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar
+	glfwSetCursorPosCallback(window, (GLFWcursorposfun)TwEventMousePosGLFW);          // - Directly redirect GLFW mouse position events to AntTweakBar
+	glfwSetScrollCallback(window, (GLFWscrollfun)TwEventMouseWheelGLFW);             // - Directly redirect GLFW mouse wheel events to AntTweakBar
+	glfwSetKeyCallback(window, (GLFWkeyfun)TwEventKeyGLFW);                         // - Directly redirect GLFW key events to AntTweakBar
+	glfwSetCharCallback(window, (GLFWcharfun)TwEventCharGLFW);                      // - Directly redirect GLFW char events to AntTweakBar
+}

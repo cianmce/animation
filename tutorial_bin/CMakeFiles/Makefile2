@@ -56,12 +56,12 @@ CMAKE_BINARY_DIR = /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0
 # Target rules for target CMakeFiles/misc05_picking_BulletPhysics.dir
 
 # All Build rule for target.
-CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletCollision/CMakeFiles/BulletCollision.dir/all
-CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletDynamics/CMakeFiles/BulletDynamics.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/CMakeFiles/GLEW_1130.dir/all
-CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/LinearMath/CMakeFiles/LinearMath.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletDynamics/CMakeFiles/BulletDynamics.dir/all
+CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletCollision/CMakeFiles/BulletCollision.dir/all
+CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/LinearMath/CMakeFiles/LinearMath.dir/all
 	$(MAKE) -f CMakeFiles/misc05_picking_BulletPhysics.dir/build.make CMakeFiles/misc05_picking_BulletPhysics.dir/depend
 	$(MAKE) -f CMakeFiles/misc05_picking_BulletPhysics.dir/build.make CMakeFiles/misc05_picking_BulletPhysics.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  66 67
@@ -494,10 +494,10 @@ clean: CMakeFiles/tutorial08_basic_shading.dir/clean
 # Target rules for target CMakeFiles/tutorial09_AssImp.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/code/CMakeFiles/assimp.dir/all
-CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/contrib/zlib/CMakeFiles/zlib.dir/all
 CMakeFiles/tutorial09_AssImp.dir/all: external/CMakeFiles/GLEW_1130.dir/all
+CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/contrib/zlib/CMakeFiles/zlib.dir/all
 CMakeFiles/tutorial09_AssImp.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/code/CMakeFiles/assimp.dir/all
 	$(MAKE) -f CMakeFiles/tutorial09_AssImp.dir/build.make CMakeFiles/tutorial09_AssImp.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial09_AssImp.dir/build.make CMakeFiles/tutorial09_AssImp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  80
