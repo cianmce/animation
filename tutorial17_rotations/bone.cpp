@@ -17,6 +17,7 @@ void Bone::init_vars()
     mOrientation = quat(vec3(0.0));
     mPos         = vec3(0.0);
     mScale       = vec3(1.0);
+    mLength      = vec3(0,0,2.0);
     parent       = NULL;
     this->threshold    = 0.5;
     this->set_lower_limit(-45);
@@ -58,9 +59,13 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
     mat4 prev_model_mat = mat4(this->ModelMatrix);
     this->ModelMatrix      = TranslationMatrix * RotationMatrix * ScalingMatrix;
 
+    TranslationMatrix = translate(mat4(), mPos+mLength);
+    this->end_effector_mat = TranslationMatrix * RotationMatrix * ScalingMatrix;
+
     if(this->parent!=NULL){
         // Has a parent
         this->ModelMatrix = this->parent->ModelMatrix * this->ModelMatrix;
+        this->end_effector_mat = this->parent->ModelMatrix * this->end_effector_mat;
 
         if(this->parent->parent!=NULL){
             vec3 direction_vec = vec3(this->ModelMatrix[2]);
@@ -71,15 +76,26 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
             vec3 cross = glm::cross(direction_vec, parent_direction_vec);
 
 
-            if(this->label=="3_Tip"){
-                std::cout<<"3_Tip - angle_to_parent: "<<angle_to_parent<<"\n";
-            }
+
 
             if( angle_to_parent < parent_angle_limit_lower || angle_to_parent > parent_angle_limit_upper ){
                 this->ModelMatrix  = mat4(prev_model_mat);
                 this->mOrientation = quat(prev_orientation);
             }
         }
+    }
+
+    if(this->label=="0_Mid"){
+        // this->ModelMatrix = glm::translate(this->ModelMatrix, vec3(0.0f, 0.1f, 0.1f));
+
+
+
+        std::cout << this->label << " - global_position: \n";
+        std::cout << glm::to_string(this->global_position());
+        std::cout << "\t";
+        std::cout << glm::to_string(this->end_effector_pos());
+        std::cout << "\n\n";
+
     }
 
     // Update all children
@@ -89,11 +105,21 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
     }
 }
 
+vec3 Bone::global_position(){
+    // return vec3(this->ModelMatrix[3][0], this->ModelMatrix[3][1], this->ModelMatrix[3][2]);
+    return vec3(this->ModelMatrix[3]);
+}
+
+vec3 Bone::end_effector_pos(){
+    return vec3(this->end_effector_mat[3]);
+}
+
+
 float Bone::signed_angle(vec3 Va, vec3 Vb)
 {
     float magnitude = acos(dot(normalize(Va), normalize(Vb)));
-    vec3 cross_prod = cross(Va, Vb);
-    if(cross_prod[2]>0){
+    vec3 axis = normalize(cross(Va, Vb));
+    if(axis[2]>0){
         magnitude = -magnitude;
     }
     return magnitude;

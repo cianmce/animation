@@ -11,6 +11,8 @@ class Bone
         void add_child(Bone *chile);
         void set_parent(Bone *parent);
         void update_by_angle(vec3 rotate_angles_deg);
+        vec3 global_position();
+        vec3 end_effector_pos();
 
         std::string label;
         std::vector<Bone*> children;
@@ -18,7 +20,9 @@ class Bone
 
         vec3 mScale;
         vec3 mPos;
+        vec3 mLength;
         quat mOrientation;
+
 
         mat4 ModelMatrix;
 
@@ -29,6 +33,7 @@ class Bone
         float threshold;
 
     private:
+        mat4 end_effector_mat;
         void init_vars();
         float signed_angle(vec3 Va, vec3 Vb);
 

@@ -16,6 +16,8 @@ class Skelton
         GLsizei indices_count;
         void render(mat4 ProjectionMatrix, mat4 ViewMatrix);
 
+        void point_to(vec3 target);
+
 
     private:
         void update_bone(Bone* bone, std::string _label, glm::vec3 angles);

@@ -48,8 +48,11 @@ quat gOrientation1;
 vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
-vec3 cameraPosition(0, 0.8, 6);
+vec3 cameraPosition(0, 1.8, 14);
 quat cameraOrientation;
+
+
+vec3 apple_position(0, 2, 2);
 
 
 bool gLookAtOther = false;
@@ -75,14 +78,17 @@ GLuint programID;
 
 GLuint TextureID;
 GLuint Texture;
+GLuint Texture_apple;
 
 GLsizei indices_count;
+GLsizei indices_count_apple;
 GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
 void init_gui();
 void init_vars();
 int init_gl();
+float distance_to();
 
 
 int main( void )
@@ -98,10 +104,19 @@ int main( void )
 
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec3> vertices_apple;
 	std::vector<glm::vec2> uvs;
+	std::vector<glm::vec2> uvs_apple;
 	std::vector<glm::vec3> normals;
+	std::vector<glm::vec3> normals_apple;
 	// bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
 	bool res = loadOBJ("Bone.obj", vertices, uvs, normals);
+	if(!res){
+        std::cout<<"Error reading obj\n\n";
+        return -1;
+	}
+
+	res = loadOBJ("apple.obj", vertices_apple, uvs_apple, normals_apple);
 	if(!res){
         std::cout<<"Error reading obj\n\n";
         return -1;
@@ -112,6 +127,7 @@ int main( void )
 	std::vector<glm::vec3> indexed_vertices;
 	std::vector<glm::vec2> indexed_uvs;
 	std::vector<glm::vec3> indexed_normals;
+
 	indexVBO(vertices, uvs, normals, indices, indexed_vertices, indexed_uvs, indexed_normals);
 
 	// Load it into a VBO
@@ -141,133 +157,85 @@ int main( void )
 	glUseProgram(programID);
 	GLuint LightID = glGetUniformLocation(programID, "LightPosition_worldspace");
 
+    indices_count = indices.size();
+
+
+
+
+
+
+	std::vector<unsigned short> indices_apple;
+	std::vector<glm::vec3> indexed_vertices_apple;
+	std::vector<glm::vec2> indexed_uvs_apple;
+	std::vector<glm::vec3> indexed_normals_apple;
+
+	indexVBO(vertices_apple, uvs_apple, normals_apple, indices_apple, indexed_vertices_apple, indexed_uvs_apple, indexed_normals_apple);
+
+	// Load it into a VBO
+
+	GLuint vertexbuffer_apple;
+	glGenBuffers(1, &vertexbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_vertices_apple.size() * sizeof(glm::vec3), &indexed_vertices_apple[0], GL_STATIC_DRAW);
+
+	GLuint uvbuffer_apple;
+	glGenBuffers(1, &uvbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_uvs_apple.size() * sizeof(glm::vec2), &indexed_uvs_apple[0], GL_STATIC_DRAW);
+
+	GLuint normalbuffer_apple;
+	glGenBuffers(1, &normalbuffer_apple);
+	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+	glBufferData(GL_ARRAY_BUFFER, indexed_normals_apple.size() * sizeof(glm::vec3), &indexed_normals_apple[0], GL_STATIC_DRAW);
+
+    // Generate a buffer for the indices as well
+	GLuint elementbuffer_apple;
+	glGenBuffers(1, &elementbuffer_apple);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_apple.size() * sizeof(unsigned short), &indices_apple[0] , GL_STATIC_DRAW);
+
+	// Get a handle for our "LightPosition" uniform
+	glUseProgram(programID);
+	GLuint LightID_apple = glGetUniformLocation(programID, "LightPosition_worldspace");
+
+    indices_count_apple = indices_apple.size();
+
+
+
+
+
+
+
+
+
 	// For speed computation
 	double lastTime = glfwGetTime();
 	double lastFrameTime = lastTime;
 	int nbFrames = 0;
 
-    indices_count = indices.size();
+
+    float bone_scale = 1.0;
+    Bone base0("0_Base");
+    base0.mPos = vec3(0,0,0);
+    base0.mScale = vec3(bone_scale);
+
+    Bone mid0("0_Mid");
+    mid0.mPos = vec3(0, 0, 2);
 
 
-    vec3 bend_angles = vec3(-15, 0, 0);
+    Bone hand0("0_Hand");
+    hand0.mPos = vec3(0, 0, 2);
 
-
-
-    Bone palm("0_palm");
-    palm.mPos = vec3(-1,0,0);
-    palm.mScale = vec3(1,1,1);
-
-
-
-
-
-
-    // Finger 1
-    Bone base1("1_Base");
-    base1.mScale = vec3(0.3,0.3,0.3);
-    base1.mPos = vec3(0.15, 0, 0.1);
-    base1.update_by_angle(vec3(0, 90, 60));
-
-    Bone mid1("1_Mid");
-    mid1.mPos = vec3(0,0,2);
-
-    Bone tip1("1_Tip");
-    tip1.mPos = vec3(0,0,2);
-
-    palm.add_child(&base1);
-    base1.add_child(&mid1);
-    mid1.add_child(&tip1);
-
-    // Finger 2
-    Bone base2("2_Base");
-    base2.mScale = vec3(0.3,0.3,0.3);
-    base2.mPos = vec3(0.15, 0, 0.7);
-    base2.update_by_angle(vec3(0, 90, 60));
-
-    Bone mid2("2_Mid");
-    mid2.mPos = vec3(0,0,2);
-
-    Bone tip2("2_Tip");
-    tip2.mPos = vec3(0,0,2);
-
-    palm.add_child(&base2);
-    base2.add_child(&mid2);
-    mid2.add_child(&tip2);
-
-    // Finger 3
-    Bone base3("3_Base");
-    base3.mScale = vec3(0.3,0.3,0.3);
-    base3.mPos = vec3(0.15, 0, 1.3);
-    base3.update_by_angle(vec3(0, 90, 60));
-
-    Bone mid3("3_Mid");
-    mid3.mPos = vec3(0,0,2);
-
-    Bone tip3("3_Tip");
-    tip3.mPos = vec3(0,0,2);
-
-    palm.add_child(&base3);
-    base3.add_child(&mid3);
-    mid3.add_child(&tip3);
-
-    // Finger 4
-    Bone base4("4_Base");
-    base4.mScale = vec3(0.3,0.3,0.3);
-    base4.mPos = vec3(0.15, 0, 1.9);
-    base4.update_by_angle(vec3(0, 90, 60));
-
-    Bone mid4("4_Mid");
-    mid4.mPos = vec3(0,0,2);
-
-    Bone tip4("4_Tip");
-    tip4.mPos = vec3(0,0,2);
-
-    palm.add_child(&base4);
-    base4.add_child(&mid4);
-    mid4.add_child(&tip4);
-
-    // Thumb 1
-    Bone base5("5_Base");
-    base5.mScale = vec3(0.25,0.25,0.25);
-    base5.mPos = vec3(-0.15, 0, 0.3);
-    base5.update_by_angle(vec3(-65, 90, 60));
-
-    Bone mid5("5_Mid");
-    mid5.mPos = vec3(0,0,2);
-
-    Bone tip5("5_Tip");
-    tip5.mPos = vec3(0,0,2);
+    mid0.add_child(&hand0);
+    base0.add_child(&mid0);
 
 
 
 
 
-
-
-
-    palm.add_child(&base5);
-    base5.add_child(&mid5);
-    mid5.add_child(&tip5);
-
-    mid1.update_by_angle(bend_angles);
-    tip1.update_by_angle(bend_angles);
-
-    mid2.update_by_angle(bend_angles);
-    tip2.update_by_angle(bend_angles);
-
-    mid3.update_by_angle(bend_angles);
-    tip3.update_by_angle(bend_angles);
-
-    mid4.update_by_angle(bend_angles);
-    tip4.update_by_angle(bend_angles);
-
-    bend_angles *= -1;
-
-    mid5.update_by_angle(bend_angles);
-    tip5.update_by_angle(bend_angles);
 
     // Make hand
-    Skelton hand_skelton = Skelton(&palm);
+    Skelton hand_skelton = Skelton(&base0);
     hand_skelton.MatrixID      = MatrixID;
     hand_skelton.ModelMatrixID = ModelMatrixID;
     hand_skelton.indices_count = indices_count;
@@ -376,6 +344,10 @@ int main( void )
         // Models
         glm::vec3 angles_model(0, 0, 0);
 
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+
+        }
+
         if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
             angles_model = vec3(0, -rotate_angle, 0);
         }
@@ -395,7 +367,12 @@ int main( void )
             angles_model = vec3(0, 0, -rotate_angle);
         }
 
-        hand_skelton.update_bone("0_palm", angles_model);
+        hand_skelton.update_bone("0_Base", angles_model);
+
+
+        std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
+
+
 
         // Base3
         angles_model = vec3(0,0,0);
@@ -473,9 +450,79 @@ int main( void )
 
 
 
-
         hand_skelton.render(ProjectionMatrix, ViewMatrix);
 
+
+        // Draw apple
+		// Use our shader
+		glUseProgram(programID);
+
+		// Bind our texture in Texture Unit 0
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture_apple);
+		// Set our "myTextureSampler" sampler to user Texture Unit 0
+		glUniform1i(TextureID, 0);
+		// 1rst attribute buffer : vertices
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+		glVertexAttribPointer(
+			vertexPosition_modelspaceID,  // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 2nd attribute buffer : UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+		glVertexAttribPointer(
+			vertexUVID,                   // The attribute we want to configure
+			2,                            // size : U+V => 2
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 3rd attribute buffer : normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+		glVertexAttribPointer(
+			vertexNormal_modelspaceID,    // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// Index buffer
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+
+        // Set light pos
+		glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+        // apple
+		glm::mat4 ModelMatrix = glm::mat4(1.0);
+		ModelMatrix = translate(ModelMatrix, apple_position);
+		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+        glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+        // draw the triangles !
+        glDrawElements(
+            GL_TRIANGLES,      // mode
+            indices_count_apple,    // count
+            GL_UNSIGNED_SHORT,   // type
+            (void*)0           // element array buffer offset
+        );
 
 
 
@@ -581,6 +628,7 @@ int init_gl(){
 
 	// Load the texture
 	Texture = loadDDS("bone.dds");
+	Texture_apple = loadDDS("apple.dds");
 
 	// Get a handle for our "myTextureSampler" uniform
 	TextureID  = glGetUniformLocation(programID, "myTextureSampler");
