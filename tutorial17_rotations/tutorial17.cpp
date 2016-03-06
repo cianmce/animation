@@ -369,6 +369,8 @@ int main( void )
 
         hand_skelton.update_bone("0_Base", angles_model);
 
+        // hand_skelton
+
 
         std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
 

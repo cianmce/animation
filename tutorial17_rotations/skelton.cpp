@@ -67,6 +67,9 @@ void Skelton::render_root_down(Bone* root, mat4 ProjectionMatrix, mat4 ViewMatri
     }
 }
 
+void Skelton::point_to(vec3 target){
+
+}
 
 
 

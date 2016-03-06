@@ -56,9 +56,9 @@ CMAKE_BINARY_DIR = /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0
 # Target rules for target CMakeFiles/misc05_picking_BulletPhysics.dir
 
 # All Build rule for target.
+CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/CMakeFiles/GLEW_1130.dir/all
-CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletDynamics/CMakeFiles/BulletDynamics.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/BulletCollision/CMakeFiles/BulletCollision.dir/all
 CMakeFiles/misc05_picking_BulletPhysics.dir/all: external/bullet-2.81-rev2613/src/LinearMath/CMakeFiles/LinearMath.dir/all
@@ -96,9 +96,9 @@ clean: CMakeFiles/misc05_picking_BulletPhysics.dir/clean
 # Target rules for target CMakeFiles/misc05_picking_custom.dir
 
 # All Build rule for target.
+CMakeFiles/misc05_picking_custom.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/misc05_picking_custom.dir/all: external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir/all
 CMakeFiles/misc05_picking_custom.dir/all: external/CMakeFiles/GLEW_1130.dir/all
-CMakeFiles/misc05_picking_custom.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 	$(MAKE) -f CMakeFiles/misc05_picking_custom.dir/build.make CMakeFiles/misc05_picking_custom.dir/depend
 	$(MAKE) -f CMakeFiles/misc05_picking_custom.dir/build.make CMakeFiles/misc05_picking_custom.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  68
@@ -133,9 +133,9 @@ clean: CMakeFiles/misc05_picking_custom.dir/clean
 # Target rules for target CMakeFiles/misc05_picking_slow_easy.dir
 
 # All Build rule for target.
+CMakeFiles/misc05_picking_slow_easy.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/misc05_picking_slow_easy.dir/all: external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir/all
 CMakeFiles/misc05_picking_slow_easy.dir/all: external/CMakeFiles/GLEW_1130.dir/all
-CMakeFiles/misc05_picking_slow_easy.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 	$(MAKE) -f CMakeFiles/misc05_picking_slow_easy.dir/build.make CMakeFiles/misc05_picking_slow_easy.dir/depend
 	$(MAKE) -f CMakeFiles/misc05_picking_slow_easy.dir/build.make CMakeFiles/misc05_picking_slow_easy.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  69
@@ -170,8 +170,8 @@ clean: CMakeFiles/misc05_picking_slow_easy.dir/clean
 # Target rules for target CMakeFiles/playground.dir
 
 # All Build rule for target.
-CMakeFiles/playground.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/playground.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/playground.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/playground.dir/build.make CMakeFiles/playground.dir/depend
 	$(MAKE) -f CMakeFiles/playground.dir/build.make CMakeFiles/playground.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles 
@@ -206,8 +206,8 @@ clean: CMakeFiles/playground.dir/clean
 # Target rules for target CMakeFiles/tutorial01_first_window.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial01_first_window.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial01_first_window.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial01_first_window.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial01_first_window.dir/build.make CMakeFiles/tutorial01_first_window.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial01_first_window.dir/build.make CMakeFiles/tutorial01_first_window.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  74
@@ -242,8 +242,8 @@ clean: CMakeFiles/tutorial01_first_window.dir/clean
 # Target rules for target CMakeFiles/tutorial02_red_triangle.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial02_red_triangle.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial02_red_triangle.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial02_red_triangle.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial02_red_triangle.dir/build.make CMakeFiles/tutorial02_red_triangle.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial02_red_triangle.dir/build.make CMakeFiles/tutorial02_red_triangle.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles 
@@ -278,8 +278,8 @@ clean: CMakeFiles/tutorial02_red_triangle.dir/clean
 # Target rules for target CMakeFiles/tutorial03_matrices.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial03_matrices.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial03_matrices.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial03_matrices.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial03_matrices.dir/build.make CMakeFiles/tutorial03_matrices.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial03_matrices.dir/build.make CMakeFiles/tutorial03_matrices.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles 
@@ -314,8 +314,8 @@ clean: CMakeFiles/tutorial03_matrices.dir/clean
 # Target rules for target CMakeFiles/tutorial04_colored_cube.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial04_colored_cube.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial04_colored_cube.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial04_colored_cube.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial04_colored_cube.dir/build.make CMakeFiles/tutorial04_colored_cube.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial04_colored_cube.dir/build.make CMakeFiles/tutorial04_colored_cube.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  75
@@ -350,8 +350,8 @@ clean: CMakeFiles/tutorial04_colored_cube.dir/clean
 # Target rules for target CMakeFiles/tutorial05_textured_cube.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial05_textured_cube.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial05_textured_cube.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial05_textured_cube.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial05_textured_cube.dir/build.make CMakeFiles/tutorial05_textured_cube.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial05_textured_cube.dir/build.make CMakeFiles/tutorial05_textured_cube.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles 
@@ -386,8 +386,8 @@ clean: CMakeFiles/tutorial05_textured_cube.dir/clean
 # Target rules for target CMakeFiles/tutorial06_keyboard_and_mouse.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial06_keyboard_and_mouse.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial06_keyboard_and_mouse.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial06_keyboard_and_mouse.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial06_keyboard_and_mouse.dir/build.make CMakeFiles/tutorial06_keyboard_and_mouse.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial06_keyboard_and_mouse.dir/build.make CMakeFiles/tutorial06_keyboard_and_mouse.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  76
@@ -422,8 +422,8 @@ clean: CMakeFiles/tutorial06_keyboard_and_mouse.dir/clean
 # Target rules for target CMakeFiles/tutorial07_model_loading.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial07_model_loading.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial07_model_loading.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial07_model_loading.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial07_model_loading.dir/build.make CMakeFiles/tutorial07_model_loading.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial07_model_loading.dir/build.make CMakeFiles/tutorial07_model_loading.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  77
@@ -458,8 +458,8 @@ clean: CMakeFiles/tutorial07_model_loading.dir/clean
 # Target rules for target CMakeFiles/tutorial08_basic_shading.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial08_basic_shading.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial08_basic_shading.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial08_basic_shading.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial08_basic_shading.dir/build.make CMakeFiles/tutorial08_basic_shading.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial08_basic_shading.dir/build.make CMakeFiles/tutorial08_basic_shading.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  78 79
@@ -494,9 +494,9 @@ clean: CMakeFiles/tutorial08_basic_shading.dir/clean
 # Target rules for target CMakeFiles/tutorial09_AssImp.dir
 
 # All Build rule for target.
+CMakeFiles/tutorial09_AssImp.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/tutorial09_AssImp.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/contrib/zlib/CMakeFiles/zlib.dir/all
-CMakeFiles/tutorial09_AssImp.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/tutorial09_AssImp.dir/all: external/assimp-3.0.1270/code/CMakeFiles/assimp.dir/all
 	$(MAKE) -f CMakeFiles/tutorial09_AssImp.dir/build.make CMakeFiles/tutorial09_AssImp.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial09_AssImp.dir/build.make CMakeFiles/tutorial09_AssImp.dir/build
@@ -532,8 +532,8 @@ clean: CMakeFiles/tutorial09_AssImp.dir/clean
 # Target rules for target CMakeFiles/tutorial09_several_objects.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial09_several_objects.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial09_several_objects.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial09_several_objects.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial09_several_objects.dir/build.make CMakeFiles/tutorial09_several_objects.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial09_several_objects.dir/build.make CMakeFiles/tutorial09_several_objects.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  81
@@ -568,8 +568,8 @@ clean: CMakeFiles/tutorial09_several_objects.dir/clean
 # Target rules for target CMakeFiles/tutorial09_vbo_indexing.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial09_vbo_indexing.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial09_vbo_indexing.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial09_vbo_indexing.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial09_vbo_indexing.dir/build.make CMakeFiles/tutorial09_vbo_indexing.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial09_vbo_indexing.dir/build.make CMakeFiles/tutorial09_vbo_indexing.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  82
@@ -604,8 +604,8 @@ clean: CMakeFiles/tutorial09_vbo_indexing.dir/clean
 # Target rules for target CMakeFiles/tutorial10_transparency.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial10_transparency.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial10_transparency.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial10_transparency.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial10_transparency.dir/build.make CMakeFiles/tutorial10_transparency.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial10_transparency.dir/build.make CMakeFiles/tutorial10_transparency.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  83 84
@@ -640,8 +640,8 @@ clean: CMakeFiles/tutorial10_transparency.dir/clean
 # Target rules for target CMakeFiles/tutorial11_2d_fonts.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial11_2d_fonts.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial11_2d_fonts.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial11_2d_fonts.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial11_2d_fonts.dir/build.make CMakeFiles/tutorial11_2d_fonts.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial11_2d_fonts.dir/build.make CMakeFiles/tutorial11_2d_fonts.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  85
@@ -676,8 +676,8 @@ clean: CMakeFiles/tutorial11_2d_fonts.dir/clean
 # Target rules for target CMakeFiles/tutorial12_extensions.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial12_extensions.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial12_extensions.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial12_extensions.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial12_extensions.dir/build.make CMakeFiles/tutorial12_extensions.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial12_extensions.dir/build.make CMakeFiles/tutorial12_extensions.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  86 87
@@ -712,8 +712,8 @@ clean: CMakeFiles/tutorial12_extensions.dir/clean
 # Target rules for target CMakeFiles/tutorial13_normal_mapping.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial13_normal_mapping.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial13_normal_mapping.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial13_normal_mapping.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial13_normal_mapping.dir/build.make CMakeFiles/tutorial13_normal_mapping.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial13_normal_mapping.dir/build.make CMakeFiles/tutorial13_normal_mapping.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  88
@@ -748,8 +748,8 @@ clean: CMakeFiles/tutorial13_normal_mapping.dir/clean
 # Target rules for target CMakeFiles/tutorial14_render_to_texture.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial14_render_to_texture.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial14_render_to_texture.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial14_render_to_texture.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial14_render_to_texture.dir/build.make CMakeFiles/tutorial14_render_to_texture.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial14_render_to_texture.dir/build.make CMakeFiles/tutorial14_render_to_texture.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  89 90
@@ -784,8 +784,8 @@ clean: CMakeFiles/tutorial14_render_to_texture.dir/clean
 # Target rules for target CMakeFiles/tutorial15_lightmaps.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial15_lightmaps.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial15_lightmaps.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial15_lightmaps.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial15_lightmaps.dir/build.make CMakeFiles/tutorial15_lightmaps.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial15_lightmaps.dir/build.make CMakeFiles/tutorial15_lightmaps.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  91
@@ -820,8 +820,8 @@ clean: CMakeFiles/tutorial15_lightmaps.dir/clean
 # Target rules for target CMakeFiles/tutorial16_shadowmaps.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial16_shadowmaps.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial16_shadowmaps.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial16_shadowmaps.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial16_shadowmaps.dir/build.make CMakeFiles/tutorial16_shadowmaps.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial16_shadowmaps.dir/build.make CMakeFiles/tutorial16_shadowmaps.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  92
@@ -856,8 +856,8 @@ clean: CMakeFiles/tutorial16_shadowmaps.dir/clean
 # Target rules for target CMakeFiles/tutorial16_shadowmaps_simple.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial16_shadowmaps_simple.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial16_shadowmaps_simple.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial16_shadowmaps_simple.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial16_shadowmaps_simple.dir/build.make CMakeFiles/tutorial16_shadowmaps_simple.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial16_shadowmaps_simple.dir/build.make CMakeFiles/tutorial16_shadowmaps_simple.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  93 94
@@ -892,9 +892,9 @@ clean: CMakeFiles/tutorial16_shadowmaps_simple.dir/clean
 # Target rules for target CMakeFiles/tutorial17_rotations.dir
 
 # All Build rule for target.
+CMakeFiles/tutorial17_rotations.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 CMakeFiles/tutorial17_rotations.dir/all: external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir/all
 CMakeFiles/tutorial17_rotations.dir/all: external/CMakeFiles/GLEW_1130.dir/all
-CMakeFiles/tutorial17_rotations.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
 	$(MAKE) -f CMakeFiles/tutorial17_rotations.dir/build.make CMakeFiles/tutorial17_rotations.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial17_rotations.dir/build.make CMakeFiles/tutorial17_rotations.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  95
@@ -929,8 +929,8 @@ clean: CMakeFiles/tutorial17_rotations.dir/clean
 # Target rules for target CMakeFiles/tutorial18_billboards.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial18_billboards.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial18_billboards.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial18_billboards.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial18_billboards.dir/build.make CMakeFiles/tutorial18_billboards.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial18_billboards.dir/build.make CMakeFiles/tutorial18_billboards.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  96
@@ -965,8 +965,8 @@ clean: CMakeFiles/tutorial18_billboards.dir/clean
 # Target rules for target CMakeFiles/tutorial18_particles.dir
 
 # All Build rule for target.
-CMakeFiles/tutorial18_particles.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/tutorial18_particles.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/tutorial18_particles.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/tutorial18_particles.dir/build.make CMakeFiles/tutorial18_particles.dir/depend
 	$(MAKE) -f CMakeFiles/tutorial18_particles.dir/build.make CMakeFiles/tutorial18_particles.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin/CMakeFiles  97
