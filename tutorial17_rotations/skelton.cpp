@@ -68,7 +68,14 @@ void Skelton::render_root_down(Bone* root, mat4 ProjectionMatrix, mat4 ViewMatri
 }
 
 void Skelton::point_to(vec3 target){
+    Bone *hand = this->root->children[0]->children[0];
+    std::cout << hand->label << ": " << glm::to_string(hand->end_effector_pos()) << " -> " << glm::to_string(target) << "\n";
+    vec3 angle_axis = degrees(hand->angle_axis_to(target));
 
+    std::cout << glm::to_string(angle_axis) << "\n";
+    if(glm::distance(hand->end_effector_pos(), target) > 0.5 ){
+        hand->update_by_angle(angle_axis);
+    }
 }
 
 

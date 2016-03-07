@@ -14,6 +14,8 @@ class Bone
         vec3 global_position();
         vec3 end_effector_pos();
 
+        vec3 angle_axis_to(vec3 target); // returns vec3 of axis with angle
+
         std::string label;
         std::vector<Bone*> children;
         Bone* parent;

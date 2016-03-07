@@ -47,9 +47,13 @@ void Bone::add_child(Bone *_child)
 void Bone::update_by_angle(vec3 rotate_angles_deg){
     quat prev_orientation = quat(this->mOrientation);
     if(rotate_angles_deg != vec3(0,0,0)){
-        quat rotation(radians(rotate_angles_deg));
+         quat rotation(radians(rotate_angles_deg));
+//        float angle   = radians(glm::length(rotate_angles_deg));
+//        vec3 axis     = glm::normalize(rotate_angles_deg);
+//        quat rotation = glm::angleAxis(angle, axis);
         this->mOrientation *= rotation;
     }
+
 
     // Convert Orientation Quat to mat4
     mat4 RotationMatrix    = toMat4(mOrientation);
@@ -59,15 +63,12 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
     mat4 prev_model_mat = mat4(this->ModelMatrix);
     this->ModelMatrix      = TranslationMatrix * RotationMatrix * ScalingMatrix;
 
-    TranslationMatrix = translate(mat4(), mPos+mLength);
-    this->end_effector_mat = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
     if(this->parent!=NULL){
         // Has a parent
         this->ModelMatrix = this->parent->ModelMatrix * this->ModelMatrix;
         this->end_effector_mat = this->parent->ModelMatrix * this->end_effector_mat;
 
-        if(this->parent->parent!=NULL){
+        if(this->parent->parent!=NULL || 1==2){
             vec3 direction_vec = vec3(this->ModelMatrix[2]);
             vec3 parent_direction_vec = vec3(this->parent->ModelMatrix[2]);
 
@@ -78,14 +79,18 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
 
 
 
-            if( angle_to_parent < parent_angle_limit_lower || angle_to_parent > parent_angle_limit_upper ){
-                this->ModelMatrix  = mat4(prev_model_mat);
-                this->mOrientation = quat(prev_orientation);
-            }
+//            if( angle_to_parent < parent_angle_limit_lower || angle_to_parent > parent_angle_limit_upper ){
+//                this->ModelMatrix  = mat4(prev_model_mat);
+//                this->mOrientation = quat(prev_orientation);
+//            }
         }
+
+        TranslationMatrix = translate(mat4(), mLength);
+        this->end_effector_mat = this->ModelMatrix * TranslationMatrix;
+
     }
 
-    if(this->label=="0_Mid"){
+    if(this->label=="0_Hand"){
         // this->ModelMatrix = glm::translate(this->ModelMatrix, vec3(0.0f, 0.1f, 0.1f));
 
 
@@ -111,9 +116,36 @@ vec3 Bone::global_position(){
 }
 
 vec3 Bone::end_effector_pos(){
-    return vec3(this->end_effector_mat[3]);
+
+    mat4 RotationMatrix    = toMat4(mOrientation);
+    mat4 TranslationMatrix = translate(mat4(), mPos);
+    mat4 ScalingMatrix     = scale(mat4(), mScale);
+    // This model
+    mat4 childModelMatrix  = TranslationMatrix * RotationMatrix * ScalingMatrix;
+
+    childModelMatrix = this->ModelMatrix * childModelMatrix;
+
+    return vec3(childModelMatrix[3]);
+    // return vec3(this->end_effector_mat[3]);
 }
 
+vec3 Bone::angle_axis_to(vec3 target){
+    vec3 to_target = this->global_position() - target;
+    to_target      = target - this->global_position();
+    vec3 to_end    = this->global_position() - this->end_effector_pos();
+    to_end         = this->end_effector_pos() - this->global_position();
+
+    float angle = -1.0*acos(dot(normalize(to_target), normalize(to_end)));
+    vec3 axis = normalize(cross(to_target, to_end));
+    vec3 angle_axis = axis * angle;
+
+    std::cout << "\n\t\tangle:\t" << angle << "\n";
+
+    if(glm::abs(angle-3.14) < 0.1 || glm::abs(angle) < 0.1){
+        angle_axis = vec3(0, 0, 0);
+    }
+    return angle_axis;
+}
 
 float Bone::signed_angle(vec3 Va, vec3 Vb)
 {

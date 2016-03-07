@@ -51,8 +51,7 @@ quat gOrientation2;
 vec3 cameraPosition(0, 1.8, 14);
 quat cameraOrientation;
 
-
-vec3 apple_position(0, 2, 2);
+vec3 apple_position(4.24264, 0, 4.24264);
 
 
 bool gLookAtOther = false;
@@ -349,16 +348,16 @@ int main( void )
         }
 
         if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-            angles_model = vec3(0, -rotate_angle, 0);
-        }
-        else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
             angles_model = vec3(0, rotate_angle, 0);
         }
+        else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
+            angles_model = vec3(0, -rotate_angle, 0);
+        }
         else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-            angles_model = vec3(rotate_angle, 0, 0);
+            angles_model = vec3(-rotate_angle, 0, 0);
         }
         else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
-            angles_model = vec3(-rotate_angle, 0, 0);
+            angles_model = vec3(rotate_angle, 0, 0);
         }
         else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
             angles_model = vec3(0, 0, rotate_angle);
@@ -367,11 +366,13 @@ int main( void )
             angles_model = vec3(0, 0, -rotate_angle);
         }
 
-        hand_skelton.update_bone("0_Base", angles_model);
+        hand_skelton.update_bone("0_Base", vec3(0.0));
+        hand_skelton.update_bone("0_Mid", angles_model);
 
-        // hand_skelton
+        hand_skelton.point_to(apple_position);
 
 
+        // apple_position = hand0.end_effector_pos();
         std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
 
 
