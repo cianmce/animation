@@ -44,13 +44,10 @@ void Bone::add_child(Bone *_child)
     children.push_back(_child);
 }
 
-void Bone::update_by_angle(vec3 rotate_angles_deg){
+void Bone::update_by_angle(vec3 rotate_angles){
     quat prev_orientation = quat(this->mOrientation);
-    if(rotate_angles_deg != vec3(0,0,0)){
-         quat rotation(radians(rotate_angles_deg));
-//        float angle   = radians(glm::length(rotate_angles_deg));
-//        vec3 axis     = glm::normalize(rotate_angles_deg);
-//        quat rotation = glm::angleAxis(angle, axis);
+    if(rotate_angles != vec3(0,0,0)){
+         quat rotation(rotate_angles);
         this->mOrientation *= rotation;
     }
 
@@ -66,41 +63,6 @@ void Bone::update_by_angle(vec3 rotate_angles_deg){
     if(this->parent!=NULL){
         // Has a parent
         this->ModelMatrix = this->parent->ModelMatrix * this->ModelMatrix;
-        this->end_effector_mat = this->parent->ModelMatrix * this->end_effector_mat;
-
-        if(this->parent->parent!=NULL || 1==2){
-            vec3 direction_vec = vec3(this->ModelMatrix[2]);
-            vec3 parent_direction_vec = vec3(this->parent->ModelMatrix[2]);
-
-            float angle_to_parent = degrees(this->signed_angle(direction_vec, parent_direction_vec));
-
-            vec3 cross = glm::cross(direction_vec, parent_direction_vec);
-
-
-
-
-//            if( angle_to_parent < parent_angle_limit_lower || angle_to_parent > parent_angle_limit_upper ){
-//                this->ModelMatrix  = mat4(prev_model_mat);
-//                this->mOrientation = quat(prev_orientation);
-//            }
-        }
-
-        TranslationMatrix = translate(mat4(), mLength);
-        this->end_effector_mat = this->ModelMatrix * TranslationMatrix;
-
-    }
-
-    if(this->label=="0_Hand"){
-        // this->ModelMatrix = glm::translate(this->ModelMatrix, vec3(0.0f, 0.1f, 0.1f));
-
-
-
-        std::cout << this->label << " - global_position: \n";
-        std::cout << glm::to_string(this->global_position());
-        std::cout << "\t";
-        std::cout << glm::to_string(this->end_effector_pos());
-        std::cout << "\n\n";
-
     }
 
     // Update all children
@@ -116,30 +78,34 @@ vec3 Bone::global_position(){
 }
 
 vec3 Bone::end_effector_pos(){
+    if(this->children.size()>0){
+        return this->children[0]->end_effector_pos();
+    }
 
     mat4 RotationMatrix    = toMat4(mOrientation);
-    mat4 TranslationMatrix = translate(mat4(), mPos);
-    mat4 ScalingMatrix     = scale(mat4(), mScale);
+    mat4 TranslationMatrix = translate(mat4(), vec3(0,0,2.0));
     // This model
-    mat4 childModelMatrix  = TranslationMatrix * RotationMatrix * ScalingMatrix;
-
+    mat4 childModelMatrix  = TranslationMatrix * RotationMatrix;
     childModelMatrix = this->ModelMatrix * childModelMatrix;
 
     return vec3(childModelMatrix[3]);
-    // return vec3(this->end_effector_mat[3]);
 }
 
 void Bone::point_to(vec3 target){
+    vec3 angle_axis = this->angle_axis_to(target);
 
-    std::cout << this->label << ": " << glm::to_string(this->end_effector_pos()) << " -> " << glm::to_string(target) << "\n";
-    vec3 angle_axis = degrees(this->angle_axis_to(target));
-
-    //angle_axis *= 0.5;
+    // angle_axis *= 0.5;
 
     std::cout << glm::to_string(angle_axis) << "\n";
     if(glm::distance(this->end_effector_pos(), target) > 0.5 ){
         this->update_by_angle(angle_axis);
     }
+    if(this->parent!=NULL){
+        this->parent->point_to(target);
+    }
+//    if(children.size()>0){
+//        this->children[0]->point_to(target);
+//    }
 }
 
 vec3 Bone::angle_axis_to(vec3 target){
@@ -153,16 +119,19 @@ vec3 Bone::angle_axis_to(vec3 target){
     vec3 axis = normalize(cross(to_target, to_end));
 
     axis = glm::mat3(glm::inverse(this->ModelMatrix)) * axis;
+    axis = normalize(axis);
 
     vec3 angle_axis = axis * angle;
 
     std::cout << "\n\t\tangle:\t" << angle << "\n";
+    std::cout << "\taxis:\t" << glm::to_string(axis) << "\n";
 
-    if(glm::abs(angle-3.14) < 0.1 || glm::abs(angle) < 0.1){
+    if(glm::abs(angle-3.14) < 0.1 || glm::abs(angle) < 0.1 || std::isnan(angle)){
         angle_axis = vec3(0, 0, 0);
     }
     return angle_axis;
 }
+
 
 float Bone::signed_angle(vec3 Va, vec3 Vb)
 {

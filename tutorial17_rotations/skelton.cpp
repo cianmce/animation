@@ -68,9 +68,9 @@ void Skelton::render_root_down(Bone* root, mat4 ProjectionMatrix, mat4 ViewMatri
 }
 
 void Skelton::point_to(vec3 target){
-//    Bone *hand = this->root->children[0]->children[0];
-    Bone *root = this->root->children[0];
-    root->point_to(target);
+    Bone *start = this->root->children[0]->children[0];
+    // Bone *start = this->root;
+    start->point_to(target);
 //
 //    Bone *hand = ->children[0];
 //    std::cout << hand->label << ": " << glm::to_string(hand->end_effector_pos()) << " -> " << glm::to_string(target) << "\n";

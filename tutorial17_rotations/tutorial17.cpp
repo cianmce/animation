@@ -322,7 +322,7 @@ int main( void )
 
 
         // Camera
-		float rotate_angle = 1.0f; // degree
+		float rotate_angle = 0.1f; // rad
 
 		glm::vec3 angles_camera(0, 0, 0);
 
@@ -366,14 +366,21 @@ int main( void )
             angles_model = vec3(0, 0, -rotate_angle);
         }
 
-        hand_skelton.update_bone("0_Base", vec3(0.0));
+        // hand_skelton.update_bone("0_Base", vec3(0.0));
+        hand_skelton.update_bone("0_Base", angles_model);
         hand_skelton.update_bone("0_Mid", angles_model);
 
-        hand_skelton.point_to(apple_position);
-
+        float dist = distance(apple_position, hand0.end_effector_pos());
+        std::cout<<"base0: "<<glm::to_string( base0.end_effector_pos() )<<"\n";
+        std::cout<<"mid0:  "<<glm::to_string(  mid0.end_effector_pos() )<<"\n";
+        std::cout<<"hand0: "<<glm::to_string( hand0.end_effector_pos() )<<"\n\n";
+        if(dist > 0.4){
+            hand_skelton.point_to(apple_position);
+        }else{
+            std::cout<<"AT IT!!!!\n\n\n";
+        }
 
         // apple_position = hand0.end_effector_pos();
-        std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
 
 
         // Apple pos

@@ -36,7 +36,6 @@ class Bone
         float threshold;
 
     private:
-        mat4 end_effector_mat;
         void init_vars();
         float signed_angle(vec3 Va, vec3 Vb);
 
