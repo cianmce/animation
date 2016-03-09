@@ -376,35 +376,27 @@ int main( void )
         std::cout<<"distance: "<<distance(apple_position, hand0.end_effector_pos())<<"\n\n";
 
 
-
-        // Base3
-        angles_model = vec3(0,0,0);
+        // Apple pos
+        float move_amount = 0.05;
         if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-			angles_model = vec3(-rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-			angles_model = vec3(rotate_angle, 0, 0);
-		}
-        //base1.update_by_angle(angles_model);
-        hand_skelton.update_bone("3_Base", angles_model);
-        // Mid2
-        angles_model = vec3(0,0,0);
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-			angles_model = vec3(-rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
-			angles_model = vec3(rotate_angle, 0, 0);
-		}
-        hand_skelton.update_bone("3_Mid", angles_model);
-        // Tip2
-        angles_model = vec3(0,0,0);
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-			angles_model = vec3(-rotate_angle, 0, 0);
-		}
-		else if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS) {
-			angles_model = vec3(rotate_angle, 0, 0);
-		}
-        hand_skelton.update_bone("3_Tip", angles_model);
+            apple_position[0] -= move_amount;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+            apple_position[0] += move_amount;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+            apple_position[2] -= move_amount;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+            apple_position[2] += move_amount;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+            apple_position[1] += move_amount;
+        }
+        else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+            apple_position[1] -= move_amount;
+        }
+
 
 
         angles_model = vec3(0,0,0);

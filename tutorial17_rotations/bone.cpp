@@ -129,6 +129,19 @@ vec3 Bone::end_effector_pos(){
     // return vec3(this->end_effector_mat[3]);
 }
 
+void Bone::point_to(vec3 target){
+
+    std::cout << this->label << ": " << glm::to_string(this->end_effector_pos()) << " -> " << glm::to_string(target) << "\n";
+    vec3 angle_axis = degrees(this->angle_axis_to(target));
+
+    //angle_axis *= 0.5;
+
+    std::cout << glm::to_string(angle_axis) << "\n";
+    if(glm::distance(this->end_effector_pos(), target) > 0.5 ){
+        this->update_by_angle(angle_axis);
+    }
+}
+
 vec3 Bone::angle_axis_to(vec3 target){
     vec3 to_target = this->global_position() - target;
     to_target      = target - this->global_position();
@@ -136,7 +149,11 @@ vec3 Bone::angle_axis_to(vec3 target){
     to_end         = this->end_effector_pos() - this->global_position();
 
     float angle = -1.0*acos(dot(normalize(to_target), normalize(to_end)));
+
     vec3 axis = normalize(cross(to_target, to_end));
+
+    axis = glm::mat3(glm::inverse(this->ModelMatrix)) * axis;
+
     vec3 angle_axis = axis * angle;
 
     std::cout << "\n\t\tangle:\t" << angle << "\n";

@@ -13,6 +13,7 @@ class Bone
         void update_by_angle(vec3 rotate_angles_deg);
         vec3 global_position();
         vec3 end_effector_pos();
+        void point_to(vec3 target);
 
         vec3 angle_axis_to(vec3 target); // returns vec3 of axis with angle
 
