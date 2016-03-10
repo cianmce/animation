@@ -48,7 +48,7 @@ quat gOrientation1;
 vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
-vec3 cameraPosition(0, 1.8, 14);
+vec3 cameraPosition(0, 3.8, 20);
 quat cameraOrientation;
 
 vec3 apple_position(4.24264, 0, 4.24264);
@@ -57,16 +57,23 @@ vec3 apple_position(4.24264, 0, 4.24264);
 bool gLookAtOther = false;
 bool third_person = true;
 
-int window_width = 1024, window_height = 768;
+//int window_width = 1024, window_height = 768;
+int window_width = 1366, window_height = 768; // laptop
+//int window_width = 1280, window_height = 1024; // monitor home
+// int window_width = 1680, window_height = 1050; // monitor college
 
 
-bool control_finger1 = false;
-bool control_finger2 = true;
-bool control_finger3 = false;
-bool control_finger4 = false;
-bool control_finger5 = false;
-bool animate_hand    = false;
 
+
+bool pause_ik      = false;
+bool animate_curve = false;
+bool animate_hit   = false;
+double start_hit_time = 0;
+double total_hit_time = 2.0;
+vec3 hit_p0 = vec3(0, 0, -5);
+vec3 hit_p1 = vec3(0, 1, 1);
+vec3 hit_p2 = vec3(0, 1, 1);
+vec3 hit_p3 = vec3(0, 0, 5);
 
 
 // GL VARS
@@ -89,6 +96,18 @@ void init_vars();
 int init_gl();
 float distance_to();
 
+
+bool use_hermite = true;
+
+// https://en.wikipedia.org/wiki/Cubic_Hermite_spline
+// bool to chose type
+vec3 curve(float t, vec3 p0, vec3 p1, vec3 p2, vec3 p3){
+    if(use_hermite){
+        return ( pow( (1-t), 3) * p0 ) + ( 3*t*pow( (1-t), 2) * p1 ) + ( 3*t*pow( (1-t), 2) * p2 ) + ( pow(t, 3) * p3 );
+    }else{
+        return ( 2*t*t*t - 3*t*t + 1)*p0 + (t*t*t - 2*t*t + t)*p1 + ( -2*t*t*t + 3*t*t )*p3 + ( t*t*t - t*t )*p2;
+    }
+}
 
 int main( void )
 {
@@ -225,6 +244,83 @@ int main( void )
     Bone hand0("0_Hand");
     hand0.mPos = vec3(0, 0, 2);
 
+
+
+    Bone finger0("0_Finger0");
+    finger0.mPos = vec3(-0.3, 0, 2);
+    finger0.mScale = vec3(0.5);
+
+    Bone finger01("0_Finger01");
+    finger01.mPos = vec3(0, 0, 2);
+    finger01.mScale = vec3(0.5);
+
+    Bone finger02("0_Finger02");
+    finger02.mPos = vec3(0.3, 0, 2);
+    finger02.mScale = vec3(0.5);
+
+    Bone finger03("0_Finger03");
+    finger03.mPos = vec3(0.6, 0, 2);
+    finger03.mScale = vec3(0.5);
+
+    // thumb
+    Bone finger04("0_Finger04");
+    finger04.mPos = vec3(0, 0.4, 2);
+    finger04.mScale = vec3(0.5);
+
+
+
+    Bone finger1("0_Finger1");
+    finger1.mPos = vec3(0, 0, 2);
+
+    Bone finger11("0_Finger11");
+    finger11.mPos = vec3(0, 0, 2);
+
+    Bone finger12("0_Finger12");
+    finger12.mPos = vec3(0, 0, 2);
+
+    Bone finger13("0_Finger13");
+    finger13.mPos = vec3(0, 0, 2);
+
+    Bone finger14("0_Finger14");
+    finger14.mPos = vec3(0, 0, 2);
+
+
+
+    Bone finger2("0_Finger2");
+    finger2.mPos = vec3(0, 0, 2);
+
+    Bone finger21("0_Finger21");
+    finger21.mPos = vec3(0, 0, 2);
+
+    Bone finger22("0_Finger22");
+    finger22.mPos = vec3(0, 0, 2);
+
+    Bone finger23("0_Finger23");
+    finger23.mPos = vec3(0, 0, 2);
+
+    Bone finger24("0_Finger24");
+    finger24.mPos = vec3(0, 0, 2);
+
+
+
+    finger1.add_child(&finger2);
+    finger11.add_child(&finger21);
+    finger12.add_child(&finger22);
+    finger13.add_child(&finger23);
+    finger14.add_child(&finger24);
+
+    finger0.add_child(&finger1);
+    finger01.add_child(&finger11);
+    finger02.add_child(&finger12);
+    finger03.add_child(&finger13);
+    finger04.add_child(&finger14);
+
+    hand0.add_child(&finger0);
+    hand0.add_child(&finger01);
+    hand0.add_child(&finger02);
+    hand0.add_child(&finger03);
+    hand0.add_child(&finger04);
+
     mid0.add_child(&hand0);
     base0.add_child(&mid0);
 
@@ -322,7 +418,7 @@ int main( void )
 
 
         // Camera
-		float rotate_angle = 0.1f; // rad
+		float rotate_angle = 0.01f; // rad
 
 		glm::vec3 angles_camera(0, 0, 0);
 
@@ -343,45 +439,74 @@ int main( void )
         // Models
         glm::vec3 angles_model(0, 0, 0);
 
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-
-        }
-
-        if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS) {
-            angles_model = vec3(0, rotate_angle, 0);
-        }
-        else if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
-            angles_model = vec3(0, -rotate_angle, 0);
-        }
-        else if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
+        if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
             angles_model = vec3(-rotate_angle, 0, 0);
         }
         else if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
             angles_model = vec3(rotate_angle, 0, 0);
         }
-        else if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-            angles_model = vec3(0, 0, rotate_angle);
+
+
+        hand_skelton.update_bone("0_Finger04", angles_model);
+        hand_skelton.update_bone("0_Finger14", 2.0f*angles_model);
+        hand_skelton.update_bone("0_Finger24", 3.0f*angles_model);
+
+
+
+        if(!pause_ik){
+
+            vec3 apple_height = vec3(0,0.4,0);
+            vec3 target_position = apple_position + apple_height;
+
+            if(animate_curve){
+
+                float animation_time = 10.0;
+                float t = glm::mod( (float)currentTime, animation_time ) / (animation_time * 0.5);
+
+                if(t>=1){
+                    t = 2.0 - t;
+                    std::cout << " > 2: "<< t <<"\n";
+                }
+                std::cout << "\ncurrentTime: "<< t <<"\n";
+
+                target_position = curve( t, vec3(8,4,12), vec3(2,2,2), vec3(2,2,2), vec3(-8,-4,12) );
+                apple_position = target_position - apple_height;
+
+            }
+
+            float dist = distance(target_position, hand0.end_effector_pos());
+
+            if(dist <= 0.1 && animate_hit){ // at itstart_hit_time
+                // hit goes from target.z -= 2 -> target.z += 2
+                if(start_hit_time < 1){
+                    // 1st time running
+                    std::cout<<"\n\n\1st time!!\n\n\n";
+                    system("mpg123 /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/audio/lightsaber_01.wav");
+                    start_hit_time = currentTime;
+                }
+                float t = currentTime - start_hit_time;
+
+                t /= total_hit_time;
+                target_position = curve( t, target_position, hit_p1, hit_p2, target_position );
+                std::cout<<"HITTING \t "<<t<< "\t" << glm::to_string(target_position) << "\n";
+
+                if( currentTime - start_hit_time > total_hit_time){
+                    std::cout<<"Done hitting\n";
+                    animate_hit = false;
+                    start_hit_time = 0;
+                }
+            }
+
+            std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
+
+
+            if(dist > 0.01 || animate_hit){
+                hand_skelton.point_to(target_position);
+            }else{
+                std::cout<<"AT IT!!!!\n\n\n";
+            }
+
         }
-        else if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-            angles_model = vec3(0, 0, -rotate_angle);
-        }
-
-        // hand_skelton.update_bone("0_Base", vec3(0.0));
-        hand_skelton.update_bone("0_Base", angles_model);
-        hand_skelton.update_bone("0_Mid", angles_model);
-
-        float dist = distance(apple_position, hand0.end_effector_pos());
-        std::cout<<"base0: "<<glm::to_string( base0.end_effector_pos() )<<"\n";
-        std::cout<<"mid0:  "<<glm::to_string(  mid0.end_effector_pos() )<<"\n";
-        std::cout<<"hand0: "<<glm::to_string( hand0.end_effector_pos() )<<"\n\n";
-        if(dist > 0.4){
-            hand_skelton.point_to(apple_position);
-        }else{
-            std::cout<<"AT IT!!!!\n\n\n";
-        }
-
-        // apple_position = hand0.end_effector_pos();
-
 
         // Apple pos
         float move_amount = 0.05;
@@ -412,42 +537,6 @@ int main( void )
 		}
 		else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
 			angles_model = vec3(rotate_angle, 0, 0);
-		}
-
-
-		if(animate_hand){
-            float animate_amount = sin(currentTime);
-            animate_amount *= 0.3;
-
-            angles_model = vec3(animate_amount, 0, 0);
-		}
-
-
-		if(control_finger1){
-            hand_skelton.update_bone("1_Base", angles_model);
-            hand_skelton.update_bone("1_Mid", angles_model);
-            hand_skelton.update_bone("1_Tip", angles_model);
-		}
-		if(control_finger2){
-            hand_skelton.update_bone("2_Base", angles_model);
-            hand_skelton.update_bone("2_Mid", angles_model);
-            hand_skelton.update_bone("2_Tip", angles_model);
-		}
-		if(control_finger3){
-            hand_skelton.update_bone("3_Base", angles_model);
-            hand_skelton.update_bone("3_Mid", angles_model);
-            hand_skelton.update_bone("3_Tip", angles_model);
-		}
-		if(control_finger4){
-            hand_skelton.update_bone("4_Base", angles_model);
-            hand_skelton.update_bone("4_Mid", angles_model);
-            hand_skelton.update_bone("4_Tip", angles_model);
-		}
-		if(control_finger5){
-            // Thumb
-            hand_skelton.update_bone("5_Base", -angles_model);
-            hand_skelton.update_bone("5_Mid", -angles_model);
-            hand_skelton.update_bone("5_Tip", -angles_model);
 		}
 
 
@@ -576,7 +665,12 @@ int init_gl(){
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(window_width, window_height, "Cian - Rotations", NULL, NULL);
+//	window = glfwCreateWindow(640, 480, "Cian - Bones", glfwGetPrimaryMonitor(), NULL);
+	window = glfwCreateWindow(window_width, window_height, "Cian - Bones", NULL, NULL);
+
+
+
+
 	if( window == NULL ){
 		fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" );
 		getchar();
@@ -602,7 +696,7 @@ int init_gl(){
 
     // Set the mouse at the center of the screen
     glfwPollEvents();
-    glfwSetCursorPos(window, 1024/2, 768/2);
+    glfwSetCursorPos(window, window_width/2, window_height/2);
 
 	// Dark blue background
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
@@ -649,31 +743,27 @@ void init_gui(){
 
 	// Initialize the GUI
 	TwInit(TW_OPENGL_CORE, NULL);
-	TwWindowSize(1024, 768);
-//	TwBar * EulerGUI = TwNewBar("Euler Obj #1");
-	TwBar * HandGUI = TwNewBar("Hand Movements");
-	TwBar * CameraGUI = TwNewBar("Camera Quat settings");
+	TwWindowSize(window_width, window_height);
 
+	TwBar * ToolGUI = TwNewBar("Tools");
+	// TwBar * CameraGUI = TwNewBar("Camera settings");
 
-	//Hand GUI
-	TwSetParam(HandGUI, NULL, "position", TW_PARAM_CSTRING, 1, "808 16");
-    TwAddVarRW(HandGUI, "Index Finger", TW_TYPE_BOOL8, &control_finger1, "help='Toggle 3rd Person'");
-    TwAddVarRW(HandGUI, "Middle Finger", TW_TYPE_BOOL8, &control_finger2, "help='Toggle 3rd Person'");
-    TwAddVarRW(HandGUI, "Rign Finger", TW_TYPE_BOOL8, &control_finger3, "help='Toggle 3rd Person'");
-    TwAddVarRW(HandGUI, "Baby Finger", TW_TYPE_BOOL8, &control_finger4, "help='Toggle 3rd Person'");
-    TwAddVarRW(HandGUI, "Thumb", TW_TYPE_BOOL8, &control_finger5, "help='Toggle 3rd Person'");
+    // Tools
+	TwAddVarRW(ToolGUI, "Animate Curve", TW_TYPE_BOOL8, &animate_curve, "help='Play Animation'");
+	TwAddVarRW(ToolGUI, "Use Hermite", TW_TYPE_BOOL8, &use_hermite, "help='Use hermite curves instead of Bezier'");
+	TwAddVarRW(ToolGUI, "Animate Hit", TW_TYPE_BOOL8, &animate_hit, "help='Play Animation when at target'");
+	TwAddVarRW(ToolGUI, "Pause IK", TW_TYPE_BOOL8, &pause_ik, "help='Pause IK'");
 
-	TwAddSeparator(HandGUI, "sep1", NULL);
-    TwAddVarRW(HandGUI, "Animate", TW_TYPE_BOOL8, &animate_hand, "help='Toggle 3rd Person'");
+    TwAddSeparator(ToolGUI, "sep1", NULL);
 
 
     // Camera
-	TwAddVarRW(CameraGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
-	TwAddVarRW(CameraGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
+	TwAddVarRW(ToolGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
+	TwAddVarRW(ToolGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
+	TwAddVarRW(ToolGUI, "Position X", TW_TYPE_FLOAT, &cameraPosition.x, "step=0.1");
+	TwAddVarRW(ToolGUI, "Position Y", TW_TYPE_FLOAT, &cameraPosition.y, "step=0.1");
+	TwAddVarRW(ToolGUI, "Position Z", TW_TYPE_FLOAT, &cameraPosition.z, "step=0.1");
 
-
-
-	// TwAddVarRW(QuaternionGUI, "Use LookAt", TW_TYPE_BOOL8 , &gLookAtOther, "help='Look at the other monkey ?'");
 
 	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
 	glfwSetMouseButtonCallback(window, (GLFWmousebuttonfun)TwEventMouseButtonGLFW); // - Directly redirect GLFW mouse button events to AntTweakBar

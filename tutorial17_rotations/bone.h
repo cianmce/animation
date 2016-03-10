@@ -16,6 +16,7 @@ class Bone
         void point_to(vec3 target);
 
         vec3 angle_axis_to(vec3 target); // returns vec3 of axis with angle
+        vec3 angle_to_parent(); // returns vec3 of axis with angle between parent
 
         std::string label;
         std::vector<Bone*> children;
@@ -25,6 +26,7 @@ class Bone
         vec3 mPos;
         vec3 mLength;
         quat mOrientation;
+
 
 
         mat4 ModelMatrix;
