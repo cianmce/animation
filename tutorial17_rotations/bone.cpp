@@ -19,18 +19,17 @@ void Bone::init_vars()
     mScale       = vec3(1.0);
     mLength      = vec3(0,0,2.0) * mScale;
     parent       = NULL;
-    this->threshold    = 0.5;
-    this->set_lower_limit(-20);
-    this->set_upper_limit(80);
+    this->set_lower_limit(-15);
+    this->set_upper_limit(70);
 }
 
 void Bone::set_lower_limit(float limit)
 {
-    this->parent_angle_limit_lower = limit - this->threshold;
+    this->parent_angle_limit_lower = limit;
 }
 void Bone::set_upper_limit(float limit)
 {
-    this->parent_angle_limit_upper = limit + this->threshold;
+    this->parent_angle_limit_upper = limit;
 }
 
 void Bone::set_parent(Bone *_parent)

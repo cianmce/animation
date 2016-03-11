@@ -48,7 +48,7 @@ quat gOrientation1;
 vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
-vec3 cameraPosition(0, 3.8, 20);
+vec3 cameraPosition(0, 12.8, 25);
 quat cameraOrientation;
 
 vec3 apple_position(4.24264, 0, 4.24264);
@@ -57,23 +57,102 @@ vec3 apple_position(4.24264, 0, 4.24264);
 bool gLookAtOther = false;
 bool third_person = true;
 
-//int window_width = 1024, window_height = 768;
-int window_width = 1366, window_height = 768; // laptop
-//int window_width = 1280, window_height = 1024; // monitor home
-// int window_width = 1680, window_height = 1050; // monitor college
+// int window_width = 1024, window_height = 768;
+ int window_width = 1366, window_height = 768; // laptop
+// int window_width = 1280, window_height = 1024; // monitor home
+//int window_width = 1680, window_height = 1050; // monitor college
 
 
 
-
-bool pause_ik      = false;
-bool animate_curve = false;
-bool animate_hit   = false;
+int animation_number  = 0;
+bool pause_ik         = false;
+bool animate_curve    = false;
+bool animate_hit      = false;
 double start_hit_time = 0;
 double total_hit_time = 2.0;
 vec3 hit_p0 = vec3(0, 0, -5);
 vec3 hit_p1 = vec3(0, 1, 1);
 vec3 hit_p2 = vec3(0, 1, 1);
 vec3 hit_p3 = vec3(0, 0, 5);
+
+
+
+float animation_section_time = 5.0f; // seconds
+std::vector< std::vector<glm::vec3> > animations;
+
+
+
+void init_animinations(){
+    std::vector<glm::vec3> animation0;
+    std::vector<glm::vec3> animation1;
+    std::vector<glm::vec3> animation2;
+
+    float dist = 3;
+    // 0
+    animation0.push_back(vec3(dist,-12,dist)); // p0
+    animation0.push_back(vec3(0,-2,0)); // p1
+    animation0.push_back(vec3(0,0,0)); // p2
+    animation0.push_back(vec3(dist,4,-dist)); // p3
+
+
+    animation0.push_back(vec3(dist,4,-dist)); // p0
+    animation0.push_back(vec3(0,6,0)); // p1
+    animation0.push_back(vec3(0,8,0)); // p2
+    animation0.push_back(vec3(-dist,12,-dist)); // p3
+
+
+    animation0.push_back(vec3(-dist,12,-dist)); // p0
+    animation0.push_back(vec3(0,8,0)); // p1
+    animation0.push_back(vec3(0,6,0)); // p2
+    animation0.push_back(vec3(-dist,4,dist)); // p3
+
+
+    animation0.push_back(vec3(-dist,4,dist)); // p0
+    animation0.push_back(vec3(0,0,0)); // p1
+    animation0.push_back(vec3(0,0,0)); // p2
+    animation0.push_back(vec3(dist,-12,dist)); // p3
+
+
+    // 1
+    animation1.push_back(vec3(0,10,8));  // p0
+    animation1.push_back(vec3(0,-2,7));  // p1
+    animation1.push_back(vec3(0, 2,7));  // p2
+    animation1.push_back(vec3(0,-10,8)); // p3
+
+    animation1.push_back(vec3(0,-10,8)); // p0
+    animation1.push_back(vec3(0, 2,7));  // p1
+    animation1.push_back(vec3(0,-2,7));  // p2
+    animation1.push_back(vec3(0,10,8));  // p3
+
+
+    // 2
+    animation2.push_back(vec3(6,10,6));  // p0
+    animation2.push_back(vec3(6,10,5));  // p1
+    animation2.push_back(vec3(6,10,-5)); // p2
+    animation2.push_back(vec3(6,10,-6)); // p3
+
+    animation2.push_back(vec3(6,10,-6)); // p0
+    animation2.push_back(vec3(6,4,-2));  // p1
+    animation2.push_back(vec3(6,-3,-1));  // p2
+    animation2.push_back(vec3(6,-5,0));   // p3
+
+    animation2.push_back(vec3(6,-5,0));   // p0
+    animation2.push_back(vec3(6,3,4));  // p1
+    animation2.push_back(vec3(6,9,5));  // p2
+    animation2.push_back(vec3(6,10,6));  // p3
+
+
+
+
+
+    animations.push_back(animation0);
+    animations.push_back(animation1);
+    animations.push_back(animation2);
+
+
+
+}
+
 
 
 // GL VARS
@@ -97,7 +176,7 @@ int init_gl();
 float distance_to();
 
 
-bool use_hermite = true;
+bool use_hermite = false;
 
 // https://en.wikipedia.org/wiki/Cubic_Hermite_spline
 // bool to chose type
@@ -105,13 +184,17 @@ vec3 curve(float t, vec3 p0, vec3 p1, vec3 p2, vec3 p3){
     if(use_hermite){
         return ( pow( (1-t), 3) * p0 ) + ( 3*t*pow( (1-t), 2) * p1 ) + ( 3*t*pow( (1-t), 2) * p2 ) + ( pow(t, 3) * p3 );
     }else{
+        std::cout<<"input: " << t <<" \n"<< glm::to_string(p0) << "\n"<< glm::to_string(p1) << "\n"<< glm::to_string(p2) << "\n"<< glm::to_string(p3) << "\n";
+        // return ( pow( (1-t), 2) * p0 ) + ( 2 * t * (1-t) * p1 ) + ( pow(t, 2) * p3 );
         return ( 2*t*t*t - 3*t*t + 1)*p0 + (t*t*t - 2*t*t + t)*p1 + ( -2*t*t*t + 3*t*t )*p3 + ( t*t*t - t*t )*p2;
     }
 }
 
+
 int main( void )
 {
 	init_vars();
+	init_animinations();
 	printf("Starting...\n");
 
     int r = init_gl();
@@ -452,31 +535,60 @@ int main( void )
         hand_skelton.update_bone("0_Finger24", 3.0f*angles_model);
 
 
+        vec3 apple_height = vec3(0,0.4,0);
+        vec3 target_position = apple_position + apple_height;
+
+        if(animate_curve){
+
+            animation_number = animation_number % animations.size();
+            std::vector<glm::vec3> animation = animations[animation_number];
+
+
+            float animation_count = animation.size() / 4.0f; // 4 per curve
+
+            // Total animation time
+            float animation_time = animation_section_time * animation_count;
+            std::cout << "\n\nanimation_time: "<<animation_time<<"\n";
+            float t = glm::mod( (float)currentTime, animation_time ) / (animation_time / animation_count);
+            std::cout << "currentTime: "<< t <<"\n";
+            int animation_index = t;
+            animation_index *= 4; // start index
+            std::cout << "animation_index: "<< animation_index <<"\n";
+
+            t = glm::mod(t, 1.0f);
+            std::cout << "fraction: "<< t <<"\n";
+
+            target_position = curve( t,
+                                    animation[animation_index],
+                                    animation[animation_index+1],
+                                    animation[animation_index+2],
+                                    animation[animation_index+3]);
+
+
+            std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
+
+
+
+//            reverse
+//            if(t>=1){
+//                t = 2.0 - t;
+//                std::cout << " > 2: "<< t <<"\n";
+//            }
+//
+//            target_position = curve( t, vec3(8,4,8), vec3(2,2,2), vec3(2,2,2), vec3(-8,-4,8) );
+//
+
+
+            apple_position = target_position - apple_height;
+
+        }
+
 
         if(!pause_ik){
 
-            vec3 apple_height = vec3(0,0.4,0);
-            vec3 target_position = apple_position + apple_height;
-
-            if(animate_curve){
-
-                float animation_time = 10.0;
-                float t = glm::mod( (float)currentTime, animation_time ) / (animation_time * 0.5);
-
-                if(t>=1){
-                    t = 2.0 - t;
-                    std::cout << " > 2: "<< t <<"\n";
-                }
-                std::cout << "\ncurrentTime: "<< t <<"\n";
-
-                target_position = curve( t, vec3(8,4,12), vec3(2,2,2), vec3(2,2,2), vec3(-8,-4,12) );
-                apple_position = target_position - apple_height;
-
-            }
-
             float dist = distance(target_position, hand0.end_effector_pos());
 
-            if(dist <= 0.1 && animate_hit){ // at itstart_hit_time
+            if(dist <= 0.01 && animate_hit){ // at itstart_hit_time
                 // hit goes from target.z -= 2 -> target.z += 2
                 if(start_hit_time < 1){
                     // 1st time running
@@ -487,9 +599,7 @@ int main( void )
                 float t = currentTime - start_hit_time;
 
                 t /= total_hit_time;
-                target_position = curve( t, target_position, hit_p1, hit_p2, target_position );
-                std::cout<<"HITTING \t "<<t<< "\t" << glm::to_string(target_position) << "\n";
-
+                // target_position = curve( t, target_position, hit_p1, hit_p2, target_position );
                 if( currentTime - start_hit_time > total_hit_time){
                     std::cout<<"Done hitting\n";
                     animate_hit = false;
@@ -497,7 +607,7 @@ int main( void )
                 }
             }
 
-            std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
+//            std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
 
 
             if(dist > 0.01 || animate_hit){
@@ -746,12 +856,14 @@ void init_gui(){
 	TwWindowSize(window_width, window_height);
 
 	TwBar * ToolGUI = TwNewBar("Tools");
+	TwDefine("Tools size='220 360' position='10 10' ");
 	// TwBar * CameraGUI = TwNewBar("Camera settings");
 
     // Tools
 	TwAddVarRW(ToolGUI, "Animate Curve", TW_TYPE_BOOL8, &animate_curve, "help='Play Animation'");
 	TwAddVarRW(ToolGUI, "Use Hermite", TW_TYPE_BOOL8, &use_hermite, "help='Use hermite curves instead of Bezier'");
-	TwAddVarRW(ToolGUI, "Animate Hit", TW_TYPE_BOOL8, &animate_hit, "help='Play Animation when at target'");
+	TwAddVarRW(ToolGUI, "Animation Type", TW_TYPE_INT8, &animation_number, " min=0 max=4");
+	TwAddVarRW(ToolGUI, "Audio Hits", TW_TYPE_BOOL8, &animate_hit, "help='Play Animation when at target'");
 	TwAddVarRW(ToolGUI, "Pause IK", TW_TYPE_BOOL8, &pause_ik, "help='Pause IK'");
 
     TwAddSeparator(ToolGUI, "sep1", NULL);
