@@ -52,6 +52,7 @@ vec3 cameraPosition(0, 12.8, 25);
 quat cameraOrientation;
 
 vec3 apple_position(4.24264, 0, 4.24264);
+vec3 rope_position = vec3(1.0);
 
 
 bool gLookAtOther = false;
@@ -65,7 +66,7 @@ bool third_person = true;
 
 
 int animation_number  = 0;
-bool pause_ik         = false;
+bool pause_ik         = true;
 bool animate_curve    = false;
 bool animate_hit      = false;
 double start_hit_time = 0;
@@ -81,6 +82,11 @@ float animation_section_time = 5.0f; // seconds
 std::vector< std::vector<glm::vec3> > animations;
 
 
+// Link files
+/*
+ln -s /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/*.dds /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin
+ln -s /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/*.obj /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial_bin
+*/
 
 void init_animinations(){
     std::vector<glm::vec3> animation0;
@@ -164,9 +170,11 @@ GLuint programID;
 GLuint TextureID;
 GLuint Texture;
 GLuint Texture_apple;
+GLuint Texture_rope;
 
 GLsizei indices_count;
 GLsizei indices_count_apple;
+GLsizei indices_count_rope;
 GLuint MatrixID, ModelMatrixID, ViewMatrixID;
 
 
@@ -206,20 +214,29 @@ int main( void )
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec3> vertices_apple;
+	std::vector<glm::vec3> vertices_rope;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec2> uvs_apple;
+	std::vector<glm::vec2> uvs_rope;
 	std::vector<glm::vec3> normals;
 	std::vector<glm::vec3> normals_apple;
+	std::vector<glm::vec3> normals_rope;
 	// bool res = loadOBJ("dolphin90.obj", vertices, uvs, normals);
 	bool res = loadOBJ("Bone.obj", vertices, uvs, normals);
 	if(!res){
-        std::cout<<"Error reading obj\n\n";
+        std::cout<<"Error reading bone obj\n\n";
         return -1;
 	}
 
 	res = loadOBJ("apple.obj", vertices_apple, uvs_apple, normals_apple);
 	if(!res){
-        std::cout<<"Error reading obj\n\n";
+        std::cout<<"Error reading apple obj\n\n";
+        return -1;
+	}
+
+	res = loadOBJ("rope.obj", vertices_rope, uvs_rope, normals_rope);
+	if(!res){
+        std::cout<<"Error reading rope obj\n\n";
         return -1;
 	}
 
@@ -300,6 +317,48 @@ int main( void )
 	GLuint LightID_apple = glGetUniformLocation(programID, "LightPosition_worldspace");
 
     indices_count_apple = indices_apple.size();
+
+
+
+
+
+
+
+	std::vector<unsigned short> indices_rope;
+	std::vector<glm::vec3> indexed_vertices_rope;
+	std::vector<glm::vec2> indexed_uvs_rope;
+	std::vector<glm::vec3> indexed_normals_rope;
+
+	indexVBO(vertices_rope, uvs_rope, normals_rope, indices_rope, indexed_vertices_rope, indexed_uvs_rope, indexed_normals_rope);
+
+	// Load it into a VBO
+
+	GLuint vertexbuffer_rope;
+	glGenBuffers(1, &vertexbuffer_rope);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_rope);
+	glBufferData(GL_ARRAY_BUFFER, indexed_vertices_rope.size() * sizeof(glm::vec3), &indexed_vertices_rope[0], GL_STATIC_DRAW);
+
+	GLuint uvbuffer_rope;
+	glGenBuffers(1, &uvbuffer_rope);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_rope);
+	glBufferData(GL_ARRAY_BUFFER, indexed_uvs_rope.size() * sizeof(glm::vec2), &indexed_uvs_rope[0], GL_STATIC_DRAW);
+
+	GLuint normalbuffer_rope;
+	glGenBuffers(1, &normalbuffer_rope);
+	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_rope);
+	glBufferData(GL_ARRAY_BUFFER, indexed_normals_rope.size() * sizeof(glm::vec3), &indexed_normals_rope[0], GL_STATIC_DRAW);
+
+    // Generate a buffer for the indices as well
+	GLuint elementbuffer_rope;
+	glGenBuffers(1, &elementbuffer_rope);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_rope);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_rope.size() * sizeof(unsigned short), &indices_rope[0] , GL_STATIC_DRAW);
+
+	// Get a handle for our "LightPosition" uniform
+	glUseProgram(programID);
+	GLuint LightID_rope = glGetUniformLocation(programID, "LightPosition_worldspace");
+
+    indices_count_rope = indices_rope.size();
 
 
 
@@ -584,39 +643,21 @@ int main( void )
         }
 
 
-        if(!pause_ik){
-
-            float dist = distance(target_position, hand0.end_effector_pos());
-
-            if(dist <= 0.01 && animate_hit){ // at itstart_hit_time
-                // hit goes from target.z -= 2 -> target.z += 2
-                if(start_hit_time < 1){
-                    // 1st time running
-                    std::cout<<"\n\n\1st time!!\n\n\n";
-                    system("mpg123 /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutorial17_rotations/audio/lightsaber_01.wav");
-                    start_hit_time = currentTime;
-                }
-                float t = currentTime - start_hit_time;
-
-                t /= total_hit_time;
-                // target_position = curve( t, target_position, hit_p1, hit_p2, target_position );
-                if( currentTime - start_hit_time > total_hit_time){
-                    std::cout<<"Done hitting\n";
-                    animate_hit = false;
-                    start_hit_time = 0;
-                }
-            }
-
-//            std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
-
-
-            if(dist > 0.01 || animate_hit){
-                hand_skelton.point_to(target_position);
-            }else{
-                std::cout<<"AT IT!!!!\n\n\n";
-            }
+        if(pause_ik){
+            target_position = hand0.end_effector_pos();
+        }else{
 
         }
+
+        float dist = distance(target_position, hand0.end_effector_pos());
+
+        if(dist > 0.01){
+            hand_skelton.point_to(target_position);
+        }else{
+            std::cout<<"AT IT!!!!\n\n\n";
+        }
+
+
 
         // Apple pos
         float move_amount = 0.05;
@@ -675,6 +716,7 @@ int main( void )
 			(void*)0                      // array buffer offset
 		);
 
+
 		// 2nd attribute buffer : UVs
 		glEnableVertexAttribArray(1);
 		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
@@ -703,7 +745,7 @@ int main( void )
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
 
         // Set light pos
-		glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+		// glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
 
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 
@@ -724,6 +766,106 @@ int main( void )
             GL_UNSIGNED_SHORT,   // type
             (void*)0           // element array buffer offset
         );
+
+
+
+
+
+
+
+
+
+
+        // Draw rope
+        // Use our shader
+		glUseProgram(programID);
+
+		// Bind our texture in Texture Unit 0
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture_rope);
+		// Set our "myTextureSampler" sampler to user Texture Unit 0
+		glUniform1i(TextureID, 0);
+		// 1rst attribute buffer : vertices
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_rope);
+		glVertexAttribPointer(
+			vertexPosition_modelspaceID,  // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+
+		// 2nd attribute buffer : UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_rope);
+		glVertexAttribPointer(
+			vertexUVID,                   // The attribute we want to configure
+			2,                            // size : U+V => 2
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 3rd attribute buffer : normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_rope);
+		glVertexAttribPointer(
+			vertexNormal_modelspaceID,    // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// Index buffer
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_rope);
+
+        // Set light pos
+		// glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+        // rope
+		ModelMatrix = glm::mat4(1.0);
+		rope_position = apple_position + vec3(0.075, 0.5, 0);
+		ModelMatrix = translate(ModelMatrix, rope_position) * scale(mat4(), vec3(0.15, 5, 0.15));
+
+		MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+        glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+        // draw the triangles !
+        glDrawElements(
+            GL_TRIANGLES,      // mode
+            indices_count_rope,    // count
+            GL_UNSIGNED_SHORT,   // type
+            (void*)0           // element array buffer offset
+        );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -835,6 +977,7 @@ int init_gl(){
 	// Load the texture
 	Texture = loadDDS("bone.dds");
 	Texture_apple = loadDDS("apple.dds");
+	Texture_rope = loadDDS("rope.dds");
 
 	// Get a handle for our "myTextureSampler" uniform
 	TextureID  = glGetUniformLocation(programID, "myTextureSampler");
