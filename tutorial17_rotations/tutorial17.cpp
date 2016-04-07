@@ -688,7 +688,7 @@ int main( void )
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
 
         // Set light pos
-		glm::vec3 lightPos = glm::vec3(4,5,5);
+		glm::vec3 lightPos = glm::vec3(4,4,5);
 		glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
 
@@ -993,6 +993,147 @@ int main( void )
 
 
 
+         if(done){
+            std::cout<<"\nDONE\n";
+            for(int i=0; i<apples.size(); i++){
+                if(!apples[i].stopped){
+                    float apple_velocity_none_zero = (apples[i].velocity_y==0.0?0.001:apples[i].velocity_y);
+                    float Fy = -0.5 * Cd * apple_area * rho * apples[i].velocity_y*apples[i].velocity_y*apples[i].velocity_y / glm::abs(apple_velocity_none_zero);
+                    if(!Fy == Fy){
+                        Fy = 0;
+                    }
+                    std::cout<<"#"<<i<<" vel:"<<apples[i].velocity_y<<"\ty:"<<apples[i].y<<"\n";
+                    float accy = -gravity + Fy / apple_mass;
+                    // Apple is falling
+                    apples[i].velocity_y += accy * deltaTime;
+                    apples[i].y += apples[i].velocity_y * deltaTime;
+                    float dist_to_floor = apples[i].y - floor_position.y;
+                    // Check ground
+                    if (dist_to_floor <= 0){
+                        if(glm::abs(apples[i].velocity_y) < 1.7){
+                            apples[i].stopped = true;
+                        }
+                        apples[i].velocity_y *= -1.0 * coefficient_of_restitution;
+                        apples[i].y = floor_position.y+0.01;
+                    }
+
+
+
+
+
+                    if(( dist_to_floor < 2 ) && dist_to_floor>0.1){
+                        // Squash
+                        apples[i].scale.y = dist_to_floor/2;
+                        if(apples[i].scale.y < 0.2){
+                            apples[i].scale.y = 0.2;
+                        }
+                        apples[i].scale.x = 2 - (dist_to_floor/2);
+                        apples[i].scale.z = 2 - (dist_to_floor/2);
+                    }
+                    //std::cout<<"apple_velocity: "<<apple_velocity<<" Dist: "<<dist_to_floor<<"\n";
+
+                    if(2<dist_to_floor && dist_to_floor<20){
+                        // stretch
+                        float a = -0.012345679;
+                        float b =  0.271604938;
+                        float c =  0.506172839;
+                        apples[i].scale.y = (a*dist_to_floor*dist_to_floor) + b*dist_to_floor + c;
+                    }
+                }else{
+                    apples[i].scale = vec3(1,1,1);
+                }
+                // Draw apple
+
+
+//                // Draw apple
+//                // Use our shader
+//                glUseProgram(programID);
+//
+//                // Bind our texture in Texture Unit 0
+//                glActiveTexture(GL_TEXTURE0);
+//                glBindTexture(GL_TEXTURE_2D, Texture_apple);
+//                // Set our "myTextureSampler" sampler to user Texture Unit 0
+//                glUniform1i(TextureID, 0);
+//                // 1rst attribute buffer : vertices
+//                glEnableVertexAttribArray(0);
+//                glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+//                glVertexAttribPointer(
+//                    vertexPosition_modelspaceID,  // The attribute we want to configure
+//                    3,                            // size
+//                    GL_FLOAT,                     // type
+//                    GL_FALSE,                     // normalized?
+//                    0,                            // stride
+//                    (void*)0                      // array buffer offset
+//                );
+//
+//
+//                // 2nd attribute buffer : UVs
+//                glEnableVertexAttribArray(1);
+//                glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+//                glVertexAttribPointer(
+//                    vertexUVID,                   // The attribute we want to configure
+//                    2,                            // size : U+V => 2
+//                    GL_FLOAT,                     // type
+//                    GL_FALSE,                     // normalized?
+//                    0,                            // stride
+//                    (void*)0                      // array buffer offset
+//                );
+//
+//                // 3rd attribute buffer : normals
+//                glEnableVertexAttribArray(2);
+//                glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+//                glVertexAttribPointer(
+//                    vertexNormal_modelspaceID,    // The attribute we want to configure
+//                    3,                            // size
+//                    GL_FLOAT,                     // type
+//                    GL_FALSE,                     // normalized?
+//                    0,                            // stride
+//                    (void*)0                      // array buffer offset
+//                );
+//
+//                // Index buffer
+//                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+//
+//                // Set light pos
+//                // glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+//
+//                glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+                // apple
+                glm::mat4 ModelMatrix = glm::mat4(1.0);
+                ModelMatrix = translate(ModelMatrix, vec3( apples[i].x, apples[i].y, apples[i].z ) ) * scale(mat4(), apples[i].scale);
+                glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+                glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+                glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+                // draw the triangles !
+                glDrawElements(
+                    GL_TRIANGLES,      // mode
+                    indices_count_apple,    // count
+                    GL_UNSIGNED_SHORT,   // type
+                    (void*)0           // element array buffer offset
+                );
+
+
+
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1090,6 +1231,20 @@ int main( void )
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Draw floor
         // Use our shader
 		glUseProgram(programID);
@@ -1168,140 +1323,6 @@ int main( void )
 
 
 
-
-
-
-
-         if(done){
-            std::cout<<"\nDONE\n";
-            for(int i=0; i<apples.size(); i++){
-                if(!apples[i].stopped){
-                    float apple_velocity_none_zero = (apples[i].velocity_y==0.0?0.001:apples[i].velocity_y);
-                    float Fy = -0.5 * Cd * apple_area * rho * apples[i].velocity_y*apples[i].velocity_y*apples[i].velocity_y / glm::abs(apple_velocity_none_zero);
-                    if(!Fy == Fy){
-                        Fy = 0;
-                    }
-                    std::cout<<"#"<<i<<" vel:"<<apples[i].velocity_y<<"\ty:"<<apples[i].y<<"\n";
-                    float accy = -gravity + Fy / apple_mass;
-                    // Apple is falling
-                    apples[i].velocity_y += accy * deltaTime;
-                    apples[i].y += apples[i].velocity_y * deltaTime;
-                    float dist_to_floor = apples[i].y - floor_position.y;
-                    // Check ground
-                    if (dist_to_floor <= 0){
-                        if(glm::abs(apples[i].velocity_y) < 1.7){
-                            apples[i].stopped = true;
-                        }
-                        apples[i].velocity_y *= -1.0 * coefficient_of_restitution;
-                        apples[i].y = floor_position.y+0.01;
-                    }
-
-
-
-
-
-                    if(( dist_to_floor < 2 ) && dist_to_floor>0.1){
-                        // Squash
-                        apples[i].scale.y = dist_to_floor/2;
-                        if(apples[i].scale.y < 0.2){
-                            apples[i].scale.y = 0.2;
-                        }
-                        apples[i].scale.x = 2 - (dist_to_floor/2);
-                        apples[i].scale.z = 2 - (dist_to_floor/2);
-                    }
-                    //std::cout<<"apple_velocity: "<<apple_velocity<<" Dist: "<<dist_to_floor<<"\n";
-
-                    if(2<dist_to_floor && dist_to_floor<20){
-                        // stretch
-                        float a = -0.012345679;
-                        float b =  0.271604938;
-                        float c =  0.506172839;
-                        apples[i].scale.y = (a*dist_to_floor*dist_to_floor) + b*dist_to_floor + c;
-                    }
-                }else{
-                    apples[i].scale = vec3(1,1,1);
-                }
-                // Draw apple
-
-
-                // Draw apple
-                // Use our shader
-                glUseProgram(programID);
-
-                // Bind our texture in Texture Unit 0
-                glActiveTexture(GL_TEXTURE0);
-                glBindTexture(GL_TEXTURE_2D, Texture_apple);
-                // Set our "myTextureSampler" sampler to user Texture Unit 0
-                glUniform1i(TextureID, 0);
-                // 1rst attribute buffer : vertices
-                glEnableVertexAttribArray(0);
-                glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
-                glVertexAttribPointer(
-                    vertexPosition_modelspaceID,  // The attribute we want to configure
-                    3,                            // size
-                    GL_FLOAT,                     // type
-                    GL_FALSE,                     // normalized?
-                    0,                            // stride
-                    (void*)0                      // array buffer offset
-                );
-
-
-                // 2nd attribute buffer : UVs
-                glEnableVertexAttribArray(1);
-                glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
-                glVertexAttribPointer(
-                    vertexUVID,                   // The attribute we want to configure
-                    2,                            // size : U+V => 2
-                    GL_FLOAT,                     // type
-                    GL_FALSE,                     // normalized?
-                    0,                            // stride
-                    (void*)0                      // array buffer offset
-                );
-
-                // 3rd attribute buffer : normals
-                glEnableVertexAttribArray(2);
-                glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
-                glVertexAttribPointer(
-                    vertexNormal_modelspaceID,    // The attribute we want to configure
-                    3,                            // size
-                    GL_FLOAT,                     // type
-                    GL_FALSE,                     // normalized?
-                    0,                            // stride
-                    (void*)0                      // array buffer offset
-                );
-
-                // Index buffer
-                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
-
-                // Set light pos
-                // glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
-
-                glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
-
-
-
-                // apple
-                glm::mat4 ModelMatrix = glm::mat4(1.0);
-                ModelMatrix = translate(ModelMatrix, vec3( apples[i].x, apples[i].y, apples[i].z ) ) * scale(mat4(), apples[i].scale);
-                glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-                glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-                glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
-
-                // draw the triangles !
-                glDrawElements(
-                    GL_TRIANGLES,      // mode
-                    indices_count_apple,    // count
-                    GL_UNSIGNED_SHORT,   // type
-                    (void*)0           // element array buffer offset
-                );
-
-
-
-
-
-            }
-        }
 
 
 
@@ -1452,7 +1473,7 @@ void init_gui(){
 	TwWindowSize(window_width, window_height);
 
 	TwBar * ToolGUI = TwNewBar("Tools");
-	TwDefine("Tools size='220 400' position='10 10' ");
+	TwDefine("Tools size='220 420' position='10 10' ");
 	// TwBar * CameraGUI = TwNewBar("Camera settings");
 
     // Tools
