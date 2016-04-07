@@ -129,6 +129,13 @@ vec3 Bone::angle_axis_to(vec3 target){
     to_end         = this->end_effector_pos() - this->global_position();
 
     float angle = -1.0*acos(dot(normalize(to_target), normalize(to_end)));
+    if (glm::abs(angle) > 1){
+        angle /= 300;
+    }else if (glm::abs(angle) > 0.5){
+        angle /= 20;
+    }else if (glm::abs(angle) > 0.1){
+        angle /= 10;
+    }
 
     vec3 axis = normalize(cross(to_target, to_end));
 
@@ -137,7 +144,7 @@ vec3 Bone::angle_axis_to(vec3 target){
 
     vec3 angle_axis = axis * angle;
 
-//    std::cout << "\n\t\tangle:\t" << angle << "\n";
+    std::cout << "\n\t\tangle:\t" << angle << "\n";
 //    std::cout << "\taxis:\t" << glm::to_string(axis) << "\n";
 
     if(glm::abs(angle-3.14159) < 0.001 || glm::abs(angle) < 0.001 || std::isnan(angle)){

@@ -1,6 +1,8 @@
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>       /* time */
+
 #include <vector>
 
 // Include GLEW
@@ -40,6 +42,9 @@ using namespace glm;
 #include "skelton.h"
 #include "skelton.cpp"
 
+#include "apple.h"
+#include "apple.cpp"
+
 
 
 vec3 gPosition1( 0.0f, 0.0f, 0.0f);
@@ -48,22 +53,61 @@ quat gOrientation1;
 vec3 gPosition2( 1.0f, 0.0f, 0.0f);
 quat gOrientation2;
 
-vec3 cameraPosition(0, 12.8, 25);
+vec3 cameraPosition(0, 5.8, 33);
 quat cameraOrientation;
 
-vec3 apple_position(4.24264, 0, 4.24264);
+vec3 apple_position(1, 5, 1);
+bool apple_falling = false;
+float apple_velocity = 0;
+vec3 apple_scale = vec3(1,1,1);
+float apple_mass = 20; // kg
+float Cd = 0.47; // Drag coefficient of Sphere
+float apple_area = 3.14;
+float rho = 0;
+
+
+/*
+rho
+    name: "Vacuum",
+    mag: 0
+}, {
+    name: "Air",
+    mag: 1.225
+}, {
+    name: "Water",
+    mag: 1000
+}, {
+    name: "Mercury",
+    mag: 13534
+
+*/
+
+float coefficient_of_restitution = 0.99;
+
+float gravity = 9.81;
+
+
+vec3 floor_position = vec3(0, -15, 0);
+
+
+
 vec3 rope_position = vec3(1.0);
+
+vec3 scale_rope = vec3(0.15, 5, 0.15);
+
+bool animate_camera = false;
+bool look_at_apple = true;
 
 
 bool gLookAtOther = false;
 bool third_person = true;
 
 // int window_width = 1024, window_height = 768;
- int window_width = 1366, window_height = 768; // laptop
-// int window_width = 1280, window_height = 1024; // monitor home
+// int window_width = 1366, window_height = 768; // laptop
+ int window_width = 1280, window_height = 1024; // monitor home
 //int window_width = 1680, window_height = 1050; // monitor college
 
-
+bool done = false;
 
 int animation_number  = 0;
 bool pause_ik         = true;
@@ -77,9 +121,30 @@ vec3 hit_p2 = vec3(0, 1, 1);
 vec3 hit_p3 = vec3(0, 0, 5);
 
 
+bool chopped = false;
 
-float animation_section_time = 5.0f; // seconds
-std::vector< std::vector<glm::vec3> > animations;
+
+float animation_section_time = 2.0f; // seconds
+std::vector<glm::vec3> hand_animations;
+std::vector<glm::vec3> camera_animation;
+
+
+// Apples
+std::vector<Apple> apples;
+int num_apples = 10;
+
+
+void gen_rand_apples(){
+    srand (time(NULL));
+    for(int i=0; i<num_apples; i++){
+        Apple a = Apple();
+        a.x = (rand() % 200 + 1) / 10.0f;
+        a.y = 12+(rand() % 200 + 1) / 10.0f;
+        a.z = (rand() % 200 + 1) / 10.0f;
+        apples.push_back(a);
+    }
+
+}
 
 
 // Link files
@@ -89,71 +154,135 @@ ln -s /home/cian/College/Animation/OpenGL_tut/ogl-OpenGL-tutorial_0015_33/tutori
 */
 
 void init_animinations(){
-    std::vector<glm::vec3> animation0;
-    std::vector<glm::vec3> animation1;
-    std::vector<glm::vec3> animation2;
 
-    float dist = 3;
-    // 0
-    animation0.push_back(vec3(dist,-12,dist)); // p0
-    animation0.push_back(vec3(0,-2,0)); // p1
-    animation0.push_back(vec3(0,0,0)); // p2
-    animation0.push_back(vec3(dist,4,-dist)); // p3
+	camera_animation.push_back(vec3(0, 5, 33)); // p0
+    camera_animation.push_back(vec3(0,-2,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(15, 6, 15)); // p3
 
 
-    animation0.push_back(vec3(dist,4,-dist)); // p0
-    animation0.push_back(vec3(0,6,0)); // p1
-    animation0.push_back(vec3(0,8,0)); // p2
-    animation0.push_back(vec3(-dist,12,-dist)); // p3
+    camera_animation.push_back(vec3(15, 6, 15)); // p0
+    camera_animation.push_back(vec3(0,6,0)); // p1
+    camera_animation.push_back(vec3(0,8,0)); // p2
+    camera_animation.push_back(vec3(33, 4, 0)); // p3
 
 
-    animation0.push_back(vec3(-dist,12,-dist)); // p0
-    animation0.push_back(vec3(0,8,0)); // p1
-    animation0.push_back(vec3(0,6,0)); // p2
-    animation0.push_back(vec3(-dist,4,dist)); // p3
+    camera_animation.push_back(vec3(33, 4, 0)); // p0
+    camera_animation.push_back(vec3(0,8,0)); // p1
+    camera_animation.push_back(vec3(0,6,0)); // p2
+    camera_animation.push_back(vec3(15, 7, -15)); // p3
 
 
-    animation0.push_back(vec3(-dist,4,dist)); // p0
-    animation0.push_back(vec3(0,0,0)); // p1
-    animation0.push_back(vec3(0,0,0)); // p2
-    animation0.push_back(vec3(dist,-12,dist)); // p3
+    camera_animation.push_back(vec3(15, 7, -15)); // p0
+    camera_animation.push_back(vec3(0,0,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(0,9, -33)); // p3
 
 
-    // 1
-    animation1.push_back(vec3(0,10,8));  // p0
-    animation1.push_back(vec3(0,-2,7));  // p1
-    animation1.push_back(vec3(0, 2,7));  // p2
-    animation1.push_back(vec3(0,-10,8)); // p3
 
-    animation1.push_back(vec3(0,-10,8)); // p0
-    animation1.push_back(vec3(0, 2,7));  // p1
-    animation1.push_back(vec3(0,-2,7));  // p2
-    animation1.push_back(vec3(0,10,8));  // p3
+    camera_animation.push_back(vec3(0,9, -33)); // p0
+    camera_animation.push_back(vec3(0,0,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(-15, 12, -15)); // p3
 
 
-    // 2
-    animation2.push_back(vec3(6,10,6));  // p0
-    animation2.push_back(vec3(6,10,5));  // p1
-    animation2.push_back(vec3(6,10,-5)); // p2
-    animation2.push_back(vec3(6,10,-6)); // p3
+    camera_animation.push_back(vec3(-15, 12, -15)); // p0
+    camera_animation.push_back(vec3(0,0,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(-35, 15, 0)); // p3
 
-    animation2.push_back(vec3(6,10,-6)); // p0
-    animation2.push_back(vec3(6,4,-2));  // p1
-    animation2.push_back(vec3(6,-3,-1));  // p2
-    animation2.push_back(vec3(6,-5,0));   // p3
 
-    animation2.push_back(vec3(6,-5,0));   // p0
-    animation2.push_back(vec3(6,3,4));  // p1
-    animation2.push_back(vec3(6,9,5));  // p2
-    animation2.push_back(vec3(6,10,6));  // p3
+    camera_animation.push_back(vec3(-35, 15, 0)); // p0
+    camera_animation.push_back(vec3(0,0,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(-15, 8, 15)); // p3
+
+
+    camera_animation.push_back(vec3(-15, 8, 15)); // p0
+    camera_animation.push_back(vec3(0,0,0)); // p1
+    camera_animation.push_back(vec3(0,0,0)); // p2
+    camera_animation.push_back(vec3(0, 5, 33)); // p3
 
 
 
 
+//
+//
+//    hand_animations.push_back(vec3(0, 0, 0)); // p0
+//    hand_animations.push_back(vec3(0,1,0)); // p1
+//    hand_animations.push_back(vec3(0,1,0)); // p2
+//    hand_animations.push_back(vec3(0, 2, 5)); // p3
+//
+//
+//    hand_animations.push_back(vec3(0, 2, 5)); // p0
+//    hand_animations.push_back(vec3(0,3,0)); // p1
+//    hand_animations.push_back(vec3(0,4,0)); // p2
+//    hand_animations.push_back(vec3(-5, 5, 0)); // p3
+//
+//
+//    hand_animations.push_back(vec3(-5, 5, 0)); // p0
+//    hand_animations.push_back(vec3(0,0,0)); // p1
+//    hand_animations.push_back(vec3(0,0,0)); // p2
+//    hand_animations.push_back(vec3(0, 6, -5)); // p3
+//
+//
+//    hand_animations.push_back(vec3(0, 6, -5)); // p0
+//    hand_animations.push_back(vec3(0,0,0)); // p1
+//    hand_animations.push_back(vec3(0,0,0)); // p2
+//    hand_animations.push_back(vec3(5, 5, 0)); // p3
+//
+//
+//    hand_animations.push_back(vec3(5, 5, 0)); // p0
+//    hand_animations.push_back(vec3(0,0,0)); // p1
+//    hand_animations.push_back(vec3(0,0,0)); // p2
+//    hand_animations.push_back(vec3(0, 2, 5)); // p3
+//
+//
+//    hand_animations.push_back(vec3(0, 2, 5)); // p0
+//    hand_animations.push_back(vec3(0,0,0)); // p1
+//    hand_animations.push_back(vec3(0,0,0)); // p2
+//    hand_animations.push_back(vec3(0, 0, 0)); // p3
 
-    animations.push_back(animation0);
-    animations.push_back(animation1);
-    animations.push_back(animation2);
+
+    hand_animations.push_back(vec3(0, 0, 0)); // p0
+    hand_animations.push_back(vec3(0,1,0)); // p1
+    hand_animations.push_back(vec3(0,1,0)); // p2
+    hand_animations.push_back(vec3(0, 2, 5)); // p3
+
+
+    hand_animations.push_back(vec3(0, 2, 5)); // p0
+    hand_animations.push_back(vec3(0,3,0)); // p1
+    hand_animations.push_back(vec3(0,4,0)); // p2
+    hand_animations.push_back(vec3(0, 5, -5)); // p3
+
+
+    hand_animations.push_back(vec3(0, 5, -5)); // p0
+    hand_animations.push_back(vec3(0,6,0)); // p1
+    hand_animations.push_back(vec3(0,6,0)); // p2
+    hand_animations.push_back(vec3(-5, 6, 0)); // p3
+
+
+    hand_animations.push_back(vec3(-5, 6, 0)); // p0
+    hand_animations.push_back(vec3(0,4,0)); // p1
+    hand_animations.push_back(vec3(0,5,0)); // p2
+    hand_animations.push_back(vec3(5, 5, 0)); // p3
+
+
+    hand_animations.push_back(vec3(5, 5, 0)); // p0
+    hand_animations.push_back(vec3(0,3,0)); // p1
+    hand_animations.push_back(vec3(0,2,0)); // p2
+    hand_animations.push_back(vec3(0, 2, 5)); // p3
+
+
+    hand_animations.push_back(vec3(0, 2, 5)); // p0
+    hand_animations.push_back(vec3(0,1,0)); // p1
+    hand_animations.push_back(vec3(0,1,0)); // p2
+    hand_animations.push_back(vec3(0, 0, 0)); // p3
+
+
+
+
+
 
 
 
@@ -196,6 +325,13 @@ vec3 curve(float t, vec3 p0, vec3 p1, vec3 p2, vec3 p3){
         // return ( pow( (1-t), 2) * p0 ) + ( 2 * t * (1-t) * p1 ) + ( pow(t, 2) * p3 );
         return ( 2*t*t*t - 3*t*t + 1)*p0 + (t*t*t - 2*t*t + t)*p1 + ( -2*t*t*t + 3*t*t )*p3 + ( t*t*t - t*t )*p2;
     }
+}
+
+void go(){
+    pause_ik = false;
+    animate_curve = true;
+
+    gen_rand_apples();
 }
 
 
@@ -477,16 +613,23 @@ int main( void )
     hand_skelton.ModelMatrixID = ModelMatrixID;
     hand_skelton.indices_count = indices_count;
 
-
+    hand_skelton.point_to(vec3(4,4,4));
 
 	do{
 
-		// Measure speed
+        // Measure speed
 		double currentTime = glfwGetTime();
 		float deltaTime = (float)(currentTime - lastFrameTime);
+
+        // Fix gui vars
+        if(coefficient_of_restitution <= 0){
+            coefficient_of_restitution = 0.01;
+        }
+
+
 		lastFrameTime = currentTime;
 		nbFrames++;
-		if ( currentTime - lastTime >= 1.0 ){ // If last prinf() was more than 1sec ago
+		if ( currentTime - lastTime >= 1.0){ // If last prinf() was more than 1sec ago
 			// printf and reset
 			printf("%f ms/frame\n", 1000.0/double(nbFrames));
 			nbFrames = 0;
@@ -555,6 +698,36 @@ int main( void )
 				glm::vec3(0, 0, 0), // and looks here
 				glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 			);
+
+        if(animate_camera){
+
+            float animation_count = camera_animation.size() / 4.0f; // 4 per curve
+            float animation_time = animation_section_time * animation_count;
+
+            float t = glm::mod( (float)currentTime, animation_time ) / (animation_time / animation_count);
+            std::cout << "currentTime: "<< t <<"\n";
+            int animation_index = t;
+            animation_index *= 4; // start index
+            std::cout << "animation_index: "<< animation_index <<"\n";
+
+            t = glm::mod(t, 1.0f);
+            std::cout << "fraction: "<< t <<"\n";
+
+            cameraPosition = curve( t,
+                                    camera_animation[animation_index],
+                                    camera_animation[animation_index+1],
+                                    camera_animation[animation_index+2],
+                                    camera_animation[animation_index+3]);
+        }
+
+        if(look_at_apple){
+            ViewMatrix = glm::lookAt(
+                    cameraPosition, // Camera is here
+                    apple_position, // and looks here
+                    glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+                );
+        }
+
         glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
 
 
@@ -594,91 +767,140 @@ int main( void )
         hand_skelton.update_bone("0_Finger24", 3.0f*angles_model);
 
 
-        vec3 apple_height = vec3(0,0.4,0);
+
+        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+            go();
+        }
+
+
+
+        vec3 apple_height = vec3(0,2.4,0);
         vec3 target_position = apple_position + apple_height;
 
-        if(animate_curve){
 
-            animation_number = animation_number % animations.size();
-            std::vector<glm::vec3> animation = animations[animation_number];
-
-
-            float animation_count = animation.size() / 4.0f; // 4 per curve
-
+        if(animate_curve && !chopped ){
+            // First time hitting
+            float animation_count = hand_animations.size() / 4.0f; // 4 per curve
             // Total animation time
-            float animation_time = animation_section_time * animation_count;
-            std::cout << "\n\nanimation_time: "<<animation_time<<"\n";
+            float animation_time = 0.2 * animation_section_time * animation_count;
+
             float t = glm::mod( (float)currentTime, animation_time ) / (animation_time / animation_count);
             std::cout << "currentTime: "<< t <<"\n";
             int animation_index = t;
             animation_index *= 4; // start index
             std::cout << "animation_index: "<< animation_index <<"\n";
 
+            if(animation_index >= 20){
+                chopped = true;
+            }
+
             t = glm::mod(t, 1.0f);
             std::cout << "fraction: "<< t <<"\n";
 
+            float scaler = 0.5f;
             target_position = curve( t,
-                                    animation[animation_index],
-                                    animation[animation_index+1],
-                                    animation[animation_index+2],
-                                    animation[animation_index+3]);
+                                        hand_animations[animation_index]*scaler   + apple_position,
+                                        hand_animations[animation_index+1]*scaler + apple_position,
+                                        hand_animations[animation_index+2]*scaler + apple_position,
+                                        hand_animations[animation_index+3]*scaler + apple_position
+                                    );
 
 
+            std::cout<<"apple_position: "<<glm::to_string(apple_position)<<"\n";
             std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n";
 
 
 
-//            reverse
-//            if(t>=1){
-//                t = 2.0 - t;
-//                std::cout << " > 2: "<< t <<"\n";
-//            }
-//
-//            target_position = curve( t, vec3(8,4,8), vec3(2,2,2), vec3(2,2,2), vec3(-8,-4,8) );
-//
 
-
-            apple_position = target_position - apple_height;
+            // apple_position = target_position - apple_height;
 
         }
 
-
-        if(pause_ik){
-            target_position = hand0.end_effector_pos();
-        }else{
-
-        }
 
         float dist = distance(target_position, hand0.end_effector_pos());
-
-        if(dist > 0.01){
-            hand_skelton.point_to(target_position);
+        if(pause_ik){
+            //target_position = hand0.end_effector_pos();
+            //std::cout<<"target_position: "<<glm::to_string(target_position)<<"\n\n";
         }else{
-            std::cout<<"AT IT!!!!\n\n\n";
+
         }
 
+
+
+        bool at_it = dist<0.05;
+        if((!at_it && !pause_ik) || (animate_curve && !chopped) ){
+            hand_skelton.point_to(target_position);
+        }
+
+        float dist_to_floor = apple_position.y - floor_position.y;
 
 
         // Apple pos
         float move_amount = 0.05;
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-            apple_position[0] -= move_amount;
+        if(!apple_falling){
+            if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+                apple_position[0] -= move_amount;
+            }
+            else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+                apple_position[0] += move_amount;
+            }
+            else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+                apple_position[2] -= move_amount;
+            }
+            else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+                apple_position[2] += move_amount;
+            }
+            else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+                apple_position[1] += move_amount;
+            }
+            else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+                apple_position[1] -= move_amount;
+            }
+        }else{
+            float apple_velocity_none_zero = (apple_velocity==0.0?0.001:apple_velocity);
+            float Fy = -0.5 * Cd * apple_area * rho * apple_velocity*apple_velocity*apple_velocity / glm::abs(apple_velocity_none_zero);
+            if(!Fy == Fy){
+                Fy = 0;
+            }
+            float accy = -gravity + Fy / apple_mass;
+            // Apple is falling
+            apple_velocity += accy * deltaTime;
+            apple_position.y += apple_velocity * deltaTime;
+            // Check ground
+            if (dist_to_floor <= 0){
+                std::cout<<"Bouncing speed:"<<apple_velocity<<"\n";
+                if(glm::abs(apple_velocity) < 1.7){
+                    apple_falling = false;
+                    done = true;
+                    apple_scale = vec3(1,1,1);
+                }
+                apple_velocity *= -1.0 * coefficient_of_restitution;
+                apple_position.y = floor_position.y+0.01;
+            }
         }
-        else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-            apple_position[0] += move_amount;
+
+
+        if(!done && apple_falling && ( dist_to_floor < 2 ) && dist_to_floor>0.1){
+            // Squash
+            apple_scale.y = dist_to_floor/2;
+            if(apple_scale.y < 0.2){
+                apple_scale.y = 0.2;
+            }
+            apple_scale.x = 2 - (dist_to_floor/2);
+            apple_scale.z = 2 - (dist_to_floor/2);
         }
-        else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-            apple_position[2] -= move_amount;
+        //std::cout<<"apple_velocity: "<<apple_velocity<<" Dist: "<<dist_to_floor<<"\n";
+
+        if(!done && apple_falling && 2<dist_to_floor && dist_to_floor<20){
+            // stretch
+            float a = -0.012345679;
+            float b =  0.271604938;
+            float c =  0.506172839;
+            apple_scale.y = (a*dist_to_floor*dist_to_floor) + b*dist_to_floor + c;
+            std::cout<<"\nx="<<dist_to_floor<<"\ty="<<apple_scale.y<<"\n\n";
+
         }
-        else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-            apple_position[2] += move_amount;
-        }
-        else if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
-            apple_position[1] += move_amount;
-        }
-        else if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
-            apple_position[1] -= move_amount;
-        }
+
 
 
 
@@ -753,7 +975,7 @@ int main( void )
 
         // apple
 		glm::mat4 ModelMatrix = glm::mat4(1.0);
-		ModelMatrix = translate(ModelMatrix, apple_position);
+		ModelMatrix = translate(ModelMatrix, apple_position) * scale(mat4(), apple_scale);
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
         glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -834,8 +1056,21 @@ int main( void )
 
         // rope
 		ModelMatrix = glm::mat4(1.0);
+
 		rope_position = apple_position + vec3(0.075, 0.5, 0);
-		ModelMatrix = translate(ModelMatrix, rope_position) * scale(mat4(), vec3(0.15, 5, 0.15));
+
+        if(at_it && chopped){
+            pause_ik = true;
+            if(scale_rope[1] > 0){
+               scale_rope[1] -= 0.5;
+               rope_position[1] += (10 - (1*scale_rope[1]));
+            }else{
+                apple_falling = true;
+            }
+        }
+
+
+		ModelMatrix = translate(ModelMatrix, rope_position) * scale(mat4(), scale_rope);
 
 		MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 
@@ -849,6 +1084,224 @@ int main( void )
             GL_UNSIGNED_SHORT,   // type
             (void*)0           // element array buffer offset
         );
+
+
+
+
+
+
+        // Draw floor
+        // Use our shader
+		glUseProgram(programID);
+
+		// Bind our texture in Texture Unit 0
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture_rope);
+		// Set our "myTextureSampler" sampler to user Texture Unit 0
+		glUniform1i(TextureID, 0);
+		// 1rst attribute buffer : vertices
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_rope);
+		glVertexAttribPointer(
+			vertexPosition_modelspaceID,  // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+
+		// 2nd attribute buffer : UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_rope);
+		glVertexAttribPointer(
+			vertexUVID,                   // The attribute we want to configure
+			2,                            // size : U+V => 2
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// 3rd attribute buffer : normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_rope);
+		glVertexAttribPointer(
+			vertexNormal_modelspaceID,    // The attribute we want to configure
+			3,                            // size
+			GL_FLOAT,                     // type
+			GL_FALSE,                     // normalized?
+			0,                            // stride
+			(void*)0                      // array buffer offset
+		);
+
+		// Index buffer
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_rope);
+
+        // Set light pos
+		// glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+
+        glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+        // floor
+		ModelMatrix = glm::mat4(1.0);
+
+		ModelMatrix = translate(ModelMatrix, floor_position-vec3(0,-0.1,0)) * scale(mat4(), vec3(500, 0.01, 500));
+
+		MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+        glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+        // draw the triangles !
+        glDrawElements(
+            GL_TRIANGLES,      // mode
+            indices_count_rope,    // count
+            GL_UNSIGNED_SHORT,   // type
+            (void*)0           // element array buffer offset
+        );
+
+
+
+
+
+
+
+
+
+         if(done){
+            std::cout<<"\nDONE\n";
+            for(int i=0; i<apples.size(); i++){
+                if(!apples[i].stopped){
+                    float apple_velocity_none_zero = (apples[i].velocity_y==0.0?0.001:apples[i].velocity_y);
+                    float Fy = -0.5 * Cd * apple_area * rho * apples[i].velocity_y*apples[i].velocity_y*apples[i].velocity_y / glm::abs(apple_velocity_none_zero);
+                    if(!Fy == Fy){
+                        Fy = 0;
+                    }
+                    std::cout<<"#"<<i<<" vel:"<<apples[i].velocity_y<<"\ty:"<<apples[i].y<<"\n";
+                    float accy = -gravity + Fy / apple_mass;
+                    // Apple is falling
+                    apples[i].velocity_y += accy * deltaTime;
+                    apples[i].y += apples[i].velocity_y * deltaTime;
+                    float dist_to_floor = apples[i].y - floor_position.y;
+                    // Check ground
+                    if (dist_to_floor <= 0){
+                        if(glm::abs(apples[i].velocity_y) < 1.7){
+                            apples[i].stopped = true;
+                        }
+                        apples[i].velocity_y *= -1.0 * coefficient_of_restitution;
+                        apples[i].y = floor_position.y+0.01;
+                    }
+
+
+
+
+
+                    if(( dist_to_floor < 2 ) && dist_to_floor>0.1){
+                        // Squash
+                        apples[i].scale.y = dist_to_floor/2;
+                        if(apples[i].scale.y < 0.2){
+                            apples[i].scale.y = 0.2;
+                        }
+                        apples[i].scale.x = 2 - (dist_to_floor/2);
+                        apples[i].scale.z = 2 - (dist_to_floor/2);
+                    }
+                    //std::cout<<"apple_velocity: "<<apple_velocity<<" Dist: "<<dist_to_floor<<"\n";
+
+                    if(2<dist_to_floor && dist_to_floor<20){
+                        // stretch
+                        float a = -0.012345679;
+                        float b =  0.271604938;
+                        float c =  0.506172839;
+                        apples[i].scale.y = (a*dist_to_floor*dist_to_floor) + b*dist_to_floor + c;
+                    }
+                }else{
+                    apples[i].scale = vec3(1,1,1);
+                }
+                // Draw apple
+
+
+                // Draw apple
+                // Use our shader
+                glUseProgram(programID);
+
+                // Bind our texture in Texture Unit 0
+                glActiveTexture(GL_TEXTURE0);
+                glBindTexture(GL_TEXTURE_2D, Texture_apple);
+                // Set our "myTextureSampler" sampler to user Texture Unit 0
+                glUniform1i(TextureID, 0);
+                // 1rst attribute buffer : vertices
+                glEnableVertexAttribArray(0);
+                glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer_apple);
+                glVertexAttribPointer(
+                    vertexPosition_modelspaceID,  // The attribute we want to configure
+                    3,                            // size
+                    GL_FLOAT,                     // type
+                    GL_FALSE,                     // normalized?
+                    0,                            // stride
+                    (void*)0                      // array buffer offset
+                );
+
+
+                // 2nd attribute buffer : UVs
+                glEnableVertexAttribArray(1);
+                glBindBuffer(GL_ARRAY_BUFFER, uvbuffer_apple);
+                glVertexAttribPointer(
+                    vertexUVID,                   // The attribute we want to configure
+                    2,                            // size : U+V => 2
+                    GL_FLOAT,                     // type
+                    GL_FALSE,                     // normalized?
+                    0,                            // stride
+                    (void*)0                      // array buffer offset
+                );
+
+                // 3rd attribute buffer : normals
+                glEnableVertexAttribArray(2);
+                glBindBuffer(GL_ARRAY_BUFFER, normalbuffer_apple);
+                glVertexAttribPointer(
+                    vertexNormal_modelspaceID,    // The attribute we want to configure
+                    3,                            // size
+                    GL_FLOAT,                     // type
+                    GL_FALSE,                     // normalized?
+                    0,                            // stride
+                    (void*)0                      // array buffer offset
+                );
+
+                // Index buffer
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer_apple);
+
+                // Set light pos
+                // glUniform3f(LightID_apple, lightPos.x, lightPos.y, lightPos.z);
+
+                glUniformMatrix4fv(ViewMatrixID, 1, GL_FALSE, &ViewMatrix[0][0]);
+
+
+
+                // apple
+                glm::mat4 ModelMatrix = glm::mat4(1.0);
+                ModelMatrix = translate(ModelMatrix, vec3( apples[i].x, apples[i].y, apples[i].z ) ) * scale(mat4(), apples[i].scale);
+                glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+                glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+                glUniformMatrix4fv(ModelMatrixID, 1, GL_FALSE, &ModelMatrix[0][0]);
+
+                // draw the triangles !
+                glDrawElements(
+                    GL_TRIANGLES,      // mode
+                    indices_count_apple,    // count
+                    GL_UNSIGNED_SHORT,   // type
+                    (void*)0           // element array buffer offset
+                );
+
+
+
+
+
+            }
+        }
 
 
 
@@ -999,25 +1452,41 @@ void init_gui(){
 	TwWindowSize(window_width, window_height);
 
 	TwBar * ToolGUI = TwNewBar("Tools");
-	TwDefine("Tools size='220 360' position='10 10' ");
+	TwDefine("Tools size='220 400' position='10 10' ");
 	// TwBar * CameraGUI = TwNewBar("Camera settings");
 
     // Tools
-	TwAddVarRW(ToolGUI, "Animate Curve", TW_TYPE_BOOL8, &animate_curve, "help='Play Animation'");
+//	TwAddVarRW(ToolGUI, "Animate Curve", TW_TYPE_BOOL8, &animate_curve, "help='Play Animation'");
 	TwAddVarRW(ToolGUI, "Use Hermite", TW_TYPE_BOOL8, &use_hermite, "help='Use hermite curves instead of Bezier'");
-	TwAddVarRW(ToolGUI, "Animation Type", TW_TYPE_INT8, &animation_number, " min=0 max=4");
-	TwAddVarRW(ToolGUI, "Audio Hits", TW_TYPE_BOOL8, &animate_hit, "help='Play Animation when at target'");
+//	TwAddVarRW(ToolGUI, "Animation Type", TW_TYPE_INT8, &animation_number, " min=0 max=4");
+//	TwAddVarRW(ToolGUI, "Audio Hits", TW_TYPE_BOOL8, &animate_hit, "help='Play Animation when at target'");
 	TwAddVarRW(ToolGUI, "Pause IK", TW_TYPE_BOOL8, &pause_ik, "help='Pause IK'");
 
     TwAddSeparator(ToolGUI, "sep1", NULL);
 
+    TwAddVarRW(ToolGUI, "Coefficient of Restitution", TW_TYPE_FLOAT, &coefficient_of_restitution, "step=0.01");
+    TwAddVarRW(ToolGUI, "Apple Mass(kg)", TW_TYPE_FLOAT, &apple_mass, "step=0.01");
+    TwAddVarRW(ToolGUI, "Rho", TW_TYPE_FLOAT, &rho, "step=0.01");
+    TwAddVarRW(ToolGUI, "Gravity", TW_TYPE_FLOAT, &gravity, "step=0.01");
+
+
+    TwAddSeparator(ToolGUI, "sep2", NULL);
+
+    TwAddVarRW(ToolGUI, "Number Of Apples", TW_TYPE_INT16, &num_apples, "step=1");
+
+
+
+    TwAddSeparator(ToolGUI, "sep3", NULL);
+
 
     // Camera
 	TwAddVarRW(ToolGUI, "Quaternion", TW_TYPE_QUAT4F, &cameraOrientation, "showval=true open");
-	TwAddVarRW(ToolGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help='Toggle 3rd Person'");
-	TwAddVarRW(ToolGUI, "Position X", TW_TYPE_FLOAT, &cameraPosition.x, "step=0.1");
-	TwAddVarRW(ToolGUI, "Position Y", TW_TYPE_FLOAT, &cameraPosition.y, "step=0.1");
-	TwAddVarRW(ToolGUI, "Position Z", TW_TYPE_FLOAT, &cameraPosition.z, "step=0.1");
+	TwAddVarRW(ToolGUI, "Animate Camera", TW_TYPE_BOOL8, &animate_camera, "help=''");
+	TwAddVarRW(ToolGUI, "Look At Apple", TW_TYPE_BOOL8, &look_at_apple, "help=''");
+	TwAddVarRW(ToolGUI, "3rd Person", TW_TYPE_BOOL8, &third_person, "help=''");
+	TwAddVarRW(ToolGUI, "Camera X", TW_TYPE_FLOAT, &cameraPosition.x, "step=0.1");
+	TwAddVarRW(ToolGUI, "Camera Y", TW_TYPE_FLOAT, &cameraPosition.y, "step=0.1");
+	TwAddVarRW(ToolGUI, "Camera Z", TW_TYPE_FLOAT, &cameraPosition.z, "step=0.1");
 
 
 	// Set GLFW event callbacks. I removed glfwSetWindowSizeCallback for conciseness
